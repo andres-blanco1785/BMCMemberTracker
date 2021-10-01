@@ -10,18 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_01_151453) do
+ActiveRecord::Schema.define(version: 2021_10_01_215201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "members", force: :cascade do |t|
-    t.integer "uin"
+    t.integer "member_id"
+    t.string "firstName"
+    t.string "lastName"
+    t.string "email"
+    t.string "phoneNumber"
+    t.date "joinDate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "officers", force: :cascade do |t|
+    t.integer "officer_id"
     t.string "name"
     t.string "email"
+    t.float "amountOwed"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.integer "paymentId"
+    t.string "paymentMethod"
+    t.date "date"
     t.string "membershipType"
-    t.date "expiration"
-    t.date "joinDate"
+    t.date "membershipExpiration"
+    t.float "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

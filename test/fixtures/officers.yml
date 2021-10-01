@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  officerUIN: 1
+  name: MyString
+  email: MyString
+  amountOwed: 1.5
+
+two:
+  officerUIN: 1
+  name: MyString
+  email: MyString
+  amountOwed: 1.5
