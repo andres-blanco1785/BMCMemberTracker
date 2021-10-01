@@ -1,6 +1,6 @@
 class CreatePaymentTable < ActiveRecord::Migration[6.1]
   def change
-    create_table :payment_tables do |t|
+    create_table :payments do |t|
       t.integer :paymentId
       t.string :paymentMethod
       t.date :date

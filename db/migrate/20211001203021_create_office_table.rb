@@ -1,7 +1,7 @@
 class CreateOfficeTable < ActiveRecord::Migration[6.1]
   def change
-    create_table :office_tables do |t|
-      t.integer :officerUIN
+    create_table :offices do |t|
+      t.integer :officer_id
       t.string :name
       t.string :email
       t.float :amountOwed

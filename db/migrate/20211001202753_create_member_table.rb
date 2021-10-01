@@ -1,7 +1,7 @@
 class CreateMemberTable < ActiveRecord::Migration[6.1]
   def change
     create_table :members do |t|
-      t.integer :UIN
+      t.integer :member_id
       t.string :firstName
       t.string :lastName
       t.string :email
