@@ -7,8 +7,8 @@ class CreatePaymentTable < ActiveRecord::Migration[6.1]
       t.string :membershipType
       t.date :membershipExpiration
       t.float :amount
-      t.integer :member_id
-      t.integer :officer_id
+      t.integer :member_id, foreign_key:{ to_table: :payments}
+      t.integer :officer_id, foreign_key:{ to_table: :payments}
 
       t.timestamps
     end
