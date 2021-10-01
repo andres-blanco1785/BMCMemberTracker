@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uin: 1
+  name: MyString
+  email: MyString
+  membershipType: MyString
+  expiration: 2021-10-01
+  joinDate: 2021-10-01
+
+two:
+  uin: 1
+  name: MyString
+  email: MyString
+  membershipType: MyString
+  expiration: 2021-10-01
+  joinDate: 2021-10-01

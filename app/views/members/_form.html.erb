@@ -1,0 +1,47 @@
+<%= form_with(model: member) do |form| %>
+  <% if member.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(member.errors.count, "error") %> prohibited this member from being saved:</h2>
+
+      <ul>
+        <% member.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :uin %>
+    <%= form.number_field :uin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :membershipType %>
+    <%= form.text_field :membershipType %>
+  </div>
+
+  <div class="field">
+    <%= form.label :expiration %>
+    <%= form.date_select :expiration %>
+  </div>
+
+  <div class="field">
+    <%= form.label :joinDate %>
+    <%= form.date_select :joinDate %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
