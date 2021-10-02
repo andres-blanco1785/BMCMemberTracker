@@ -5,11 +5,11 @@
 <table>
   <thead>
     <tr>
-      <th>Uin</th>
-      <th>Name</th>
+      <th>UIN</th>
+      <th>First Name</th>
+      <th>Last Name</th>
       <th>Email</th>
-      <th>Membershiptype</th>
-      <th>Expiration</th>
+      <th>PhoneNumber</th>
       <th>Joindate</th>
       <th colspan="3"></th>
     </tr>
@@ -18,11 +18,11 @@
   <tbody>
     <% @members.each do |member| %>
       <tr>
-        <td><%= member.uin %></td>
-        <td><%= member.name %></td>
+        <td><%= member.member_id %></td>
+        <td><%= member.firstName %></td>
+        <td><%= member.lastName %></td>
         <td><%= member.email %></td>
-        <td><%= member.membershipType %></td>
-        <td><%= member.expiration %></td>
+        <td><%= member.phoneNumber %></td>
         <td><%= member.joinDate %></td>
         <td><%= link_to 'Show', member %></td>
         <td><%= link_to 'Edit', edit_member_path(member) %></td>
