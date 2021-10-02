@@ -24,23 +24,38 @@
 <table>
   <thead>
     <tr>
-      <th>UIN</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>Membership Type</th>
-      <th>Expiration</th>
-      <th>Join Date</th>
+      <th id="firstName">First Name</th>
+      <th id="firstName">Last Name</th>
+      <th id="uin"></th>
+      <th id="emailID"></th>
+      <th id="phone"></th>
+      <!-- <th id="memtype"></th>
+      <th id="memexp"></th> -->
+      <th id="joindate"></th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
+  <script>
+  document.getElementById("member_id").addEventListener("click", showUIN);
+  function showUIN() {
+    document.getElementById("uin").innerHTML ='UIN'
+  }
+
+  document.getElementById("email").addEventListener("click", showEmail);
+  function showEmail() {
+    document.getElementById("emailID").innerHTML = 'Email'
+  }
+
+  </script>
+
+
   <tbody>
     <% @members.each do |member| %>
       <tr>
-        <td><%= member.member_id %></td>
         <td><%= member.firstName %></td>
         <td><%= member.lastName %></td>
+        <td><%= member.member_id %></td>
         <td><%= member.email %></td>
         <td><%= member.phoneNumber %></td>
         <td><%= member.joinDate %></td>
