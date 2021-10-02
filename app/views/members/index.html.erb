@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Members</h1>
-
 <form>
   <legend>Show:</legend>
   <input type="checkbox" id="member_id" name="membershow" value="member_id"> UIN
@@ -40,11 +38,11 @@
   <tbody>
     <% @members.each do |member| %>
       <tr>
-        <td><%= member.uin %></td>
-        <td><%= member.firstname %></td>
+        <td><%= member.member_id %></td>
+        <td><%= member.firstName %></td>
+        <td><%= member.lastName %></td>
         <td><%= member.email %></td>
-        <td><%= member.membershipType %></td>
-        <td><%= member.expiration %></td>
+        <td><%= member.phoneNumber %></td>
         <td><%= member.joinDate %></td>
         <td><%= link_to 'Show', member %></td>
         <td><%= link_to 'Edit', edit_member_path(member) %></td>

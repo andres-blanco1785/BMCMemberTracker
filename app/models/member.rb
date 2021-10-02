@@ -1,3 +1,4 @@
 class Member < ApplicationRecord
-	has_many :payment
+	has_many :payments
+	has_many :officers, through: :payments
 end
