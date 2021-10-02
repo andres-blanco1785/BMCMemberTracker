@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Paymethod:</strong>
+  <%= @payment.paymentMethod %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @payment.date %>
+</p>
+
+<p>
+  <strong>Membertype:</strong>
+  <%= @payment.membershipType %>
+</p>
+
+<p>
+  <strong>Membershipexp:</strong>
+  <%= @payment.membershipExpiration %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @payment.amount %>
+</p>
+
+<p>
+  <strong>Member Paying:</strong>
+  <%= @payment.member_id %>
+</p>
+
+<p>
+  <strong>Officer Paid to:</strong>
+  <%= @payment.officer_id %>
+</p>
+
+<%= link_to 'Edit', edit_payment_path(@payment) %> |
+<%= link_to 'Back', payments_path %>

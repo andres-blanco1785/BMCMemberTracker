@@ -64,6 +64,6 @@ class PaymentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def payment_params
-      params.require(:payment).permit(:payMethod, :date, :memberType, :memberShipExp, :amount)
+      params.require(:payment).permit(:paymentMethod, :date, :membershipType, :membershipExpiration, :amount, :member_id, :officer_id)
     end
 end

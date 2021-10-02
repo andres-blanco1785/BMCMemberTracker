@@ -1,0 +1,52 @@
+<%= form_with(model: payment) do |form| %>
+  <% if payment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
+
+      <ul>
+        <% payment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :paymentMethod %>
+    <%= form.text_field :paymentMethod %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :membershipType %>
+    <%= form.text_field :membershipType %>
+  </div>
+
+  <div class="field">
+    <%= form.label :membershipExpiration %>
+    <%= form.date_select :membershipExpiration %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :member_id %>
+    <%= form.text_field :member_id %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :officer_id %>
+    <%= form.text_field :officer_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
