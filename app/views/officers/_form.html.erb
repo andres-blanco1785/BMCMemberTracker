@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :officerUIN %>
-    <%= form.number_field :officerUIN %>
+    <%= form.label :officer_id, "Officer UIN" %>
+    <%= form.number_field :officer_id %>
   </div>
 
   <div class="field">
@@ -27,9 +27,10 @@
   </div>
 
   <div class="field">
-    <%= form.label :amountOwed %>
+    <%= form.label :amountOwed, "Amount Owed" %>
     <%= form.text_field :amountOwed %>
   </div>
+
 
   <div class="actions">
     <%= form.submit %>

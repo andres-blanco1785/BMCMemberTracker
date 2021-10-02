@@ -12,13 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :uin %>
-    <%= form.number_field :uin %>
+    <%= form.label :UIN %>
+    <%= form.number_field :member_id %>
   </div>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :FirstName %>
+    <%= form.text_field :firstName %>
+  </div>
+
+  <div class="field">
+    <%= form.label :LastName %>
+    <%= form.text_field :lastName %>
   </div>
 
   <div class="field">
@@ -27,13 +32,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :membershipType %>
-    <%= form.text_field :membershipType %>
-  </div>
-
-  <div class="field">
-    <%= form.label :expiration %>
-    <%= form.date_select :expiration %>
+    <%= form.label :phoneNumber %>
+    <%= form.text_field :phoneNumber %>
   </div>
 
   <div class="field">
