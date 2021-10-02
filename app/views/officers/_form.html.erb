@@ -1,0 +1,37 @@
+<%= form_with(model: officer) do |form| %>
+  <% if officer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(officer.errors.count, "error") %> prohibited this officer from being saved:</h2>
+
+      <ul>
+        <% officer.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :officerUIN %>
+    <%= form.number_field :officerUIN %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amountOwed %>
+    <%= form.text_field :amountOwed %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
