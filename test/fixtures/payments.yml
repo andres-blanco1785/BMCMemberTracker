@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  payMethod: MyString
+  date: 2021-10-01
+  memberType: MyString
+  memberShipExp: 2021-10-01
+  amount: 1.5
+
+two:
+  payMethod: MyString
+  date: 2021-10-01
+  memberType: MyString
+  memberShipExp: 2021-10-01
+  amount: 1.5
