@@ -1,6 +1,6 @@
 class CreateOfficeTable < ActiveRecord::Migration[6.1]
   def change
-    create_table :offices do |t|
+    create_table :officers do |t|
       t.integer :officer_id
       t.string :name
       t.string :email

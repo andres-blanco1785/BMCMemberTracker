@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_10_01_203621) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "offices", force: :cascade do |t|
+  create_table "officers", force: :cascade do |t|
     t.integer "officer_id"
     t.string "name"
     t.string "email"
