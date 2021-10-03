@@ -1,37 +1,54 @@
 <p id="notice"><%= notice %></p>
 
+
 <form>
   <legend>Show:</legend>
   <input type="checkbox" id="member_id" name="membershow" value="member_id"> UIN
-  <!-- <label for="member_id">UIN</label> -->
   <input type="checkbox" id="email" name="membershow" value="email"> Email
-  <!-- <label for="email">Email</label> -->
   <input type="checkbox" id="phoneNumber" name="membershow" value="phoneNumber"> Phone Number
-  <!-- <label for="phoneNumber">Phone Number</label> -->
   <input type="checkbox" id="joinDate" name="membershow" value="joinDate"> Join Date
-  <!-- <label for="joinDate">Join Date</label> -->
   <input type="checkbox" id="membershipType" name="membershow" value="membershipType"> Membership Type
-  <!-- <label for="membershipType">Membership Type</label> -->
   <input type="checkbox" id="membershipExpiration" name="membershow" value="membershipExpiration" checked> Membership Expiration
-  <!-- <label for="membershipExpiration">Membership Expiration</label> -->
-    <!-- <div>
-      <button type="submit">Submit form</button>
-    </div> -->
 </form>
+
+
+<!-- Check boxes -->
+<div class='field'>
+  <% @attributes.each do |attr|%>
+    <%= check_box_tag 'attr_ids[]', attr%>
+    <%= attr %>
+  <% end %>
+</div>
+
+<!-- Table -->
+<div class='field'>
+
+  <% @attributeName.each do |attr|%>
+    <p><b><%= attr %></b></p>
+    <% @attr.each do |mem|%>
+      <table>
+        <%= mem[attr] %>
+      </table>
+    <% end %>
+  <% end %>
+</div>
+
+
+
 
 <br>
 <br>
 <table>
   <thead>
     <tr>
-      <th id="firstName">First Name</th>
-      <th id="firstName">Last Name</th>
-      <th id="uin"></th>
-      <th id="emailID"></th>
-      <th id="phone"></th>
+      <th><%= sortable 'firstName'%></th>
+      <th><%= sortable 'lastName'%></th>
+      <th><%= sortable 'member_id'%></th>
+      <th><%= sortable 'email'%></th>
+      <th><%= sortable 'phoneNumber'%></th>
       <!-- <th id="memtype"></th>
       <th id="memexp"></th> -->
-      <th id="joindate"></th>
+      <!-- <th id="joindate"></th> -->
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -39,7 +56,7 @@
   <script>
   document.getElementById("member_id").addEventListener("click", showUIN);
   function showUIN() {
-    document.getElementById("uin").innerHTML ='UIN'
+    document.getElementById("uin").innerHTML = 'UIN'
   }
 
   document.getElementById("email").addEventListener("click", showEmail);
@@ -48,7 +65,6 @@
   }
 
   </script>
-
 
   <tbody>
     <% @members.each do |member| %>
