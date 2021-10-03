@@ -10,12 +10,12 @@
       </ul>
     </div>
   <% end %>
-
+  
   <div class="field">
     <%= form.label :paymentMethod %>
-    <%= form.text_field :paymentMethod %>
+    <%= form.select(:paymentMethod, ['Cash', 'Venmo', 'Other'], {}, {}) %>
   </div>
-
+  
   <div class="field">
     <%= form.label :date %>
     <%= form.date_select :date %>
@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :membershipType %>
-    <%= form.text_field :membershipType %>
+    <%= form.select(:membershipType, ['one semester', 'full year'], {}, {}) %>
   </div>
 
   <div class="field">
