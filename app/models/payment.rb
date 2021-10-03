@@ -5,4 +5,11 @@ class Payment < ApplicationRecord
     #belongs_to :officer # this leaves finding member to default id which is record num ie 1
 	belongs_to :member, :foreign_key => 'member_id', :primary_key => 'member_id'
 	belongs_to :officer, :foreign_key => 'officer_id',  :primary_key => 'officer_id'
+	
+	validates :paymentId, presence: true
+	validates :paymentMethod, presence: true
+	validates :date, presence: true
+	validates :membershipType, presence: true
+	validates :membershipExpiration, presence: true
+	validates :amount, presence: true
 end
