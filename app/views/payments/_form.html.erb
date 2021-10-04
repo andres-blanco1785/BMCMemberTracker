@@ -10,30 +10,40 @@
       </ul>
     </div>
   <% end %>
-
+  
   <div class="field">
-    <%= form.label :payMethod %>
-    <%= form.text_field :payMethod %>
+    <%= form.label :paymentMethod %>
+    <%= form.select(:paymentMethod, ['Cash', 'Venmo', 'Other'], {}, {}) %>
   </div>
-
+  
   <div class="field">
     <%= form.label :date %>
     <%= form.date_select :date %>
   </div>
 
   <div class="field">
-    <%= form.label :memberType %>
-    <%= form.text_field :memberType %>
+    <%= form.label :membershipType %>
+    <%= form.select(:membershipType, ['one semester', 'full year'], {}, {}) %>
   </div>
 
   <div class="field">
-    <%= form.label :memberShipExp %>
-    <%= form.date_select :memberShipExp %>
+    <%= form.label :membershipExpiration %>
+    <%= form.date_select :membershipExpiration %>
   </div>
 
   <div class="field">
     <%= form.label :amount %>
     <%= form.text_field :amount %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :member_id %>
+    <%= form.text_field :member_id %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :officer_id %>
+    <%= form.text_field :officer_id %>
   </div>
 
   <div class="actions">
