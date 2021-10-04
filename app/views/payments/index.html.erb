@@ -19,10 +19,10 @@
   <tbody>
     <% @payments.each do |payment| %>
       <tr>
-        <td><%= payment.paymentMethod %></td>
+        <td><%= payment.payment_method %></td>
         <td><%= payment.date %></td>
-        <td><%= payment.membershipType %></td>
-        <td><%= payment.membershipExpiration %></td>
+        <td><%= payment.membership_type %></td>
+        <td><%= payment.membership_expiration %></td>
         <td><%= payment.amount %></td>
 		<td><%= payment.officer_id %></td>
 		<td><%= payment.member_id %></td>
