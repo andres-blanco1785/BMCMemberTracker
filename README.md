@@ -1,8 +1,8 @@
 # README
 
-## Introduction ##
+## Introduction - BMCMemberTracker##
 
-Application Description
+This application will be used by the officers of the TAMU Badminton Club
 
 ## Requirements ##
 
@@ -72,7 +72,7 @@ After commiting changes to your test branch and merge into your main branch. Aft
 
 ## CI/CD ##
 
-TBD
+For the CI/CD portion of our development, we set a standard that each team member would commit and push changes to their feature branch as frequent as possible so that we wouldn't have huge merge conflicts later on at the end of the sprint. The changes that each team member made would be merged into our test branch, which would deploy and test our changes automatically.
 
 ## Support ##
 
