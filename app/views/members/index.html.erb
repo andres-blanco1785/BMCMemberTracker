@@ -1,16 +1,70 @@
 <p id="notice"><%= notice %></p>
+
+
+<form>
+  <legend>Show:</legend>
+  <input type="checkbox" id="member_id" name="membershow" value="member_id"> UIN
+  <input type="checkbox" id="email" name="membershow" value="email"> Email
+  <input type="checkbox" id="phoneNumber" name="membershow" value="phoneNumber"> Phone Number
+  <input type="checkbox" id="joinDate" name="membershow" value="joinDate"> Join Date
+  <input type="checkbox" id="membershipType" name="membershow" value="membershipType"> Membership Type
+  <input type="checkbox" id="membershipExpiration" name="membershow" value="membershipExpiration" checked> Membership Expiration
+</form>
+
+
+<!-- Check boxes -->
+<div class='field'>
+  <% @attributes.each do |attr|%>
+    <%= check_box_tag 'attr_ids[]', attr%>
+    <%= attr %>
+  <% end %>
+</div>
+
+<!-- Table -->
+<div class='field'>
+
+  <% @attributeName.each do |attr|%>
+    <p><b><%= attr %></b></p>
+    <% @attr.each do |mem|%>
+      <table>
+        <%= mem[attr] %>
+      </table>
+    <% end %>
+  <% end %>
+</div>
+
+
+
+
+<br>
+<br>
 <table>
   <thead>
     <tr>
-      <th>UIN</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>PhoneNumber</th>
-      <th>Joindate</th>
+      <th><%= sortable 'firstName'%></th>
+      <th><%= sortable 'lastName'%></th>
+      <th><%= sortable 'member_id'%></th>
+      <th><%= sortable 'email'%></th>
+      <th><%= sortable 'phoneNumber'%></th>
+      <!-- <th id="memtype"></th>
+      <th id="memexp"></th> -->
+      <!-- <th id="joindate"></th> -->
       <th colspan="3"></th>
     </tr>
   </thead>
+
+  <script>
+  document.getElementById("member_id").addEventListener("click", showUIN);
+  function showUIN() {
+    document.getElementById("uin").innerHTML = 'UIN'
+  }
+
+  document.getElementById("email").addEventListener("click", showEmail);
+  function showEmail() {
+    document.getElementById("emailID").innerHTML = 'Email'
+  }
+
+  </script>
 
   <tbody>
     <% @members.each do |member| %>
