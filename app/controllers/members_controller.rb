@@ -2,8 +2,14 @@ class MembersController < ApplicationController
   before_action :set_member, only: %i[ show edit update destroy ]
 
   # GET /members or /members.json
+  helper_method :sort_column, :sort_direction
   def index
-    @members = Member.all
+    @members = Member.order(sort_column + ' ' + sort_direction)
+    @attributes = ['UIN', 'Email', 'Phone Number', 'Join Date', 'Mmebership Type', 'Membership Expiration']
+    @attributeName = ['member_id', 'email', 'phoneNumber', 'joinDate']
+    @attr= Member.all
+    # @sortMem = Member.order(params[:sort])
+
   end
 
   # GET /members/1 or /members/1.json
@@ -64,6 +70,14 @@ class MembersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def member_params
-      params.require(:member).permit(:uin, :name, :email, :membershipType, :expiration, :joinDate)
+      params.require(:member).permit(:member_id, :first_name, :last_name, :email, :phone_number, :join_date)
+    end
+
+    def sort_column
+      params[:sort] || "member_id"
+    end
+
+    def sort_direction
+      params[:direction] || 'asc'
     end
 end

@@ -10,18 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_01_203621) do
+ActiveRecord::Schema.define(version: 2021_10_02_171522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "admins", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "full_name"
+    t.string "uid"
+    t.string "avatar_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+  end
+
   create_table "members", force: :cascade do |t|
     t.integer "member_id"
-    t.string "firstName"
-    t.string "lastName"
+    t.string "first_name"
+    t.string "last_name"
     t.string "email"
-    t.string "phoneNumber"
-    t.date "joinDate"
+    t.string "phone_number"
+    t.date "join_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -30,17 +40,17 @@ ActiveRecord::Schema.define(version: 2021_10_01_203621) do
     t.integer "officer_id"
     t.string "name"
     t.string "email"
-    t.float "amountOwed"
+    t.float "amount_owed"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "payments", force: :cascade do |t|
-    t.integer "paymentId"
-    t.string "paymentMethod"
+    t.integer "payment_id"
+    t.string "payment_method"
     t.date "date"
-    t.string "membershipType"
-    t.date "membershipExpiration"
+    t.string "membership_type"
+    t.date "membership_expiration"
     t.float "amount"
     t.integer "member_id"
     t.integer "officer_id"
