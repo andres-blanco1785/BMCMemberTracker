@@ -13,7 +13,7 @@
   
   <div class="field">
     <%= form.label :paymentMethod %>
-    <%= form.select(:paymentMethod, ['Cash', 'Venmo', 'Other'], {}, {}) %>
+    <%= form.select(:payment_method, ['Cash', 'Venmo', 'Other'], {}, {}) %>
   </div>
   
   <div class="field">
@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :membershipExpiration %>
-    <%= form.date_select :membershipExpiration %>
+    <%= form.date_select :membership_expiration %>
   </div>
 
   <div class="field">

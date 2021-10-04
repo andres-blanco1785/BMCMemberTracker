@@ -16,11 +16,11 @@
     <% @members.each do |member| %>
       <tr>
         <td><%= member.member_id %></td>
-        <td><%= member.firstName %></td>
-        <td><%= member.lastName %></td>
+        <td><%= member.first_name %></td>
+        <td><%= member.last_name %></td>
         <td><%= member.email %></td>
-        <td><%= member.phoneNumber %></td>
-        <td><%= member.joinDate %></td>
+        <td><%= member.phone_number %></td>
+        <td><%= member.join_date %></td>
         <td><%= link_to 'Show', member %></td>
         <td><%= link_to 'Edit', edit_member_path(member) %></td>
         <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
