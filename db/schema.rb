@@ -17,11 +17,11 @@ ActiveRecord::Schema.define(version: 2021_10_01_203621) do
 
   create_table "members", force: :cascade do |t|
     t.integer "member_id"
-    t.string "first_name"
-    t.string "last_name"
+    t.string "firstName"
+    t.string "lastName"
     t.string "email"
-    t.string "phone_number"
-    t.date "join_date"
+    t.string "phoneNumber"
+    t.date "joinDate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -30,17 +30,17 @@ ActiveRecord::Schema.define(version: 2021_10_01_203621) do
     t.integer "officer_id"
     t.string "name"
     t.string "email"
-    t.float "amount_owed"
+    t.float "amountOwed"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "payments", force: :cascade do |t|
-    t.integer "payment_id"
-    t.string "payment_method"
+    t.integer "paymentId"
+    t.string "paymentMethod"
     t.date "date"
-    t.string "membership_type"
-    t.date "membership_expiration"
+    t.string "membershipType"
+    t.date "membershipExpiration"
     t.float "amount"
     t.integer "member_id"
     t.integer "officer_id"
