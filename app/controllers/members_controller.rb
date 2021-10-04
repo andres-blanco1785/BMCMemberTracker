@@ -9,6 +9,7 @@ class MembersController < ApplicationController
     @attributeName = ['member_id', 'email', 'phoneNumber', 'joinDate']
     @attr= Member.all
     # @sortMem = Member.order(params[:sort])
+
   end
 
   # GET /members/1 or /members/1.json
