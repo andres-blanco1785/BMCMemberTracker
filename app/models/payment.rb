@@ -6,7 +6,6 @@ class Payment < ApplicationRecord
 	belongs_to :member, :foreign_key => 'member_id', :primary_key => 'member_id'
 	belongs_to :officer, :foreign_key => 'officer_id',  :primary_key => 'officer_id'
 	
-	validates :paymentId, presence: true
 	validates :paymentMethod, presence: true
 	validates :date, presence: true
 	validates :membershipType, presence: true
