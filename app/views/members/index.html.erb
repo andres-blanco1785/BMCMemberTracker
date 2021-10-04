@@ -8,6 +8,12 @@
       <th>Email</th>
       <th>PhoneNumber</th>
       <th>Joindate</th>
+      <th>MemberShip Type</th>
+      <th>date</th>
+      <th>Officer Paid To</th>
+      <th>Method of Payment</th>
+      <th>Amount</th>
+      <th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,7 +27,27 @@
         <td><%= member.email %></td>
         <td><%= member.phoneNumber %></td>
         <td><%= member.joinDate %></td>
+        <td><%= member.payments.any? ? member.payments.first.membershipType : "N/A" %></td>
+        <p></td>
+        <td><%= member.payments.any? ? member.payments.first.date : "N/A" %></td>
+        <td><%= member.payments.any? ? member.payments.first.officer_id.name : "N/A" %></td>
+        <td><%= member.payments.any? ? member.payments.first.method : "N/A" %></td>
+        <td><%= member.payments.any? ? member.payments.first.amount : "N/A" %></td>
+        
+        <%#<%= Payment.where(member_id: member.member_id).any? ? Payment.where(member_id: member_id).first.membershipType : "N/A" %>
+        </p>
+        <p>
+        <%= member.payments.first %>
+        </p>
+        <p>
+        <%= member.payments.count %>
+        <%= member.payments.any? %>
+        </p>
+        <p>
+        <%#<%= Payment.first.date %>
+        <%#<td><%= Payment.find_by(member_id: member.member_id).membershipType %></td>%>
         <td><%= link_to 'Show', member %></td>
+        <td><%= Payment.any? ? "yes" : "N/A" %></td>
         <td><%= link_to 'Edit', edit_member_path(member) %></td>
         <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
