@@ -4,11 +4,11 @@
 
 <table>
   <thead>
-    <tr>
-      <th>Officeruin</th>
+    <tr> 
+      <th>Officer UIN</th>
       <th>Name</th>
       <th>Email</th>
-      <th>Amountowed</th>
+      <th>Amount Owed</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +16,10 @@
   <tbody>
     <% @officers.each do |officer| %>
       <tr>
-        <td><%= officer.officerUIN %></td>
+        <td><%= officer.officer_id %></td>
         <td><%= officer.name %></td>
         <td><%= officer.email %></td>
-        <td><%= officer.amountOwed %></td>
+        <td><%= officer.amount_owed %></td>
         <td><%= link_to 'Show', officer %></td>
         <td><%= link_to 'Edit', edit_officer_path(officer) %></td>
         <td><%= link_to 'Destroy', officer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
