@@ -34,18 +34,7 @@
         <td><%= member.payments.any? ? member.payments.first.method : "N/A" %></td>
         <td><%= member.payments.any? ? member.payments.first.amount : "N/A" %></td>
         
-        <%#<%= Payment.where(member_id: member.member_id).any? ? Payment.where(member_id: member_id).first.membershipType : "N/A" %>
-        </p>
-        <p>
-        <%= member.payments.first %>
-        </p>
-        <p>
-        <%= member.payments.count %>
-        <%= member.payments.any? %>
-        </p>
-        <p>
-        <%#<%= Payment.first.date %>
-        <%#<td><%= Payment.find_by(member_id: member.member_id).membershipType %></td>%>
+       
         <td><%= link_to 'Show', member %></td>
         <td><%= Payment.any? ? "yes" : "N/A" %></td>
         <td><%= link_to 'Edit', edit_member_path(member) %></td>
