@@ -73,9 +73,3 @@ After commiting changes to your test branch and merge into your main branch. Aft
 ## CI/CD ##
 
 For the CI/CD portion of our development, we set a standard that each team member would commit and push changes to their feature branch as frequent as possible so that we wouldn't have huge merge conflicts later on at the end of the sprint. The changes that each team member made would be merged into our test branch, which would deploy and test our changes automatically.
-
-## Support ##
-
-Admins looking for support should first look at the application help page.
-Users looking for help seek out assistance from the customer.
-
