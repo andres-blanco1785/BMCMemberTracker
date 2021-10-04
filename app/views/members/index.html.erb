@@ -60,7 +60,6 @@ function showUIN() {
       <th><%= sortable 'email'%></th>
       <th><%= sortable 'phone_number'%></th>
       <th><%= sortable 'join_date'%></th>
-
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -99,6 +98,6 @@ function showUIN() {
 
 <br>
 
-
-
 <%= link_to 'New Member', new_member_path %>
+<br>
+<%= link_to "Sign Out", destroy_admin_session_path %>
