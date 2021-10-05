@@ -33,8 +33,4 @@ RSpec.describe Member, type: :model do
     expect(subject).not_to be_valid
   end
 
-  it 'is not valid without a join date' do
-    subject.join_date = nil
-    expect(subject).not_to be_valid
-  end
 end
