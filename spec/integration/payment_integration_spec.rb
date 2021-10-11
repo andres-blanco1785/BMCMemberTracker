@@ -3,9 +3,9 @@ require 'rails_helper'
 
 RSpec.describe 'Creating a payment', type: :feature do
   let!(:officer) { Officer.create(officer_id: 999899799, name: 'Onam', email: 'e@tamu.edu', 
-  amountOwed: 15) }
-  let!(:member) { Member.create(member_id: 111222333, firstName: 'Fnam', lastName: 'Lnam', 
-  email: 'example@tamu.edu', phoneNumber: '1234567890', joinDate: '1813-01-28') }
+  amount_owed: 15) }
+  let!(:member) { Member.create(member_id: 111222333, first_name: 'Fnam', last_name: 'Lnam', 
+  email: 'example@tamu.edu', phone_number: '1234567890', join_date: '1813-01-28') }
   
   scenario 'empty inputs' do
   
@@ -44,11 +44,11 @@ end
 
 RSpec.describe 'Destroy payment', type: :feature do
   let!(:officer) { Officer.create(officer_id: 987654321, name: 'Onam', email: 'e@tamu.edu', 
-  amountOwed: 15) }
-  let!(:member) { Member.create(member_id: 123456789, firstName: 'Fnam', lastName: 'Lnam', 
-  email: 'example@tamu.edu', phoneNumber: '1234567890', joinDate: '1813-01-28') }
-  let!(:payment) { Payment.create(paymentMethod: 'Cash', date: '2021/09/01', membershipType: 'one semester', 
-  membershipExpiration: '2021/12/31', amount: 15, member_id: 123456789, officer_id: 987654321) }
+  amount_owed: 15) }
+  let!(:member) { Member.create(member_id: 123456789, first_name: 'Fnam', last_name: 'Lnam', 
+  email: 'example@tamu.edu', phone_number: '1234567890', join_date: '1813-01-28') }
+  let!(:payment) { Payment.create(payment_method: 'Cash', date: '2021/09/01', membership_type: 'one semester', 
+  membership_expiration: '2021/12/31', amount: 15, member_id: 123456789, officer_id: 987654321) }
   
   scenario 'successfully' do
   
@@ -65,11 +65,11 @@ end
 
 RSpec.describe 'Edit payment', type: :feature do
   let!(:officer) { Officer.create(officer_id: 987654321, name: 'Onam', email: 'e@tamu.edu', 
-  amountOwed: 15) }
-  let!(:member) { Member.create(member_id: 123456789, firstName: 'Fnam', lastName: 'Lnam', 
-  email: 'example@tamu.edu', phoneNumber: '1234567890', joinDate: '1813-01-28') }
-  let!(:payment) { Payment.create(paymentMethod: 'Cash', date: '2021/09/01', membershipType: 'one semester', 
-  membershipExpiration: '2021/12/31', amount: 15, member_id: 123456789, officer_id: 987654321) }
+  amount_owed: 15) }
+  let!(:member) { Member.create(member_id: 123456789, first_name: 'Fnam', last_name: 'Lnam', 
+  email: 'example@tamu.edu', phone_number: '1234567890', join_date: '1813-01-28') }
+  let!(:payment) { Payment.create(payment_method: 'Cash', date: '2021/09/01', membership_type: 'one semester', 
+  membership_expiration: '2021/12/31', amount: 15, member_id: 123456789, officer_id: 987654321) }
   
   scenario 'successfully' do
     
@@ -100,11 +100,11 @@ end
  
   RSpec.describe 'Show payment', type: :feature do
   let!(:officer) { Officer.create(officer_id: 987654321, name: 'Onam', email: 'e@tamu.edu', 
-  amountOwed: 15) }
-  let!(:member) { Member.create(member_id: 123456789, firstName: 'Fnam', lastName: 'Lnam', 
-  email: 'example@tamu.edu', phoneNumber: '1234567890', joinDate: '1813-01-28') }
-  let!(:payment) { Payment.create(paymentMethod: 'Cash', date: '2021/09/01', membershipType: 'one semester', 
-  membershipExpiration: '2021/12/31', amount: 15, member_id: 123456789, officer_id: 987654321) }
+  amount_owed: 15) }
+  let!(:member) { Member.create(member_id: 123456789, first_name: 'Fnam', last_name: 'Lnam', 
+  email: 'example@tamu.edu', phone_number: '1234567890', join_date: '1813-01-28') }
+  let!(:payment) { Payment.create(payment_method: 'Cash', date: '2021/09/01', membership_type: 'one semester', 
+  membership_expiration: '2021/12/31', amount: 15, member_id: 123456789, officer_id: 987654321) }
   
   scenario 'successfully' do
   
