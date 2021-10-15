@@ -1,2 +1,0 @@
-class TranscationType < ApplicationRecord
-end

@@ -20,8 +20,6 @@
         <td><%= officer.name %></td>
         <td><%= officer.email %></td>
         <td><%= officer.amount_owed %></td>
-        <td><%= Payment.where(officer_id:officer.officer_id).any? ? Payment.where(officer_id:officer.officer_id).first.amount : 0 %></td>
-        <td><%= Payment.where(officer_id:officer.officer_id).first.amount%></td>
         <td><%= link_to 'Show', officer %></td>
         <td><%= link_to 'Edit', edit_officer_path(officer) %></td>
         <td><%= link_to 'Destroy', officer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
