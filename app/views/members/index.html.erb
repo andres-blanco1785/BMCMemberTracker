@@ -60,7 +60,11 @@ function showUIN() {
       <th><%= sortable 'email'%></th>
       <th><%= sortable 'phone_number'%></th>
       <th><%= sortable 'join_date'%></th>
-
+      <th><%= sortable 'membership_type'%></th>
+      <th><%= sortable 'date'%></th>
+      <th><%= sortable 'officer paid to'%></th>
+      <th><%= sortable 'payment_method'%></th>
+      <th><%= sortable 'amount'%></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -83,12 +87,17 @@ function showUIN() {
   <tbody>
     <% @members.each do |member| %>
       <tr>
-        <td><%= member.member_id %></td>
         <td><%= member.first_name %></td>
         <td><%= member.last_name %></td>
+        <td><%= member.member_id %></td>
         <td><%= member.email %></td>
         <td><%= member.phone_number %></td>
         <td><%= member.join_date %></td>
+        <td><%= member.payments.any? ? member.payments.first.membership_type : "N/A" %></td>
+        <td><%= member.payments.any? ? member.payments.first.date : "N/A" %></td>
+        <td><%= member.payments.any? ? member.payments.first.officer_id.name : "N/A" %></td>
+        <td><%= member.payments.any? ? member.payments.first.method : "N/A" %></td>
+        <td><%= member.payments.any? ? member.payments.first.amount : "N/A" %></td>
         <td><%= link_to 'Show', member %></td>
         <td><%= link_to 'Edit', edit_member_path(member) %></td>
         <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -99,6 +108,6 @@ function showUIN() {
 
 <br>
 
-
-
 <%= link_to 'New Member', new_member_path %>
+<br>
+<%= link_to "Sign Out", destroy_admin_session_path %>
