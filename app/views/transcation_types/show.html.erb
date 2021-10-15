@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Intger:</strong>
+  <%= @transcation_type.intger %>
+</p>
+
+<p>
+  <strong>Transcation:</strong>
+  <%= @transcation_type.transcation_id %>
+</p>
+
+<p>
+  <strong>String:</strong>
+  <%= @transcation_type.string %>
+</p>
+
+<%= link_to 'Edit', edit_transcation_type_path(@transcation_type) %> |
+<%= link_to 'Back', transcation_types_path %>
