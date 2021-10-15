@@ -1,0 +1,52 @@
+<%= form_with(model: withdrawal) do |form| %>
+  <% if withdrawal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(withdrawal.errors.count, "error") %> prohibited this withdrawal from being saved:</h2>
+
+      <ul>
+        <% withdrawal.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :withdraw_id %>
+    <%= form.number_field :withdraw_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :officer_uin %>
+    <%= form.number_field :officer_uin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :transaction_id %>
+    <%= form.number_field :transaction_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

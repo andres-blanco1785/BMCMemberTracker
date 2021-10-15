@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_02_171522) do
+ActiveRecord::Schema.define(version: 2021_10_15_155527) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,8 +25,18 @@ ActiveRecord::Schema.define(version: 2021_10_02_171522) do
     t.index ["email"], name: "index_admins_on_email", unique: true
   end
 
+  create_table "deposits", force: :cascade do |t|
+    t.integer "deposit_id"
+    t.integer "officer_uin"
+    t.integer "transcation_id"
+    t.integer "amount"
+    t.date "date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "members", force: :cascade do |t|
-    t.integer "member_id"
+    t.integer "member_uin"
     t.string "first_name"
     t.string "last_name"
     t.string "email"
@@ -37,7 +47,7 @@ ActiveRecord::Schema.define(version: 2021_10_02_171522) do
   end
 
   create_table "officers", force: :cascade do |t|
-    t.integer "officer_id"
+    t.integer "officer_uin"
     t.string "name"
     t.string "email"
     t.float "amount_owed"
@@ -47,13 +57,39 @@ ActiveRecord::Schema.define(version: 2021_10_02_171522) do
 
   create_table "payments", force: :cascade do |t|
     t.integer "payment_id"
-    t.string "payment_method"
+    t.string "payment_mtd"
     t.date "date"
     t.string "membership_type"
     t.date "membership_expiration"
     t.float "amount"
-    t.integer "member_id"
-    t.integer "officer_id"
+    t.integer "member_uin"
+    t.integer "officer_uin"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "transaction_types", force: :cascade do |t|
+    t.integer "transaction_id"
+    t.string "category"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "transcation_types", force: :cascade do |t|
+    t.integer "transaction_id"
+    t.string "category"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "withdrawals", force: :cascade do |t|
+    t.integer "withdraw_id"
+    t.integer "officer_uin"
+    t.integer "transaction_id"
+    t.float "amount"
+    t.string "title"
+    t.string "description"
+    t.date "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

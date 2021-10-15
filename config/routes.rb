@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :transaction_types
+  resources :transcation_types
+  resources :withdrawals
+  resources :deposits
   root 'members#index'
   # root to: 'dashboards#show'
   devise_for :admins, controllers: { omniauth_callbacks: 'admins/omniauth_callbacks' }
