@@ -34,7 +34,7 @@
   <% end %>
 </div> -->
 
-<p id="member_id"></p>
+<p id="member_uin"></p>
 <p id="email"></p>
 <script>
 document.getElementById("check_").addEventListener("click", showUIN);
@@ -56,7 +56,7 @@ function showUIN() {
     <tr>
       <th><%= sortable 'first_name'%></th>
       <th><%= sortable 'last_name'%></th>
-      <th><%= sortable 'member_id', 'UIN'%></th>
+      <th><%= sortable 'member_uin', 'UIN'%></th>
       <th><%= sortable 'email'%></th>
       <th><%= sortable 'phone_number'%></th>
       <th><%= sortable 'join_date'%></th>
@@ -70,7 +70,7 @@ function showUIN() {
   </thead>
 
   <script>
-  document.getElementById("member_id").addEventListener("click", showUIN);
+  document.getElementById("member_uin").addEventListener("click", showUIN);
   function showUIN() {
     document.getElementById("uin").innerHTML = 'UIN'
   }
@@ -89,13 +89,13 @@ function showUIN() {
       <tr>
         <td><%= member.first_name %></td>
         <td><%= member.last_name %></td>
-        <td><%= member.member_id %></td>
+        <td><%= member.member_uin %></td>
         <td><%= member.email %></td>
         <td><%= member.phone_number %></td>
         <td><%= member.join_date %></td>
         <td><%= member.payments.any? ? member.payments.first.membership_type : "N/A" %></td>
         <td><%= member.payments.any? ? member.payments.first.date : "N/A" %></td>
-        <td><%= member.payments.any? ? member.payments.first.officer_id.name : "N/A" %></td>
+        <td><%= member.payments.any? ? member.payments.first.officer_uin.name : "N/A" %></td>
         <td><%= member.payments.any? ? member.payments.first.method : "N/A" %></td>
         <td><%= member.payments.any? ? member.payments.first.amount : "N/A" %></td>
         <td><%= link_to 'Show', member %></td>
