@@ -27,12 +27,12 @@
 
 <p>
   <strong>Member who Paid:</strong>
-  <%= @payment.member_id %>
+  <%= @payment.member_uin %>
 </p>
 
 <p>
   <strong>Officer Paid to:</strong>
-  <%= @payment.officer_id %>
+  <%= @payment.officer_uin %>
 </p>
 
 <%= link_to 'Edit', edit_payment_path(@payment) %> |
