@@ -1,15 +1,6 @@
 # frozen_string_literal: true
 
 class Admins::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-
-  OmniAuth.config.test_mode = true
-  OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
-    :provider => 'Google',
-    :uid => '123545'
-    # etc.
-  })
-
-
   def google_oauth2
     admin = Admin.from_google(**from_google_params)
 
@@ -45,6 +36,6 @@ class Admins::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def auth
-    @auth ||= request.env['omniauth.auth']
+    @auth ||= Rails.application.env_config['omniauth.auth'] || request.env['omniauth.auth']
   end
 end
