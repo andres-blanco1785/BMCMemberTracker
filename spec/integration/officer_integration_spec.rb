@@ -17,7 +17,7 @@ RSpec.describe 'Create officer', type: :feature do
     fill_in 'Officer UIN', with: 631009798
     fill_in 'Name', with: 'Yue Hu'
     fill_in 'Email', with: 'yueh@tamu.edu'
-    fill_in 'Amount Owed', with: 0
+    fill_in 'officer_amount_owed', with: 0
     click_on 'Create Officer'
     # An officer has been created
     expect(Officer.count).to eq(1)
@@ -29,7 +29,7 @@ RSpec.describe 'Create officer', type: :feature do
     expect(page).to have_content("yueh@tamu.edu")   
   end
   scenario 'duplicated UIN and email' do
-    Officer.create(officer_id: 631009798, name:'Yue Hu',email: 'yueh@tamu.edu',amountOwed:0)
+    Officer.create(officer_id: 631009798, name:'Yue Hu',email: 'yueh@tamu.edu',amount_owed:0)
     # An officer has been created
     expect(Officer.count).to eq(1)
     visit officers_path
@@ -41,7 +41,7 @@ RSpec.describe 'Create officer', type: :feature do
     fill_in 'Officer UIN', with: 631009798
     fill_in 'Name', with: 'Yuan Lisha'
     fill_in 'Email', with: 'yueh@tamu.edu'
-    fill_in 'Amount Owed', with: 0
+    fill_in 'officer_amount_owed', with: 0
     click_on 'Create Officer'
     expect(page).to have_content('Officer UIN has already been taken')
     expect(page).to have_content('Email has already been taken')
@@ -51,7 +51,7 @@ RSpec.describe 'Create officer', type: :feature do
 end
 
 RSpec.describe 'Destroy officer', type: :feature do
-  let!(:officer) { Officer.create(officer_id: '631009798', name: 'Yue Hu', email:'yueh@tamu.edu', amountOwed:0) }
+  let!(:officer) { Officer.create(officer_id: '631009798', name: 'Yue Hu', email:'yueh@tamu.edu', amount_owed:0) }
   scenario 'successfully' do
     # An officer has been created
     expect(Officer.count).to eq(1)
@@ -69,7 +69,7 @@ end
 
 
 RSpec.describe 'Edit officer', type: :feature do
-  let!(:officer) { Officer.create(officer_id: '631009798', name: 'Yue Hu', email:'yueh@tamu.edu', amountOwed:0) }
+  let!(:officer) { Officer.create(officer_id: '631009798', name: 'Yue Hu', email:'yueh@tamu.edu', amount_owed:0) }
   scenario 'successfully' do
     
     # An officer has been created
@@ -83,7 +83,7 @@ RSpec.describe 'Edit officer', type: :feature do
     fill_in 'Officer UIN', with: 631009798
     fill_in 'Name', with: 'Yuan Lisha'
     fill_in 'Email', with: 'lisha@tamu.edu'
-    fill_in 'Amount Owed', with: 0
+    fill_in 'officer_amount_owed', with: 0
     click_on 'Update Officer'
     expect(page).to have_content('Officer was successfully updated.')
     expect(page).to have_content("631009798")
@@ -93,7 +93,7 @@ RSpec.describe 'Edit officer', type: :feature do
   end
 
   scenario 'fails because of duplication' do
-    Officer.create(officer_id: 6898, name:'Lisha Yuan',email: 'lisha@tamu.edu',amountOwed:0)
+    Officer.create(officer_id: 6898, name:'Lisha Yuan',email: 'lisha@tamu.edu',amount_owed:0)
 
     expect(Officer.count).to eq(2)
     visit officers_path
@@ -102,7 +102,7 @@ RSpec.describe 'Edit officer', type: :feature do
     fill_in 'Officer UIN', with: 631009798
     fill_in 'Name', with: 'Yuan Lisha'
     fill_in 'Email', with: 'lisha@tamu.edu'
-    fill_in 'Amount Owed', with: 0
+    fill_in 'officer_amount_owed', with: 0
     click_on 'Update Officer'
     expect(page).to have_content('Officer UIN has already been taken')
   end
@@ -110,7 +110,7 @@ end
 
 
 RSpec.describe 'Show officer', type: :feature do
-  let!(:officer) { Officer.create(officer_id: '631009798', name: 'Yue Hu', email:'yueh@tamu.edu', amountOwed:0) }
+  let!(:officer) { Officer.create(officer_id: '631009798', name: 'Yue Hu', email:'yueh@tamu.edu', amount_owed:0) }
   scenario 'successfully' do
     # An officer has been created
     expect(Officer.count).to eq(1)
