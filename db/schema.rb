@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_10_15_155527) do
     t.integer "deposit_id"
     t.integer "officer_uin"
     t.integer "transcation_id"
-    t.integer "amount"
+    t.float "amount"
     t.date "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -69,13 +69,6 @@ ActiveRecord::Schema.define(version: 2021_10_15_155527) do
   end
 
   create_table "transaction_types", force: :cascade do |t|
-    t.integer "transaction_id"
-    t.string "category"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "transcation_types", force: :cascade do |t|
     t.integer "transaction_id"
     t.string "category"
     t.datetime "created_at", precision: 6, null: false
