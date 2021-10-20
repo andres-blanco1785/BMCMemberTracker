@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+#!/Users/michaelstewart/.rbenv/shims/ruby
 APP_ROOT = File.expand_path('..', __dir__)
 Dir.chdir(APP_ROOT) do
   yarn = ENV["PATH"].split(File::PATH_SEPARATOR).

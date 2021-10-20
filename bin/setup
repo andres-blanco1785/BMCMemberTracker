@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+#!/Users/michaelstewart/.rbenv/shims/ruby
 require "fileutils"
 
 # path to your application root.

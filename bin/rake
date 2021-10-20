@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+#!/Users/michaelstewart/.rbenv/shims/ruby
 load File.expand_path("spring", __dir__)
 require_relative "../config/boot"
 require "rake"

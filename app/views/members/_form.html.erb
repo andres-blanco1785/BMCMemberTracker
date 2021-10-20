@@ -11,29 +11,29 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :UIN %>
-    <%= form.number_field :member_uin %>
+    <%= form.number_field :member_uin, class:"form-control", placeholder: "UIN" %>
   </div>
 
-  <div class="field">
+  <div class="md-form">
     <%= form.label :FirstName %>
-    <%= form.text_field :first_name %>
+    <%= form.text_field :first_name, class:"form-control" , placeholder: "First Name" %>
   </div>
 
   <div class="field">
     <%= form.label :LastName %>
-    <%= form.text_field :last_name %>
+    <%= form.text_field :last_name, class:"form-control", placeholder: "Last Name" %>
   </div>
 
   <div class="field">
     <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, class:"form-control" , placeholder: "Email" %>
   </div>
 
   <div class="field">
     <%= form.label :phoneNumber %>
-    <%= form.text_field :phone_number %>
+    <%= form.text_field :phone_number, class:"form-control" , placeholder: "Phone Number" %>
   </div>
 
   <div class="field">
@@ -42,6 +42,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:'btn btn-dark btn-lg btn-block'%>
   </div>
 <% end %>
