@@ -21,13 +21,13 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: localhost
-  username: test_app
-  password: test_password
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
 
 
 development:
   <<: *default
-  database: bmc_tracker_development_t
+  database: bmc_tracker_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -61,7 +61,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: bmc_tracker_test_t
+  database: bmc_tracker_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -85,6 +85,6 @@ test:
 #
 production:
   <<: *default
-  database: bmc_tracker_production_t
+  database: bmc_tracker_production
   username: bmc_tracker
   password: <%= ENV['BMC_TRACKER_DATABASE_PASSWORD'] %>
