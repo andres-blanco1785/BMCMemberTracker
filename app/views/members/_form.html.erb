@@ -16,29 +16,29 @@
     <%= form.number_field :member_uin, class:"form-control", placeholder: "UIN" %>
   </div>
 
-  <div class="md-form">
+  <div class="field form-group">
     <%= form.label :FirstName %>
     <%= form.text_field :first_name, class:"form-control" , placeholder: "First Name" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :LastName %>
     <%= form.text_field :last_name, class:"form-control", placeholder: "Last Name" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :email %>
     <%= form.text_field :email, class:"form-control" , placeholder: "Email" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :phoneNumber %>
     <%= form.text_field :phone_number, class:"form-control" , placeholder: "Phone Number" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :joinDate %>
-    <%= form.date_select :join_date %>
+    <%= form.date_select :join_date, class: 'form-control' %>
   </div>
 
   <div class="actions">
