@@ -6,7 +6,7 @@ class MembersController < ApplicationController
   def index
     @members = Member.order(sort_column + ' ' + sort_direction)
     @attributes = ['UIN', 'Email', 'Phone Number', 'Join Date', 'Mmebership Type', 'Membership Expiration']
-    @attributeName = ['member_id', 'email', 'phoneNumber', 'joinDate']
+    @attributeName = ['member_uin', 'email', 'phoneNumber', 'joinDate']
     @attr= Member.all
     # @sortMem = Member.order(params[:sort])
 
@@ -70,11 +70,11 @@ class MembersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def member_params
-      params.require(:member).permit(:member_id, :first_name, :last_name, :email, :phone_number, :join_date)
+      params.require(:member).permit(:member_uin, :first_name, :last_name, :email, :phone_number, :join_date)
     end
 
     def sort_column
-      params[:sort] || "member_id"
+      params[:sort] || "member_uin"
     end
 
     def sort_direction
