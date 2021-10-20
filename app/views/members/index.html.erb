@@ -94,6 +94,7 @@ function showUIN() {
         <td><%= member.phone_number %></td>
         <td><%= member.join_date %></td>
         <td><%= member.payments.any? ? member.payments.first.membership_type : "N/A" %></td>
+        <td><%= member.payments.any? ? "haha" : "N/A" %></td>
         <td><%= member.payments.any? ? member.payments.first.date : "N/A" %></td>
         <td><%= member.payments.any? ? member.payments.first.officer_uin.name : "N/A" %></td>
         <td><%= member.payments.any? ? member.payments.first.method : "N/A" %></td>
