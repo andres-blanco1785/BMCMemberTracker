@@ -56,6 +56,7 @@
   <% end %>
 </div>
 
+<<<<<<< HEAD
 <!-- <table id="hi"></table>
 <script type = "text/javascript">
 function show() {
@@ -63,6 +64,9 @@ function show() {
 }
 </script>
 <input type = "button" onclick = "show()" value = "Display"> -->
+=======
+<%= link_to 'New Member', new_member_path, class: 'btn btn-light btn-lg btn-block' %>
+>>>>>>> 8280d2e114f3547697b0264c394660df44f18775
 
 <!-- Table -->
 <!-- <div class='field'>
@@ -77,8 +81,7 @@ function show() {
   <% end %>
 </div> -->
 
-<p id="member_uin"></p>
-<p id="email"></p>
+
 <script>
 document.getElementById("check_").addEventListener("click", showUIN);
 function showUIN() {
@@ -94,8 +97,8 @@ function showUIN() {
 
 <br>
 <br>
-<table>
-  <thead>
+<table class="table table-striped table-dark table-bordered table-hover table-sm">
+  <thead class="thead-light">
     <tr>
       <th id= 'fn'><%= sortable 'first_name'%></th>
       <th id= 'ln'><%= sortable 'last_name'%></th>
@@ -130,6 +133,7 @@ function showUIN() {
   <tbody>
     <% @members.each do |member| %>
       <tr>
+<<<<<<< HEAD
         <td id='fnv'><%= member.first_name %></td>
         <td id= 'lnv'><%= member.last_name %></td>
         <td id= 'uinv'><%= member.member_uin %></td>
@@ -141,6 +145,17 @@ function showUIN() {
         <td id= 'officerv'><%= member.payments.any? ? member.payments.first.officer_uin.name : "N/A" %></td>
         <td id= 'mtdv'><%= member.payments.any? ? member.payments.first.mtd : "N/A" %></td>
         <td id= 'amntv'><%= member.payments.any? ? member.payments.first.amount : "N/A" %></td>
+=======
+        <td><%= member.first_name %></td>
+        <td><%= member.last_name %></td>
+        <td><%= member.member_uin %></td>
+        <td><%= member.email %></td>
+        <td><%= member.phone_number %></td>
+        <td><%= member.join_date %></td>
+
+        <td><%= member.join_date %></td><td><%= member.join_date %></td><td><%= member.join_date %></td><td><%= member.join_date %></td><td><%= member.join_date %></td>
+
+>>>>>>> 8280d2e114f3547697b0264c394660df44f18775
         <td><%= link_to 'Show', member %></td>
         <td><%= link_to 'Edit', edit_member_path(member) %></td>
         <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -148,9 +163,3 @@ function showUIN() {
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Member', new_member_path %>
-<br>
-<%= link_to "Sign Out", destroy_admin_session_path %>
