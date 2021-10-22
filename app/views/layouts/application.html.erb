@@ -1,22 +1,58 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BmcTracker</title>
+    <title>BMC Tracker</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+        .flash__alert   { color: red; }
+        .flash__notice  { color: blue; }
+        .flash__success { color: green; }
+    </style>  
+
+     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
   </head>
 
   <body>
-    <h1>Texas A&M Badminton Club</h1>
-      <h2>
-        <%= link_to 'Members', members_path, class: 'button alt' %>
-        <%= link_to 'Officers', officers_path, class: 'button alt' %>
-        <%= link_to 'Payments', payments_path, class: 'button alt' %>
-      </h2>
+    <% if flash.any? %>
+      <% flash.each do |key, value| -%>
+        <section class="flash flash__<%= key %>"><%= value.html_safe %></section>
+      <% end -%>
+    <% end %>
+
+    <%= stylesheet_link_tag 'styles' %>
+
+    <nav class = "nav">
+      <input type="checkbox" id="nav__checkbox" class="nav__checkbox">
+      <label for="nav__checkbox" class="nav__toggle">
+        <svg class="menu" viewBox="0 0 448 512" width="100" title="bars">
+          <path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" />
+        </svg>
+        <svg class="close" viewBox="0 0 384 512" width="100" title="times">
+          <path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z" />
+        </svg>
+        
+        
+    </label>
+    <ul class="nav__menu">
+        <li><%= link_to 'Members', members_path, class: 'button alt' %></li>
+        <li><%= link_to 'Officers', officers_path, class: 'button alt' %></li>
+        <li><%= link_to 'Payments', payments_path, class: 'button alt' %></li>
+        <li><%= link_to 'Deposits', deposits_path, class: 'button alt' %></li>
+        <li><%= link_to 'Withdrawals', withdrawals_path, class: 'button alt' %></li>
+        <li><%= link_to 'Transaction_types', transaction_types_path, class: 'button alt' %></li>
+        <li><%= link_to "Sign Out", destroy_admin_session_path %></li>
+    </ul>
+    </nav>
+
     <%= yield %>
+
+    
   </body>
 </html>

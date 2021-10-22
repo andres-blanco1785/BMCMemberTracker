@@ -2,7 +2,7 @@
 
 <p>
   <strong>Payment Method:</strong>
-  <%= @payment.paymentMethod %>
+  <%= @payment.payment_mtd %>
 </p>
 
 <p>
@@ -12,12 +12,12 @@
 
 <p>
   <strong>Member Type:</strong>
-  <%= @payment.membershipType %>
+  <%= @payment.membership_type %>
 </p>
 
 <p>
   <strong>Membership Expiration:</strong>
-  <%= @payment.membershipExpiration %>
+  <%= @payment.membership_expiration %>
 </p>
 
 <p>
@@ -27,12 +27,12 @@
 
 <p>
   <strong>Member who Paid:</strong>
-  <%= @payment.member_id %>
+  <%= @payment.member_uin %>
 </p>
 
 <p>
   <strong>Officer Paid to:</strong>
-  <%= @payment.officer_id %>
+  <%= @payment.officer_uin %>
 </p>
 
 <%= link_to 'Edit', edit_payment_path(@payment) %> |

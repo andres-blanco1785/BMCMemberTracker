@@ -1,40 +1,109 @@
 <p id="notice"><%= notice %></p>
-<table>
-  <thead>
+
+
+<!-- <form>
+  <legend>Show:</legend>
+  <input type="checkbox" id="member_id" name="membershow" value="member_id"> UIN
+  <input type="checkbox" id="email" name="membershow" value="email"> Email
+  <input type="checkbox" id="phoneNumber" name="membershow" value="phoneNumber"> Phone Number
+  <input type="checkbox" id="joinDate" name="membershow" value="joinDate"> Join Date
+  <input type="checkbox" id="membershipType" name="membershow" value="membershipType"> Membership Type
+  <input type="checkbox" id="membershipExpiration" name="membershow" value="membershipExpiration" checked> Membership Expiration
+</form> -->
+
+
+<!-- Check boxes -->
+<div class='field'>
+  <% @attributes.each do |attr|%>
+    <%= check_box_tag 'check[]', attr%>
+    <%= attr %>
+  <% end %>
+</div>
+
+<%= link_to 'New Member', new_member_path, class: 'btn btn-light btn-lg btn-block' %>
+
+<!-- Table -->
+<!-- <div class='field'>
+
+  <% @attributeName.each do |attr|%>
+    <p><b><%= attr %></b></p>
+    <% @attr.each do |mem|%>
+      <table>
+        <%= mem[attr] %>
+      </table>
+    <% end %>
+  <% end %>
+</div> -->
+
+
+<script>
+document.getElementById("check_").addEventListener("click", showUIN);
+function showUIN() {
+  document.getElementById("check_").innerHTML = 'UIN'
+}
+
+// document.getElementById("email").addEventListener("click", showEmail);
+// function showEmail() {
+//   document.getElementById("emailID").innerHTML = 'Email'
+// }
+
+</script>
+
+<br>
+<br>
+<table class="table table-striped table-dark table-bordered table-hover table-sm">
+  <thead class="thead-light">
     <tr>
-      <th>UIN</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>PhoneNumber</th>
-      <th>Joindate</th>
-      <th>MemberShip Type</th>
-      <th>date</th>
-      <th>Officer Paid To</th>
-      <th>Method of Payment</th>
-      <th>Amount</th>
-      <th>
+
+      <th><%= sortable 'first_name'%></th>
+      <th><%= sortable 'last_name'%></th>
+      <th><%= sortable 'member_uin', 'UIN'%></th>
+      <th><%= sortable 'email'%></th>
+      <th><%= sortable 'phone_number'%></th>
+      <th><%= sortable 'join_date'%></th>
+      <th><%= sortable 'membership_type'%></th>
+      <th><%= sortable 'date'%></th>
+      <th><%= sortable 'officer paid to'%></th>
+      <th><%= sortable 'payment_method'%></th>
+      <th><%= sortable 'amount'%></th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
 
+  <script>
+  document.getElementById("member_uin").addEventListener("click", showUIN);
+  function showUIN() {
+    document.getElementById("uin").innerHTML = 'UIN'
+  }
+
+  document.getElementById("email").addEventListener("click", showEmail);
+  function showEmail() {
+    document.getElementById("emailID").innerHTML = 'Email'
+  }
+
+  </script>
+
+
+
   <tbody>
     <% @members.each do |member| %>
       <tr>
-        <td><%= member.member_id %></td>
-        <td><%= member.firstName %></td>
-        <td><%= member.lastName %></td>
+        <td><%= member.first_name %></td>
+        <td><%= member.last_name %></td>
+        <td><%= member.member_uin %></td>
         <td><%= member.email %></td>
-        <td><%= member.phoneNumber %></td>
-        <td><%= member.joinDate %></td>
-        <td><%= member.payments.any? ? member.payments.first.membershipType : "N/A" %></td>
-        <p></td>
+
+
+        <td><%= member.phone_number %></td>
+        <td><%= member.join_date %></td>
+
+        <td><%= member.payments.any? ? member.payments.first.membership_type : "N/A" %></td>
         <td><%= member.payments.any? ? member.payments.first.date : "N/A" %></td>
-        <td><%= member.payments.any? ? member.payments.first.officer_id.name : "N/A" %></td>
-        <td><%= member.payments.any? ? member.payments.first.method : "N/A" %></td>
-        <td><%= member.payments.any? ? member.payments.first.amount : "N/A" %></td>
-        
-       
+        <td><%= member.payments.any? ? "Link Latter" : "N/A" %></td>
+        <td><%= member.payments.any? ? member.payments.first.payment_mtd : "N/A" %></td>
+
+
         <td><%= link_to 'Show', member %></td>
         <td><%= Payment.any? ? "yes" : "N/A" %></td>
         <td><%= link_to 'Edit', edit_member_path(member) %></td>
@@ -43,7 +112,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Member', new_member_path %>

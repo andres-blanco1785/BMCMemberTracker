@@ -11,37 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :UIN %>
-    <%= form.number_field :member_id %>
+    <%= form.number_field :member_uin, class:"form-control", placeholder: "UIN" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :FirstName %>
-    <%= form.text_field :firstName %>
+    <%= form.text_field :first_name, class:"form-control" , placeholder: "First Name" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :LastName %>
-    <%= form.text_field :lastName %>
+    <%= form.text_field :last_name, class:"form-control", placeholder: "Last Name" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, class:"form-control" , placeholder: "Email" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :phoneNumber %>
-    <%= form.text_field :phoneNumber %>
+    <%= form.text_field :phone_number, class:"form-control" , placeholder: "Phone Number" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :joinDate %>
-    <%= form.date_select :joinDate %>
+    <%= form.date_select :join_date, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:'btn btn-dark btn-lg btn-block'%>
   </div>
 <% end %>
