@@ -25,6 +25,10 @@ class PaymentsController < ApplicationController
 
     respond_to do |format|
       if @payment.save
+	    # Tell NotifyPymtMailer to send email after save
+	    #NotifyPymtMailer.with(payment: @payment).payment_email.deliver_later
+	    NotifyPymtMailer.with(payment: @payment).payment_email.deliver_now
+		
         format.html { redirect_to @payment, notice: "Payment was successfully created." }
         format.json { render :show, status: :created, location: @payment }
       else
