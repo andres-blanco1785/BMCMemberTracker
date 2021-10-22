@@ -22,13 +22,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :transaction_id %>
-    <%= form.number_field :transaction_id %>
+    <%= form.label :category %>
+    <%= form.select :category, TransactionType.all.collect { |t| [t.category] }, include_blank: true %>
   </div>
 
   <div class="field">
     <%= form.label :amount %>
-    <%= form.text_field :amount %>
+    <%= form.number_field :amount %>
   </div>
 
   <div class="field">

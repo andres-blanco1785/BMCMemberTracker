@@ -1,6 +1,6 @@
 class Deposit < ApplicationRecord
-  belongs_to :officer, :foreign_key => 'officer_uin', :primary_key => 'officer_uin'
-  belongs_to :transaction_type, :foreign_key => 'transaction_num', :primary_key => 'transaction_num'
+  has_many :officers, foreign_key: "officer_uin"
+  has_many :transaction_types, foreign_key: "category"
   validates :officer_uin, presence: true
 	validates :transaction_id, presence: true
   validates :amount, presence: true

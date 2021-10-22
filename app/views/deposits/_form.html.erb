@@ -17,8 +17,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :transcation_id %>
-    <%= form.number_field :transcation_id %>
+    <%= form.label :category %>
+    <%= form.select :category, TransactionType.all.collect { |t| [t.category] }, include_blank: true %>
   </div>
 
   <div class="field">
