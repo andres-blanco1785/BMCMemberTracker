@@ -94,16 +94,13 @@ function showUIN() {
         <td><%= member.email %></td>
         <td><%= member.phone_number %></td>
         <td><%= member.join_date %></td>
-<<<<<<< HEAD
+
         <td><%= member.payments.any? ? member.payments.first.membership_type : "N/A" %></td>
         <td><%= member.payments.any? ? member.payments.first.date : "N/A" %></td>
         <td><%= member.payments.any? ? "Link Latter" : "N/A" %></td>
         <td><%= member.payments.any? ? member.payments.first.payment_mtd : "N/A" %></td>
-=======
+        <td><%= member.payments.any? ? member.payments.first.amount : "N/A" %></td>
 
-        <td><%= member.join_date %></td><td><%= member.join_date %></td><td><%= member.join_date %></td><td><%= member.join_date %></td><td><%= member.join_date %></td>
-
->>>>>>> 8280d2e114f3547697b0264c394660df44f18775
         <td><%= link_to 'Show', member %></td>
         <td><%= link_to 'Edit', edit_member_path(member) %></td>
         <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -111,10 +108,3 @@ function showUIN() {
     <% end %>
   </tbody>
 </table>
-<<<<<<< HEAD
-
-<br>
-
-<%= link_to 'New Member', new_member_path %>
-=======
->>>>>>> 7fc969870cc885cff7df68d31ba4797d86cca896
