@@ -64,6 +64,6 @@ class DepositsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def deposit_params
-      params.require(:deposit).permit(:deposit_id, :officer_uin, :transcation_id, :amount, :date)
+      params.require(:deposit).permit(:deposit_id, :officer_uin, :category, :amount, :date)
     end
 end
