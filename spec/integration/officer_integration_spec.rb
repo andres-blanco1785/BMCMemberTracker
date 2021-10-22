@@ -10,7 +10,7 @@ RSpec.describe 'Create officer', type: :feature do
     click_link 'Sign in with your TAMU Google Account'
     visit new_officer_path
     click_on 'Create Officer'
-    expect(page).to have_content("Officer UIN can't be blank")
+    expect(page).to have_content("Officer uin can't be blank")
     expect(page).to have_content("Name can't be blank")
     expect(page).to have_content("Email can't be blank")
 
@@ -20,11 +20,13 @@ RSpec.describe 'Create officer', type: :feature do
 
   scenario 'valid inputs' do
     visit new_officer_path
+    click_link 'Sign in with your TAMU Google Account'
+    visit new_officer_path
 
     fill_in 'Officer UIN', with: 631009798
     fill_in 'Name', with: 'Yue Hu'
     fill_in 'Email', with: 'yueh@tamu.edu'
-    fill_in 'officer_amount_owed', with: 0
+    fill_in 'Amount Owed', with: 0
     click_on 'Create Officer'
     # An officer has been created
     expect(Officer.count).to eq(1)
@@ -35,8 +37,12 @@ RSpec.describe 'Create officer', type: :feature do
     expect(page).to have_content("0")
     expect(page).to have_content("yueh@tamu.edu")   
   end
+
   scenario 'duplicated UIN and email' do
-    Officer.create(officer_id: 631009798, name:'Yue Hu',email: 'yueh@tamu.edu',amount_owed:0)
+
+    visit new_officer_path
+    click_link 'Sign in with your TAMU Google Account'
+    Officer.create(officer_uin: 631009798, name:'Yue Hu',email: 'yueh@tamu.edu',amount_owed:0)
     # An officer has been created
     expect(Officer.count).to eq(1)
     visit officers_path
@@ -48,9 +54,9 @@ RSpec.describe 'Create officer', type: :feature do
     fill_in 'Officer UIN', with: 631009798
     fill_in 'Name', with: 'Yuan Lisha'
     fill_in 'Email', with: 'yueh@tamu.edu'
-    fill_in 'officer_amount_owed', with: 0
+    fill_in 'Amount Owed', with: 0
     click_on 'Create Officer'
-    expect(page).to have_content('Officer UIN has already been taken')
+    expect(page).to have_content('Officer uin has already been taken')
     expect(page).to have_content('Email has already been taken')
 
 
@@ -58,9 +64,15 @@ RSpec.describe 'Create officer', type: :feature do
 end
 
 RSpec.describe 'Destroy officer', type: :feature do
-  let!(:officer) { Officer.create(officer_id: '631009798', name: 'Yue Hu', email:'yueh@tamu.edu', amount_owed:0) }
+  before do
+    Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
+    Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google]
+  end
+  let!(:officer) { Officer.create(officer_uin: '631009798', name: 'Yue Hu', email:'yueh@tamu.edu', amount_owed:0) }
   scenario 'successfully' do
     # An officer has been created
+    visit new_officer_path
+    click_link 'Sign in with your TAMU Google Account'
     expect(Officer.count).to eq(1)
     visit officers_path
     expect(page).to have_content("631009798")
@@ -76,10 +88,16 @@ end
 
 
 RSpec.describe 'Edit officer', type: :feature do
-  let!(:officer) { Officer.create(officer_id: '631009798', name: 'Yue Hu', email:'yueh@tamu.edu', amount_owed:0) }
+  before do
+    Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
+    Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google]
+  end
+  let!(:officer) { Officer.create(officer_uin: '631009798', name: 'Yue Hu', email:'yueh@tamu.edu', amount_owed:0) }
   scenario 'successfully' do
     
     # An officer has been created
+    visit new_officer_path
+    click_link 'Sign in with your TAMU Google Account'
     expect(Officer.count).to eq(1)
     visit officers_path
     expect(page).to have_content("631009798")
@@ -90,7 +108,7 @@ RSpec.describe 'Edit officer', type: :feature do
     fill_in 'Officer UIN', with: 631009798
     fill_in 'Name', with: 'Yuan Lisha'
     fill_in 'Email', with: 'lisha@tamu.edu'
-    fill_in 'officer_amount_owed', with: 0
+    fill_in 'Amount Owed', with: 0
     click_on 'Update Officer'
     expect(page).to have_content('Officer was successfully updated.')
     expect(page).to have_content("631009798")
@@ -100,7 +118,9 @@ RSpec.describe 'Edit officer', type: :feature do
   end
 
   scenario 'fails because of duplication' do
-    Officer.create(officer_id: 6898, name:'Lisha Yuan',email: 'lisha@tamu.edu',amount_owed:0)
+    visit new_officer_path
+    click_link 'Sign in with your TAMU Google Account'
+    Officer.create(officer_uin: 6898, name:'Lisha Yuan',email: 'lisha@tamu.edu',amount_owed:0)
 
     expect(Officer.count).to eq(2)
     visit officers_path
@@ -109,16 +129,22 @@ RSpec.describe 'Edit officer', type: :feature do
     fill_in 'Officer UIN', with: 631009798
     fill_in 'Name', with: 'Yuan Lisha'
     fill_in 'Email', with: 'lisha@tamu.edu'
-    fill_in 'officer_amount_owed', with: 0
+    fill_in 'Amount Owed', with: 0
     click_on 'Update Officer'
-    expect(page).to have_content('Officer UIN has already been taken')
+    expect(page).to have_content('Officer uin has already been taken')
   end
 end
 
 
 RSpec.describe 'Show officer', type: :feature do
-  let!(:officer) { Officer.create(officer_id: '631009798', name: 'Yue Hu', email:'yueh@tamu.edu', amount_owed:0) }
+  before do
+    Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
+    Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google]
+  end
+  let!(:officer) { Officer.create(officer_uin: '631009798', name: 'Yue Hu', email:'yueh@tamu.edu', amount_owed:0) }
   scenario 'successfully' do
+    visit new_officer_path
+    click_link 'Sign in with your TAMU Google Account'
     # An officer has been created
     expect(Officer.count).to eq(1)
     visit officers_path
