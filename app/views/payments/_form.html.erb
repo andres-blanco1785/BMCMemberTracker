@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :payment_method %>
-    <%= form.select(:payment_method, ['Cash', 'Venmo', 'Other'], {}, {}) %>
+    <%= form.label :payment_mtd %>
+    <%= form.select(:payment_mtd, ['Cash', 'Venmo', 'Other'], {}, {}) %>
   </div>
 
   <div class="field">
@@ -37,13 +37,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :member_id %>
-    <%= form.text_field :member_id %>
+    <%= form.label :member_uin %>
+    <%= form.text_field :member_uin %>
   </div>
 
   <div class="field">
-    <%= form.label :officer_id %>
-    <%= form.text_field :officer_id %>
+    <%= form.label :officer_uin %>
+    <%= form.text_field :officer_uin %>
   </div>
 
   <div class="actions">

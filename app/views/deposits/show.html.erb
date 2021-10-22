@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Deposit:</strong>
+  <%= @deposit.deposit_id %>
+</p>
+
+<p>
+  <strong>Officer uin:</strong>
+  <%= @deposit.officer_uin %>
+</p>
+
+<p>
+  <strong>Transcation:</strong>
+  <%= @deposit.transcation_id %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @deposit.amount %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @deposit.date %>
+</p>
+
+<%= link_to 'Edit', edit_deposit_path(@deposit) %> |
+<%= link_to 'Back', deposits_path %>
