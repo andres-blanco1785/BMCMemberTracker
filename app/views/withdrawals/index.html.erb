@@ -6,8 +6,8 @@
   <thead>
     <tr>
       <th>Withdraw</th>
-      <th>Officer uin</th>
-      <th>Transaction</th>
+      <th>Officer UIN</th>
+      <th>Transaction Type</th>
       <th>Amount</th>
       <th>Title</th>
       <th>Description</th>
@@ -21,11 +21,12 @@
       <tr>
         <td><%= withdrawal.withdraw_id %></td>
         <td><%= withdrawal.officer_uin %></td>
-        <td><%= withdrawal.transaction_id %></td>
+        <td><%= withdrawal.category %></td>
         <td><%= withdrawal.amount %></td>
         <td><%= withdrawal.title %></td>
         <td><%= withdrawal.description %></td>
         <td><%= withdrawal.date %></td>
+
         <td><%= link_to 'Show', withdrawal %></td>
         <td><%= link_to 'Edit', edit_withdrawal_path(withdrawal) %></td>
         <td><%= link_to 'Destroy', withdrawal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
