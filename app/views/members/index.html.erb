@@ -11,7 +11,6 @@
   <input type="checkbox" id="membershipExpiration" name="membershow" value="membershipExpiration" checked> Membership Expiration
 </form> -->
 
-
 <script>
   function toggleElements(title, value, box) {
      // get the clock
@@ -30,9 +29,7 @@
      if (displaySetting == 'block') {
        // clock is visible. hide it
        myTitle.style.display = 'none';
-       <% @members.each do |member| %>
-          myVal.style.display = 'none';
-       <%end%>
+       myVal.style.display = 'none';
        // change button text
        // ckbox.innerHTML = 'Show firstname';
      }
@@ -126,7 +123,7 @@ function showUIN() {
 
 
 
-  <tbody>
+  <tbody id = 'fulltable'>
     <% @members.each do |member| %>
       <tr>
         <td id='fnv'><%= member.first_name %></td>
