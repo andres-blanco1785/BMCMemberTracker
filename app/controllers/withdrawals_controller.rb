@@ -64,6 +64,6 @@ class WithdrawalsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def withdrawal_params
-      params.require(:withdrawal).permit(:withdraw_id, :officer_uin, :transaction_id, :amount, :title, :description, :date)
+      params.require(:withdrawal).permit(:withdraw_id, :officer_uin, :category, :amount, :title, :description, :date)
     end
 end
