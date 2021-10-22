@@ -1,6 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<!-- Using the table method to display variables -->
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Payment Method</th>
+      <th scope="col">Date</th>
+      <th scope="col">Member Type</th>
+      <th scope="col">Membership Expiration</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Member Who Paid</th>
+      <th scope="col">Officer Paid</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @payment.payment_mtd %></td>
+      <td><%= @payment.date %></td>
+      <td><%= @payment.membership_type %></td>
+      <td><%= @payment.membership_expiration %></td>
+      <td><%= @payment.amount %></td>
+      <td><%= @payment.member_uin %></td>
+      <td><%= @payment.officer_uin %></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- <p>
   <strong>Payment Method:</strong>
   <%= @payment.payment_mtd %>
 </p>
@@ -35,5 +62,5 @@
   <%= @payment.officer_uin %>
 </p>
 
-<%= link_to 'Edit', edit_payment_path(@payment) %> |
-<%= link_to 'Back', payments_path %>
+<%= link_to 'Edit', edit_payment_path(@payment), class:"btn btn-warning btn-lg btn-block" %>
+<%= link_to 'Back', payments_path, class:"btn btn-dark btn-lg btn-block"  %>
