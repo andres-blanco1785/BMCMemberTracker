@@ -1,4 +1,4 @@
-#!/Users/michaelstewart/.rbenv/shims/ruby
+#!/usr/bin/env ruby
 if !defined?(Spring) && [nil, "development", "test"].include?(ENV["RAILS_ENV"])
   gem "bundler"
   require "bundler"
