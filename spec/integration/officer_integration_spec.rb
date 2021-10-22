@@ -1,7 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe 'Create officer', type: :feature do
+  before do
+    Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
+    Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google]
+  end
   scenario 'empty UIN, name and email' do
+    visit new_officer_path
+    click_link 'Sign in with your TAMU Google Account'
     visit new_officer_path
     click_on 'Create Officer'
     expect(page).to have_content("Officer UIN can't be blank")
@@ -14,6 +20,7 @@ RSpec.describe 'Create officer', type: :feature do
 
   scenario 'valid inputs' do
     visit new_officer_path
+
     fill_in 'Officer UIN', with: 631009798
     fill_in 'Name', with: 'Yue Hu'
     fill_in 'Email', with: 'yueh@tamu.edu'
