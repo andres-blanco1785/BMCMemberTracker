@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2021_10_15_155527) do
   create_table "deposits", force: :cascade do |t|
     t.integer "deposit_id"
     t.integer "officer_uin"
-    t.integer "transcation_id"
+    t.string "category"
     t.float "amount"
     t.date "date"
     t.datetime "created_at", precision: 6, null: false
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2021_10_15_155527) do
   create_table "withdrawals", force: :cascade do |t|
     t.integer "withdraw_id"
     t.integer "officer_uin"
-    t.integer "transaction_id"
+    t.string "category"
     t.float "amount"
     t.string "title"
     t.string "description"
@@ -86,5 +86,4 @@ ActiveRecord::Schema.define(version: 2021_10_15_155527) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
-
 end
