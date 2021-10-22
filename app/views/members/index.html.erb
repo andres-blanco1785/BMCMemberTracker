@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Members</h1>
 
 <!-- <form>
   <legend>Show:</legend>
@@ -94,7 +95,11 @@ function showUIN() {
         <td><%= member.phone_number %></td>
         <td><%= member.join_date %></td>
 
-        <td><%= member.join_date %></td><td><%= member.join_date %></td><td><%= member.join_date %></td><td><%= member.join_date %></td><td><%= member.join_date %></td>
+        <td><%= member.payments.any? ? member.payments.first.membership_type : "N/A" %></td>
+        <td><%= member.payments.any? ? member.payments.first.date : "N/A" %></td>
+        <td><%= member.payments.any? ? "Link Latter" : "N/A" %></td>
+        <td><%= member.payments.any? ? member.payments.first.payment_mtd : "N/A" %></td>
+        <td><%= member.payments.any? ? member.payments.first.amount : "N/A" %></td>
 
         <td><%= link_to 'Show', member, class: "btn btn-outline-info" %></td>
         <td><%= link_to 'Edit', edit_member_path(member), class: "btn btn-secondary"%></td>
