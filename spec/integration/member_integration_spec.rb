@@ -1,8 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe 'Create Member', type: :feature do
+  before do
+    Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
+    Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google]
+  end
   scenario 'empty UIN, name and email' do
     visit new_member_path
+    click_link 'Sign in with your TAMU Google Account'
+    visit new_transaction_type_path
     click_on 'Create Member'
     expect(page).to have_content("Member can't be blank")
     expect(page).to have_content("First name can't be blank")
