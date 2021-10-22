@@ -101,7 +101,7 @@ function showUIN() {
 
         <td><%= member.payments.any? ? member.payments.first.membership_type : "N/A" %></td>
         <td><%= member.payments.any? ? member.payments.first.date : "N/A" %></td>
-        <td><%= member.payments.any? ? "Link Latter" : "N/A" %></td>
+        <td><%= member.payments.any? ? member.payments.first.officer.officer_uin : "N/A" %></td>
         <td><%= member.payments.any? ? member.payments.first.payment_mtd : "N/A" %></td>
 
 
