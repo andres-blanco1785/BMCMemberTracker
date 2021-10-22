@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+Rails.application.routes.draw do  
   root 'members#index'
   # root to: 'dashboards#show'
   devise_for :admins, controllers: { omniauth_callbacks: 'admins/omniauth_callbacks' }
@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   resources :payments
   resources :officers
   resources :members
+  resources :transaction_types
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
