@@ -7,25 +7,25 @@
      var myElement = document.getElementsByClassName(id);
      var displaySetting = myElement[0].style.display;
 
-     if (displaySetting == 'block') {
+     if (displaySetting == '') {
        for (var i = 0; i < myElement.length; i++) {
          myElement[i].style.display = 'none';
        }
      }
      else {
        for (var i = 0; i < myElement.length; i++) {
-         myElement[i].style.display = 'block';
+         myElement[i].style.display = '';
        }
      }
    }
 </script>
 
-<input type="checkbox" onclick="toggleElements_id('fn')" id="fnBox">First Name</input>
-<input type="checkbox" onclick="toggleElements_id('ln')" id="'lnBox'">Last Name</input>
-<input type="checkbox" onclick="toggleElements_id('uin')" id="'uinBox'">UIN</input>
-<input type="checkbox" onclick="toggleElements_id('email')" id="'emailBox'">Email</input>
-<input type="checkbox" onclick="toggleElements_id('pn')" id="'pnBox'">Phone Number</input>
-<input type="checkbox" onclick="toggleElements_id('join')" id="'joinBox'">Join Date</input>
+<input type="checkbox" onclick="toggleElements_id('fn')" id="fnBox" checked>First Name</input>
+<input type="checkbox" onclick="toggleElements_id('ln')" id="'lnBox'" checked>Last Name</input>
+<input type="checkbox" onclick="toggleElements_id('uin')" id="'uinBox'" checked>UIN</input>
+<input type="checkbox" onclick="toggleElements_id('email')" id="'emailBox'" checked>Email</input>
+<input type="checkbox" onclick="toggleElements_id('pn')" id="'pnBox'" checked>Phone Number</input>
+<input type="checkbox" onclick="toggleElements_id('join')" id="'joinBox'" checked>Join Date</input>
 <!-- <input type="checkbox" onclick="toggleElements('join', 'joinv', 'joinBox')" id="'joinBox'">Membership Type</input>
 <input type="checkbox" onclick="toggleElements('join', 'joinv', 'joinBox')" id="'joinBox'">Payment Date</input>
 <input type="checkbox" onclick="toggleElements('join', 'joinv', 'joinBox')" id="'joinBox'">...?</input>
@@ -60,17 +60,17 @@ function showUIN() {
 <table class="table table-striped table-dark table-bordered table-hover table-sm">
   <thead class="thead-light">
     <tr>
-      <th class= 'fn'><%= sortable 'first_name'%></th>
-      <th class= 'ln'><%= sortable 'last_name'%></th>
-      <th class= 'uin'><%= sortable 'member_uin', 'UIN'%></th>
-      <th class= 'email'><%= sortable 'email'%></th>
-      <th class= 'pn'><%= sortable 'phone_number'%></th>
-      <th class= 'join'><%= sortable 'join_date'%></th>
-      <th class= 'memtpye'><%= sortable 'membership_type'%></th>
-      <th class= 'date'><%= sortable 'date'%></th>
-      <th class= 'officer'><%= sortable 'officer paid to'%></th>
-      <th class= 'mtd'><%= sortable 'payment_mtd'%></th>
-      <th class= 'amnt'><%= sortable 'amount'%></th>
+      <th class= 'fn' style="display: ;"><%= sortable 'first_name'%></th>
+      <th class= 'ln' style="display: ;"><%= sortable 'last_name'%></th>
+      <th class= 'uin' style="display: ;"><%= sortable 'member_uin', 'UIN'%></th>
+      <th class= 'email' style="display: ;"><%= sortable 'email'%></th>
+      <th class= 'pn' style="display: ;"><%= sortable 'phone_number'%></th>
+      <th class= 'join' style="display: ;"><%= sortable 'join_date'%></th>
+      <th class= 'memtpye' style="display: ;"><%= sortable 'membership_type'%></th>
+      <th class= 'date' style="display: ;"><%= sortable 'date'%></th>
+      <th class= 'officer' style="display: ;"><%= sortable 'officer paid to'%></th>
+      <th class= 'mtd' style="display: ;"><%= sortable 'payment_mtd'%></th>
+      <th class= 'amnt' style="display: ;"><%= sortable 'amount'%></th>
       <th colspan="3"></th>
     </tr>
   </thead>
