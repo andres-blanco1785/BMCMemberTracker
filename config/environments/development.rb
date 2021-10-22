@@ -76,4 +76,25 @@ Rails.application.configure do
 
   ENV['GOOGLE_OAUTH_CLIENT_ID'] = '308764736339-4mrbvmm136v1dh7bet7ohc53if23bmo3.apps.googleusercontent.com'
   ENV['GOOGLE_OAUTH_CLIENT_SECRET'] = 'gWLEafhah4SqjNyFUfMrFDN-'
+  
+  # ADDED FOR PAYMENT EMAIL
+  config.action_mailer.delivery_method = :smtp
+  host = 'localhost:3000' #replace with your own url
+  config.action_mailer.default_url_options = { host: host }
+  # while using localhost, may need to use the next version
+  config.action_mailer.default_url_options = { :host => 'localhost:3000', protocol: 'http' }
+
+  # added b/c email should be working but it
+  config.web_console.permissions = '172.17.0.1'
+  
+  # SMTP settings for gmail
+  config.action_mailer.smtp_settings = {
+    :address              => 'smtp.gmail.com',
+    :port                 => 587,
+    :user_name            => 'BMCT.test.J@gmail.com',
+    :password             => '0nward!J',
+    :authentication       => 'plain',
+    :enable_starttls_auto => true
+  }
+  
 end
