@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2021_10_15_155527) do
   end
 
   create_table "members", force: :cascade do |t|
-    t.integer "member_uin"
+    t.integer "member_id"
     t.string "first_name"
     t.string "last_name"
     t.string "email"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2021_10_15_155527) do
   end
 
   create_table "officers", force: :cascade do |t|
-    t.integer "officer_uin"
+    t.integer "officer_id"
     t.string "name"
     t.string "email"
     t.float "amount_owed"
@@ -57,13 +57,13 @@ ActiveRecord::Schema.define(version: 2021_10_15_155527) do
 
   create_table "payments", force: :cascade do |t|
     t.integer "payment_id"
-    t.string "payment_mtd"
+    t.string "payment_method"
     t.date "date"
     t.string "membership_type"
     t.date "membership_expiration"
     t.float "amount"
-    t.integer "member_uin"
-    t.integer "officer_uin"
+    t.integer "member_id"
+    t.integer "officer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
