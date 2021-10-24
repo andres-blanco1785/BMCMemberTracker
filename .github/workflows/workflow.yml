@@ -6,11 +6,7 @@ env:
   DATABASE_PASSWORD: password
 
 name: Rails tests
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+on: [push, pull_request]
 jobs:
   rspec-test:
     name: RSpec

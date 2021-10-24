@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Members</h1>
 
 <!-- <form>
   <legend>Show:</legend>
@@ -53,6 +54,7 @@ function showUIN() {
 <table class="table table-striped table-dark table-bordered table-hover table-sm">
   <thead class="thead-light">
     <tr>
+
       <th><%= sortable 'first_name'%></th>
       <th><%= sortable 'last_name'%></th>
       <th><%= sortable 'member_uin', 'UIN'%></th>
@@ -64,6 +66,7 @@ function showUIN() {
       <th><%= sortable 'officer paid to'%></th>
       <th><%= sortable 'payment_method'%></th>
       <th><%= sortable 'amount'%></th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -90,16 +93,23 @@ function showUIN() {
         <td><%= member.last_name %></td>
         <td><%= member.member_uin %></td>
         <td><%= member.email %></td>
+
+
         <td><%= member.phone_number %></td>
         <td><%= member.join_date %></td>
 
-        <td><%= member.join_date %></td><td><%= member.join_date %></td><td><%= member.join_date %></td><td><%= member.join_date %></td><td><%= member.join_date %></td>
+        <td><%= member.payments.any? ? member.payments.first.membership_type : "N/A" %></td>
+        <td><%= member.payments.any? ? member.payments.first.date : "N/A" %></td>
+        <td><%= member.payments.any? ? member.payments.first.officer.officer_uin : "N/A" %></td>
+        <td><%= member.payments.any? ? member.payments.first.payment_mtd : "N/A" %></td>
 
-        <td><%= link_to 'Show', member, class: "btn btn-outline-info" %></td>
-        <td><%= link_to 'Edit', edit_member_path(member), class: "btn btn-secondary"%></td>
-        <td><%= link_to 'Delete', member, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
+
+        <td><%= link_to 'Show', member %></td>
+        <td><%= Payment.any? ? "yes" : "N/A" %></td>
+        <td><%= link_to 'Edit', edit_member_path(member) %></td>
+        <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       </tr>
     <% end %>
   </tbody>
 </table>
-
