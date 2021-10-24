@@ -5,7 +5,6 @@
 <table>
   <thead>
     <tr>
-      <th>Deposit</th>
       <th>Officer UIN</th>
       <th>Transaction Type</th>
       <th>Amount</th>
@@ -17,7 +16,6 @@
   <tbody>
     <% @deposits.each do |deposit| %>
       <tr>
-        <td><%= deposit.deposit_id %></td>
         <td><%= deposit.officer_uin %></td>
         <td><%= deposit.category %></td>
         <td><%= deposit.amount %></td>
@@ -29,6 +27,14 @@
     <% end %>
   </tbody>
 </table>
+
+<% @deposits.each do |deposit| %>
+
+    <% @sum += deposit.amount %>
+
+<% end %>
+<br>
+<h3>Total Deposits: $<%= @sum%></h3>
 
 <br>
 
