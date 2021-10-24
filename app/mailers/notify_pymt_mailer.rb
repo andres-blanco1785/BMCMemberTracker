@@ -2,14 +2,11 @@ class NotifyPymtMailer < ApplicationMailer
   default from: 'BMCT.test.J@gmail.com'
 
   def payment_email
-    #@user = params[:user]
-    #@url  = 'http://example.com/login'
-    #mail(to: @user.email, subject: 'Welcome to My Awesome Site')
     @payment = params[:payment]
-    @url  = 'http://example.com/login'
-	#deliver_options = {user_name: 'BMCT.test.J@gmail.com',
-	#				   password: '0nward!J',
-	#				   address: 'smtp.gmail.com' }
-    mail(to: 'ja7davis@gmail.com', subject: 'BMCT Payment email subject in notify_pymt_mailer.rb')
+	@rec_name = params[:rec_name] # rec short for receiver
+	@rec_email = params[:rec_email]
+	@off_name = params[:off_name]
+	# PLEASE set to: YOUR EMAIL if you are testing and putting in "fake" emails
+    mail(to: @rec_email, subject: 'TAMU Badminton Club Dues Confirmation')
   end
 end

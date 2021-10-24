@@ -1,14 +1,14 @@
-TAMU Badmitton Club Payment Recorded on <%= @payment.date %>
+TAMU Badminton Club Payment Recorded
 ===============================================
 
-Howdy (this is UIN, want name) <%= @payment.member_uin %>
-Your recently paid dues to the TAMU Badmitton Club have been recorded.
+Howdy <%= @rec_name %>!
+Your recently paid dues to the TAMU Badminton Club have been recorded.
 
 Recorded date: <%= @payment.date %>
-Payment Amount: <%= @payment.amount %>
+Payment Amount: $ <%= @payment.amount %>
 Payment Method: <%= @payment.payment_mtd %>
 Membership expires: <%= @payment.membership_expiration %>
-Officer Paid to: (DO NOT LEAVE UIN... get name or remove line) <%= @payment.officer_uin %>
+Officer Paid to: <%= @off_name %>
 
 If you believe this email was not meant for you, please email us or ignore it.
 
