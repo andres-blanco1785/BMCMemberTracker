@@ -2,14 +2,20 @@
 require 'rails_helper'
 
 RSpec.describe Payment, type: :model do
+  # need to pass google sign in to get to payment tests
+  before do
+    Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
+    Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google]
+  end
+	
   subject do
-  mem_id_temp = Member.create(member_id: 111222333, first_name: 'Fnam', last_name: 'Lnam',
-  email: 'example@tamu.edu', phone_number: '1234567890', join_date: '1813-01-28')
-  off_id_temp = Officer.create(officer_id: 999899799, name: 'Onam', email: 'e@tamu.edu',
+  mem_id_temp = Member.create(member_uin: 111222333, first_name: 'Fnam', last_name: 'Lnam',
+  email: 'ja7davis@gmail.com', phone_number: '1234567890', join_date: '1813-01-28')
+  off_id_temp = Officer.create(officer_uin: 999899799, name: 'Onam', email: 'ja7davis@tamu.edu',
   amount_owed: 15)
-  described_class.new(payment_id: 111, payment_method: 'cash', date: '1813-01-28',
+  described_class.new(payment_id: 111, payment_mtd: 'cash', date: '1813-01-28',
 	membership_type: 'one semester', membership_expiration: '1813-01-28', amount: 15,
-	member_id: 111222333, officer_id: 999899799)
+	member_uin: 111222333, officer_uin: 999899799)
   end
 
   it 'is valid with valid attributes' do
@@ -17,7 +23,7 @@ RSpec.describe Payment, type: :model do
   end
   
   it 'is not valid without a paymentMethod' do
-    subject.payment_method = nil
+    subject.payment_mtd = nil
     expect(subject).not_to be_valid
   end
   
@@ -41,13 +47,13 @@ RSpec.describe Payment, type: :model do
     expect(subject).not_to be_valid
   end
   
-  it 'is not valid without a member_id' do
-    subject.member_id = nil
+  it 'is not valid without a member_uin' do
+    subject.member_uin = nil
     expect(subject).not_to be_valid
   end
   
-  it 'is not valid without a officer_id' do
-    subject.officer_id = nil
+  it 'is not valid without a officer_uin' do
+    subject.officer_uin = nil
     expect(subject).not_to be_valid
   end
 end

@@ -82,7 +82,7 @@ Rails.application.configure do
   })
   
   # payment email seems to work w/o, but error "cannot render from ..."
-  config.web_console.permissions = '172.17.0.1'
+  #config.web_console.permissions = '172.17.0.1'
   
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
