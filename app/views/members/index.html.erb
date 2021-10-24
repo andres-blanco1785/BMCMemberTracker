@@ -60,7 +60,6 @@
   <% end %>
 </div> -->
 
-<<<<<<< HEAD
 <!-- <table id="hi"></table>
 <script type = "text/javascript">
 function show() {
@@ -70,7 +69,7 @@ function show() {
 <input type = "button" onclick = "show()" value = "Display"> -->
 =======
 <%= link_to 'New Member', new_member_path, class: 'btn btn-light btn-lg btn-block' %>
->>>>>>> a9d3eb132d822c6bc59390c6047b5d0437d7e28e
+
 
 <!-- Table -->
 <!-- <div class='field'>
@@ -104,15 +103,12 @@ function showUIN() {
 <table class="table table-striped table-dark table-bordered table-hover table-sm">
   <thead class="thead-light">
     <tr>
-<<<<<<< HEAD
       <th id= 'fn'><%= sortable 'first_name'%></th>
       <th id= 'ln'><%= sortable 'last_name'%></th>
       <th id= 'uin'><%= sortable 'member_uin', 'UIN'%></th>
       <th id= 'email'><%= sortable 'email'%></th>
       <th id= 'pn'><%= sortable 'phone_number'%></th>
       <th id= 'join'><%= sortable 'join_date'%></th>
-=======
-
       <th><%= sortable 'first_name'%></th>
       <th><%= sortable 'last_name'%></th>
       <th><%= sortable 'member_uin', 'UIN'%></th>
@@ -124,8 +120,6 @@ function showUIN() {
       <th><%= sortable 'officer paid to'%></th>
       <th><%= sortable 'payment_method'%></th>
       <th><%= sortable 'amount'%></th>
-
->>>>>>> a9d3eb132d822c6bc59390c6047b5d0437d7e28e
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -148,14 +142,13 @@ function showUIN() {
   <tbody>
     <% @members.each do |member| %>
       <tr>
-<<<<<<< HEAD
+
         <td id='fnv'><%= member.first_name %></td>
         <td id= 'lnv'><%= member.last_name %></td>
         <td id= 'uinv'><%= member.member_uin %></td>
         <td id= 'emailv'><%= member.email %></td>
         <td id= 'pnv'><%= member.phone_number %></td>
         <td id= 'joinv'><%= member.join_date %></td>
-=======
         <td><%= member.first_name %></td>
         <td><%= member.last_name %></td>
         <td><%= member.member_uin %></td>
