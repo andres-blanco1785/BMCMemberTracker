@@ -13,25 +13,25 @@
 
   <div class="field">
     <%= form.label :officer_uin %>
-    <%= form.number_field :officer_uin %>
+    <%= form.number_field :officer_uin, class:"form-control", placeholder:"Officer UIN" %>
   </div>
 
   <div class="field">
     <%= form.label :category %>
-    <%= form.select :category, TransactionType.all.collect { |t| [t.category] }, include_blank: true %>
+    <%= form.select :category, TransactionType.all.collect { |t| [t.category] }, include_blank: true, class:"form-control", placeholder:"Category" %>
   </div>
 
   <div class="field">
     <%= form.label :amount %>
-    <%= form.number_field :amount %>
+    <%= form.number_field :amount, class:"form-control", placeholder:"Amount" %>
   </div>
 
   <div class="field">
     <%= form.label :date %>
-    <%= form.date_select :date %>
+    <%= form.date_select :date, class:"form-control", placeholder:"Date" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:'btn btn-warning btn-lg btn-block'%>
   </div>
 <% end %>

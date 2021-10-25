@@ -1,4 +1,23 @@
-<p id="notice"><%= notice %></p>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Deposit ID</th>
+      <th scope="col">Officer UIN</th>
+      <th scope="col">Category</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%= @deposit.deposit_id %></th>
+      <td><%= @deposit.officer_uin %></td>
+      <td><%= @deposit.category %></td>
+      <td><%= @deposit.amount %></td>
+      <td><%= @deposit.date %></td>
+    </tr>
+  </tbody>
+</table>
 
 <p>
   <strong>Officer uin:</strong>
@@ -21,4 +40,4 @@
 </p>
 
 <%= link_to 'Edit', edit_deposit_path(@deposit) %> |
-<%= link_to 'Back', deposits_path %>
+<%= link_to 'Back', deposits_path, class:"btn btn-dark btn-lg btn-block" %>
