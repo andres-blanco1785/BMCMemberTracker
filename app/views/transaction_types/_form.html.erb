@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :category %>
-    <%= form.text_field :category %>
+    <%= form.text_field :category, class:"form-control", placeholder:"Category" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:'btn btn-warning btn-lg btn-block'%>
   </div>
 <% end %>
