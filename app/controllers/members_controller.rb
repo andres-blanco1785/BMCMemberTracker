@@ -5,8 +5,8 @@ class MembersController < ApplicationController
   helper_method :sort_column, :sort_direction
   def index
     @members = Member.order(sort_column + ' ' + sort_direction)
-    @attributes = ['UIN', 'Email', 'Phone Number', 'Join Date', 'Mmebership Type', 'Membership Expiration']
-    @attributeName = ['member_uin', 'email', 'phoneNumber', 'joinDate']
+    @attributes = ['UIN', 'Email', 'Phone Number', 'Join Date', 'Mebership Type', 'Date', 'Officer Uin', 'Payment Method']
+    # @attributeName = ['member_uin', 'email', 'phoneNumber', 'joinDate']
     @attr= Member.all
     # @sortMem = Member.order(params[:sort])
 
