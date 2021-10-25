@@ -25,6 +25,14 @@ class PaymentsController < ApplicationController
 
     respond_to do |format|
       if @payment.save
+	    # Tell NotifyPymtMailer to send email after save
+		# .deliver_now : forces deliver now to proceed, vs .deliver_later recommended but sends asynchronous
+		# should get 1, but .first gets array[0] rather than array with one element... don't want [var] in email
+		@var_mem_email = Member.where(member_uin: @payment.member_uin).pluck(:email).first
+		@var_mem_name = Member.where(member_uin: @payment.member_uin).pluck(:first_name).first
+		@var_off_name = Officer.where(officer_uin: @payment.officer_uin).pluck(:name).first
+		NotifyPymtMailer.with(payment: @payment, rec_email: @var_mem_email, rec_name: @var_mem_name, off_name: @var_off_name).payment_email.deliver_now
+		
         format.html { redirect_to @payment, notice: "Payment was successfully created." }
         format.json { render :show, status: :created, location: @payment }
       else
