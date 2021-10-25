@@ -1,9 +1,26 @@
-<p id="notice"><%= notice %></p>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Officer UIN</th>
+      <th scope="col">Category</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @withdrawal.officer_uin %></td>
+      <td><%= @withdrawal.category %></td>
+      <td><%= @withdrawal.amount %></td>
+      <td><%= @withdrawal.title %></td>
+      <td><%= @withdrawal.description %></td>
+      <td><%= @withdrawal.date %></td>
+    </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Withdraw:</strong>
-  <%= @withdrawal.withdraw_id %>
-</p>
 
 <p>
   <strong>Officer UIN:</strong>
@@ -36,4 +53,4 @@
 </p>
 
 <%= link_to 'Edit', edit_withdrawal_path(@withdrawal) %> |
-<%= link_to 'Back', withdrawals_path %>
+<%= link_to 'Back', withdrawals_path, class:"btn btn-dark btn-lg btn-block"%>

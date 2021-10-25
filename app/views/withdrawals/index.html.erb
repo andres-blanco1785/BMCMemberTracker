@@ -1,9 +1,7 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Withdrawals</h1>
 
-<table>
-  <thead>
+<table class="table table-striped table-dark table-bordered table-hover table-sm">
+  <thead class="thead-light">
     <tr>
       <th>Withdraw</th>
       <th>Officer UIN</th>
@@ -27,14 +25,20 @@
         <td><%= withdrawal.description %></td>
         <td><%= withdrawal.date %></td>
 
-        <td><%= link_to 'Show', withdrawal %></td>
-        <td><%= link_to 'Edit', edit_withdrawal_path(withdrawal) %></td>
-        <td><%= link_to 'Destroy', withdrawal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', withdrawal, class: "btn btn-outline-info" %></td>
+        <td><%= link_to 'Edit', edit_withdrawal_path(withdrawal), class: "btn btn-secondary" %></td>
+        <td><%= link_to 'Destroy', withdrawal, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
       </tr>
+
     <% end %>
   </tbody>
 </table>
 
+<% @withdrawals.each do |withdrawal| %>
+  <% @sum += withdrawal.amount %>
+<% end %>
 <br>
 
-<%= link_to 'New Withdrawal', new_withdrawal_path %>
+<h3>Total Withdrawals: $<%= @sum%></h3>
+
+<%= link_to 'New Withdrawal', new_withdrawal_path, class: 'btn btn-light btn-lg btn-block' %>

@@ -4,6 +4,7 @@ class DepositsController < ApplicationController
   # GET /deposits or /deposits.json
   def index
     @deposits = Deposit.all
+    @sum = 0
   end
 
   # GET /deposits/1 or /deposits/1.json

@@ -14,7 +14,7 @@ $radius: 0.2rem;
 body {
   font-family: "Andika New Basic", sans-serif;
   font-weight: 700;
-  background-color: rgb(155, 50, 50);
+  background-color: rgb(118, 31, 20);
   color: rgb(255, 255, 255);
   height: 100vh;
 }
@@ -60,14 +60,17 @@ body {
       gap: 2rem;
       align-items: center;
       margin: 1rem;
-
+      margin-left: 25%;
       //all items in list
       li{
         list-style: none;
         display: none;
 
         &:last-child{
-          margin-left: 250px;  //sucks the first element of the list all the way to the right
+          position: absolute;
+          right: 20px;
+          top:  5px;
+          //margin-left: 250px;  //sucks the first element of the list all the way to the right
           display: block;
         }
 
@@ -86,6 +89,10 @@ body {
 //when the input of type checkbox is checked this will change the nav menu
 #nav__checkbox:checked ~ ul.nav__menu li{
   display: block; //will prevent the items from being
+  position: relative;
+  //margin-left: 250px;  //sucks the first element of the list all the way to the right
+  display: block;
+
 }
 
 #nav__checkbox:checked ~ label.nav__toggle .close{
