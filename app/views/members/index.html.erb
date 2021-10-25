@@ -20,43 +20,20 @@
    }
 </script>
 
+<%= link_to 'New Member', new_member_path, class: 'btn btn-light btn-lg btn-block' %>
+<br>
+
 <input type="checkbox" onclick="toggleElements_id('fn')" id="fnBox" checked>First Name</input>
 <input type="checkbox" onclick="toggleElements_id('ln')" id="lnBox" checked>Last Name</input>
 <input type="checkbox" onclick="toggleElements_id('uin')" id="uinBox" checked>UIN</input>
 <input type="checkbox" onclick="toggleElements_id('email')" id="emailBox" checked>Email</input>
 <input type="checkbox" onclick="toggleElements_id('pn')" id="pnBox" checked>Phone Number</input>
 <input type="checkbox" onclick="toggleElements_id('join')" id="joinBox" checked>Join Date</input>
-
 <input type="checkbox" onclick="toggleElements_id('memtpye')" id="memtpyeBox" checked>Membership Type</input>
 <input type="checkbox" onclick="toggleElements_id('date')" id="dateBox" checked>Payment Date</input>
 <input type="checkbox" onclick="toggleElements_id('officeruin')" id="officeruinBox" checked>Officer UIN</input>
 <input type="checkbox" onclick="toggleElements_id('mtd')" id="mtdBox" checked>Payment Method</input>
 
-<!-- Check boxes -->
-
-
-
-<!-- <table id="hi"></table>
-<script type = "text/javascript">
-function show() {
-  document.getElementById("hi").innerHTML = 'hello'
-}
-</script>
-<input type = "button" onclick = "show()" value = "Display"> -->
-<%= link_to 'New Member', new_member_path, class: 'btn btn-light btn-lg btn-block' %>
-
-
-<script>
-document.getElementById("check_").addEventListener("click", showUIN);
-function showUIN() {
-  document.getElementById("check_").innerHTML = 'UIN'
-}
-
-
-</script>
-
-<br>
-<br>
 <table class="table table-striped table-dark table-bordered table-hover table-sm">
   <thead class="thead-light">
     <tr>
@@ -70,11 +47,9 @@ function showUIN() {
       <th class= 'date' style="display: ;"><%= sortable 'date'%></th>
       <th class= 'officeruin' style="display: ;"><%= sortable 'officer_uin'%></th>
       <th class= 'mtd' style="display: ;"><%= sortable 'payment_mtd'%></th>
-      <!-- <th class= 'amnt' style="display: ;"><%= sortable 'amount'%></th> -->
       <th colspan="3"></th>
     </tr>
   </thead>
-
 
   <tbody id = 'fulltable'>
     <% @members.each do |member| %>
