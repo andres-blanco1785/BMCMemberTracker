@@ -19,13 +19,7 @@
 
   </head>
 
-  <body>
-    <% if flash.any? %>
-      <% flash.each do |key, value| -%>
-        <section class="flash flash__<%= key %>"><%= value.html_safe %></section>
-      <% end -%>
-    <% end %>
-
+  <body class="ml-2 mr-2">
     <%= stylesheet_link_tag 'styles' %>
 
     <nav class = "nav">
@@ -39,7 +33,7 @@
         </svg>
         
         
-    </label>
+      </label>
     <ul class="nav__menu">
         <li><%= link_to 'Members', members_path, class: 'button alt' %></li>
         <li><%= link_to 'Officers', officers_path, class: 'button alt' %></li>
@@ -51,6 +45,11 @@
     </ul>
     </nav>
 
+    <% if flash.any? %>
+      <% flash.each do |key, value| -%>
+        <section class="flash flash__<%= key %>"><%= value.html_safe %></section>
+      <% end -%>
+    <% end %>
     <%= yield %>
 
     

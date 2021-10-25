@@ -1,115 +1,71 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Members</h1>
 
-<!-- <form>
-  <legend>Show:</legend>
-  <input type="checkbox" id="member_id" name="membershow" value="member_id"> UIN
-  <input type="checkbox" id="email" name="membershow" value="email"> Email
-  <input type="checkbox" id="phoneNumber" name="membershow" value="phoneNumber"> Phone Number
-  <input type="checkbox" id="joinDate" name="membershow" value="joinDate"> Join Date
-  <input type="checkbox" id="membershipType" name="membershow" value="membershipType"> Membership Type
-  <input type="checkbox" id="membershipExpiration" name="membershow" value="membershipExpiration" checked> Membership Expiration
-</form> -->
-
-
-<!-- Check boxes -->
-<div class='field'>
-  <% @attributes.each do |attr|%>
-    <%= check_box_tag 'check[]', attr%>
-    <%= attr %>
-  <% end %>
-</div>
-
-<%= link_to 'New Member', new_member_path, class: 'btn btn-light btn-lg btn-block' %>
-
-<!-- Table -->
-<!-- <div class='field'>
-
-  <% @attributeName.each do |attr|%>
-    <p><b><%= attr %></b></p>
-    <% @attr.each do |mem|%>
-      <table>
-        <%= mem[attr] %>
-      </table>
-    <% end %>
-  <% end %>
-</div> -->
-
-
 <script>
-document.getElementById("check_").addEventListener("click", showUIN);
-function showUIN() {
-  document.getElementById("check_").innerHTML = 'UIN'
-}
+  function toggleElements_id(id) {
+     var myElement = document.getElementsByClassName(id);
+     var displaySetting = myElement[0].style.display;
 
-// document.getElementById("email").addEventListener("click", showEmail);
-// function showEmail() {
-//   document.getElementById("emailID").innerHTML = 'Email'
-// }
-
+     if (displaySetting == '') {
+       for (var i = 0; i < myElement.length; i++) {
+         myElement[i].style.display = 'none';
+       }
+     }
+     else {
+       for (var i = 0; i < myElement.length; i++) {
+         myElement[i].style.display = '';
+       }
+     }
+   }
 </script>
 
+
+<%= link_to 'New Member', new_member_path, class: 'btn btn-light btn-lg btn-block' %>
 <br>
-<br>
+
+<input type="checkbox" onclick="toggleElements_id('fn')" id="fnBox" checked>First Name</input>
+<input type="checkbox" onclick="toggleElements_id('ln')" id="lnBox" checked>Last Name</input>
+<input type="checkbox" onclick="toggleElements_id('uin')" id="uinBox" checked>UIN</input>
+<input type="checkbox" onclick="toggleElements_id('email')" id="emailBox" checked>Email</input>
+<input type="checkbox" onclick="toggleElements_id('pn')" id="pnBox" checked>Phone Number</input>
+<input type="checkbox" onclick="toggleElements_id('join')" id="joinBox" checked>Join Date</input>
+<input type="checkbox" onclick="toggleElements_id('memtpye')" id="memtpyeBox" checked>Membership Type</input>
+<input type="checkbox" onclick="toggleElements_id('date')" id="dateBox" checked>Payment Date</input>
+<input type="checkbox" onclick="toggleElements_id('officeruin')" id="officeruinBox" checked>Officer UIN</input>
+<input type="checkbox" onclick="toggleElements_id('mtd')" id="mtdBox" checked>Payment Method</input>
+
 <table class="table table-striped table-dark table-bordered table-hover table-sm">
   <thead class="thead-light">
     <tr>
-
-      <th><%= sortable 'first_name'%></th>
-      <th><%= sortable 'last_name'%></th>
-      <th><%= sortable 'member_uin', 'UIN'%></th>
-      <th><%= sortable 'email'%></th>
-      <th><%= sortable 'phone_number'%></th>
-      <th><%= sortable 'join_date'%></th>
-      <th><%= sortable 'membership_type'%></th>
-      <th><%= sortable 'date'%></th>
-      <th><%= sortable 'officer paid to'%></th>
-      <th><%= sortable 'payment_method'%></th>
-      <th><%= sortable 'amount'%></th>
-
+      <th class= 'fn' style="display: ;"><%= sortable 'first_name'%></th>
+      <th class= 'ln' style="display: ;"><%= sortable 'last_name'%></th>
+      <th class= 'uin' style="display: ;"><%= sortable 'member_uin', 'UIN'%></th>
+      <th class= 'email' style="display: ;"><%= sortable 'email'%></th>
+      <th class= 'pn' style="display: ;"><%= sortable 'phone_number'%></th>
+      <th class= 'join' style="display: ;"><%= sortable 'join_date'%></th>
+      <th class= 'memtpye' style="display: ;"><%= sortable 'membership_type'%></th>
+      <th class= 'date' style="display: ;"><%= sortable 'date'%></th>
+      <th class= 'officeruin' style="display: ;"><%= sortable 'officer_uin'%></th>
+      <th class= 'mtd' style="display: ;"><%= sortable 'payment_mtd'%></th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
-  <script>
-  document.getElementById("member_uin").addEventListener("click", showUIN);
-  function showUIN() {
-    document.getElementById("uin").innerHTML = 'UIN'
-  }
-
-  document.getElementById("email").addEventListener("click", showEmail);
-  function showEmail() {
-    document.getElementById("emailID").innerHTML = 'Email'
-  }
-
-  </script>
-
-
-
-  <tbody>
+  <tbody id = 'fulltable'>
     <% @members.each do |member| %>
       <tr>
-        <td><%= member.first_name %></td>
-        <td><%= member.last_name %></td>
-        <td><%= member.member_uin %></td>
-        <td><%= member.email %></td>
-
-
-        <td><%= member.phone_number %></td>
-        <td><%= member.join_date %></td>
-
-        <td><%= member.payments.any? ? member.payments.first.membership_type : "N/A" %></td>
-        <td><%= member.payments.any? ? member.payments.first.date : "N/A" %></td>
-        <td><%= member.payments.any? ? member.payments.first.officer.officer_uin : "N/A" %></td>
-        <td><%= member.payments.any? ? member.payments.first.payment_mtd : "N/A" %></td>
-
-
-        <td><%= link_to 'Show', member %></td>
-        <td><%= Payment.any? ? "yes" : "N/A" %></td>
-        <td><%= link_to 'Edit', edit_member_path(member) %></td>
-        <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
+        <td class='fn'><%= member.first_name %></td>
+        <td class= 'ln'><%= member.last_name %></td>
+        <td class= 'uin'><%= member.member_uin %></td>
+        <td class= 'email'><%= member.email %></td>
+        <td class= 'pn'><%= member.phone_number %></td>
+        <td class= 'join'><%= member.join_date %></td>
+        <td class= 'memtpye'><%= member.payments.any? ? member.payments.first.membership_type : "N/A" %></td>
+        <td class= 'date'><%= member.payments.any? ? member.payments.first.date : "N/A" %></td>
+        <td class= 'officeruin'><%= member.payments.any? ? member.payments.first.officer.officer_uin : "N/A" %></td>
+        <td class= 'mtd'><%= member.payments.any? ? member.payments.first.payment_mtd : "N/A" %></td>
+        <td><%= link_to 'Show', member, class: "btn btn-outline-info" %></td>
+        <td><%= link_to 'Edit', edit_member_path(member), class: "btn btn-secondary" %></td>
+        <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
