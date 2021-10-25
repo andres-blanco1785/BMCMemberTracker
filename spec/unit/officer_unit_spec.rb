@@ -1,7 +1,7 @@
 require 'rails_helper'
 RSpec.describe Officer, type: :model do
   subject do 
-    described_class.new(officer_id: "631009798", name: 'Yue Hu', email: 'yueh@tamu.edu',
+    described_class.new(officer_uin: "631009798", name: 'Yue Hu', email: 'yueh@tamu.edu',
                         amount_owed: 200)
   end
 
@@ -9,7 +9,7 @@ RSpec.describe Officer, type: :model do
     expect(subject).to be_valid
   end
   it 'is not valid without an officer ID' do 
-    subject.officer_id = nil
+    subject.officer_uin = nil
     expect(subject).not_to be_valid
   end
 

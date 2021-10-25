@@ -1,4 +1,15 @@
-<p id="notice"><%= notice %></p>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%= @transaction_type.category %></th>
+    </tr>
+  </tbody>
+</table>
 
 <p>
   <strong>Category:</strong>
@@ -6,4 +17,4 @@
 </p>
 
 <%= link_to 'Edit', edit_transaction_type_path(@transaction_type) %> |
-<%= link_to 'Back', transaction_types_path %>
+<%= link_to 'Back', transaction_types_path, class:"btn btn-dark btn-lg btn-block" %>

@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Members</h1>
 
 <script>
@@ -19,6 +17,7 @@
      }
    }
 </script>
+
 
 <%= link_to 'New Member', new_member_path, class: 'btn btn-light btn-lg btn-block' %>
 <br>
@@ -64,9 +63,9 @@
         <td class= 'date'><%= member.payments.any? ? member.payments.first.date : "N/A" %></td>
         <td class= 'officeruin'><%= member.payments.any? ? member.payments.first.officer.officer_uin : "N/A" %></td>
         <td class= 'mtd'><%= member.payments.any? ? member.payments.first.payment_mtd : "N/A" %></td>
-        <td><%= link_to 'Show', member %></td>
-        <td><%= link_to 'Edit', edit_member_path(member) %></td>
-        <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', member, class: "btn btn-outline-info" %></td>
+        <td><%= link_to 'Edit', edit_member_path(member), class: "btn btn-secondary" %></td>
+        <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>

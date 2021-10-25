@@ -11,31 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :payment_mtd %>
     <%= form.select(:payment_mtd, ['Cash', 'Venmo', 'Other'], {}, {}) %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :date %>
-    <%= form.date_select :date %>
+    <%= form.date_select :date, class:"form-control", placeholder: "Date" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :membership_type %>
     <%= form.select(:membership_type, ['one semester', 'full year'], {}, {}) %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :membership_expiration %>
-    <%= form.date_select :membership_expiration %>
+    <%= form.date_select :membership_expiration, class:"form-control", placeholder: "membership_expiration" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :amount %>
-    <%= form.text_field :amount %>
+    <%= form.text_field :amount, class:"form-control", placeholder: "Amount" %>
   </div>
 
+<<<<<<< HEAD
   <div class="field">
     <%= form.label :member_uin %>
     <%= form.text_field :member_uin %>
@@ -44,9 +45,19 @@
   <div class="field">
     <%= form.label :officer_uin %>
     <%= form.text_field :officer_uin %>
+=======
+  <div class="field form-group">
+    <%= form.label :member_uin %>
+    <%= form.text_field :member_uin, class:"form-control", placeholder: "Member UIN" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :officer_uin %>
+    <%= form.text_field :officer_uin, class:"form-control", placeholder: "Officer UIN" %>
+>>>>>>> a9d3eb132d822c6bc59390c6047b5d0437d7e28e
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:'btn-warning btn-lg btn-block' %>
   </div>
 <% end %>
