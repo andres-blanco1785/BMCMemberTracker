@@ -36,10 +36,10 @@ en:
   activerecord:
     attributes:
       officer:
-        officer_id: "Officer UIN"
+        officer_uin: "Officer UIN"
     errors:
       models:
         officer:
           attributes:
-            officer_id:
+            officer_uin:
               blank: "can't be blank"

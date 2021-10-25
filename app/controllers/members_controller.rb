@@ -74,7 +74,7 @@ class MembersController < ApplicationController
     end
 
     def sort_column
-      params[:sort] || "member_uin"
+      params[:sort] || "first_name"
     end
 
     def sort_direction
