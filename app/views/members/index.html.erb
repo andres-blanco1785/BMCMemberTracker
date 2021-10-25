@@ -1,62 +1,6 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Members</h1>
 
-<!-- <form>
-  <legend>Show:</legend>
-  <input type="checkbox" id="member_uin" name="membershow" value="member_uin"> UIN
-  <input type="checkbox" id="email" name="membershow" value="email"> Email
-  <input type="checkbox" id="phoneNumber" name="membershow" value="phoneNumber"> Phone Number
-  <input type="checkbox" id="joinDate" name="membershow" value="joinDate"> Join Date
-  <input type="checkbox" id="membershipType" name="membershow" value="membershipType"> Membership Type
-  <input type="checkbox" id="membershipExpiration" name="membershow" value="membershipExpiration" checked> Membership Expiration
-</form> -->
-
-<!-- Check boxes -->
-<!-- <div class='field'>
-  <% @attributes.each do |attr|%>
-    <%= check_box_tag 'check[]', attr%>
-    <%= attr %>
-  <% end %>
-</div> -->
-
-<!-- <table id="hi"></table>
-<script type = "text/javascript">
-function show() {
-  document.getElementById("hi").innerHTML = 'hello'
-}
-</script>
-<input type = "button" onclick = "show()" value = "Display"> -->
-=======
 <%= link_to 'New Member', new_member_path, class: 'btn btn-light btn-lg btn-block' %>
-
-
-<!-- Table -->
-<!-- <div class='field'>
-
-  <% @attributeName.each do |attr|%>
-    <p><b><%= attr %></b></p>
-    <% @attr.each do |mem|%>
-      <table>
-        <%= mem[attr] %>
-      </table>
-    <% end %>
-  <% end %>
-</div> -->
-
-
-<script>
-document.getElementById("check_").addEventListener("click", showUIN);
-function showUIN() {
-  document.getElementById("check_").innerHTML = 'UIN'
-}
-
-// document.getElementById("email").addEventListener("click", showEmail);
-// function showEmail() {
-//   document.getElementById("emailID").innerHTML = 'Email'
-// }
-
-</script>
 
 <br>
 <br>
@@ -84,21 +28,6 @@ function showUIN() {
     </tr>
   </thead>
 
-  <script>
-  document.getElementById("member_uin").addEventListener("click", showUIN);
-  function showUIN() {
-    document.getElementById("uin").innerHTML = 'UIN'
-  }
-
-  document.getElementById("email").addEventListener("click", showEmail);
-  function showEmail() {
-    document.getElementById("emailID").innerHTML = 'Email'
-  }
-
-  </script>
-
-
-
   <tbody>
     <% @members.each do |member| %>
       <tr>
@@ -124,11 +53,9 @@ function showUIN() {
         <td><%= member.payments.any? ? member.payments.first.payment_mtd : "N/A" %></td>
 
 
-
-        <td><%= link_to 'Show', member %></td>
-        <td><%= Payment.any? ? "yes" : "N/A" %></td>
-        <td><%= link_to 'Edit', edit_member_path(member) %></td>
-        <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', member, class: "btn btn-outline-info" %></td>
+        <td><%= link_to 'Edit', edit_member_path(member), class: "btn btn-secondary" %></td>
+        <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
 
       </tr>
     <% end %>
