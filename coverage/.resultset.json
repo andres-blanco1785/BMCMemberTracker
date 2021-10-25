@@ -1,27 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/csce431/csce431/testMember/BMCMemberTracker/spec/integration/officer_integration_spec.rb": {
+      "/csce431/BMCMemberTracker/spec/integration/deposit_integration_spec.rb": {
         "lines": [
           1,
           null,
           1,
           1,
-          3,
-          3,
-          null,
           1,
           1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          null,
           null,
           1,
           1,
@@ -32,136 +19,87 @@
           1,
           1,
           1,
-          1,
           null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
           1,
           null,
           null,
           null,
           null,
           null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          2,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
           null,
           null,
           null,
           null,
           null,
-          1,
-          1,
-          2,
-          2,
-          null,
-          3,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
           null,
           null,
           null,
           null,
-          1,
-          1,
-          1,
-          1,
           null,
-          2,
-          1,
-          1,
-          1,
           null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null,
           null,
           null,
@@ -169,7 +107,7 @@
           null
         ]
       },
-      "/csce431/csce431/testMember/BMCMemberTracker/spec/rails_helper.rb": {
+      "/csce431/BMCMemberTracker/spec/rails_helper.rb": {
         "lines": [
           null,
           1,
@@ -237,7 +175,7 @@
           null
         ]
       },
-      "/csce431/csce431/testMember/BMCMemberTracker/config/environment.rb": {
+      "/csce431/BMCMemberTracker/config/environment.rb": {
         "lines": [
           null,
           1,
@@ -246,7 +184,7 @@
           1
         ]
       },
-      "/csce431/csce431/testMember/BMCMemberTracker/config/application.rb": {
+      "/csce431/BMCMemberTracker/config/application.rb": {
         "lines": [
           1,
           null,
@@ -272,7 +210,7 @@
           null
         ]
       },
-      "/csce431/csce431/testMember/BMCMemberTracker/config/boot.rb": {
+      "/csce431/BMCMemberTracker/config/boot.rb": {
         "lines": [
           1,
           null,
@@ -280,7 +218,7 @@
           1
         ]
       },
-      "/csce431/csce431/testMember/BMCMemberTracker/config/environments/test.rb": {
+      "/csce431/BMCMemberTracker/config/environments/test.rb": {
         "lines": [
           1,
           null,
@@ -367,7 +305,7 @@
           null
         ]
       },
-      "/csce431/csce431/testMember/BMCMemberTracker/config/initializers/application_controller_renderer.rb": {
+      "/csce431/BMCMemberTracker/config/initializers/application_controller_renderer.rb": {
         "lines": [
           null,
           null,
@@ -379,7 +317,7 @@
           null
         ]
       },
-      "/csce431/csce431/testMember/BMCMemberTracker/config/initializers/assets.rb": {
+      "/csce431/BMCMemberTracker/config/initializers/assets.rb": {
         "lines": [
           null,
           null,
@@ -397,7 +335,7 @@
           null
         ]
       },
-      "/csce431/csce431/testMember/BMCMemberTracker/config/initializers/backtrace_silencers.rb": {
+      "/csce431/BMCMemberTracker/config/initializers/backtrace_silencers.rb": {
         "lines": [
           null,
           null,
@@ -409,7 +347,7 @@
           1
         ]
       },
-      "/csce431/csce431/testMember/BMCMemberTracker/config/initializers/content_security_policy.rb": {
+      "/csce431/BMCMemberTracker/config/initializers/content_security_policy.rb": {
         "lines": [
           null,
           null,
@@ -443,7 +381,7 @@
           null
         ]
       },
-      "/csce431/csce431/testMember/BMCMemberTracker/config/initializers/cookies_serializer.rb": {
+      "/csce431/BMCMemberTracker/config/initializers/cookies_serializer.rb": {
         "lines": [
           null,
           null,
@@ -452,7 +390,7 @@
           1
         ]
       },
-      "/csce431/csce431/testMember/BMCMemberTracker/config/initializers/devise.rb": {
+      "/csce431/BMCMemberTracker/config/initializers/devise.rb": {
         "lines": [
           null,
           null,
@@ -768,7 +706,7 @@
           null
         ]
       },
-      "/csce431/csce431/testMember/BMCMemberTracker/config/initializers/filter_parameter_logging.rb": {
+      "/csce431/BMCMemberTracker/config/initializers/filter_parameter_logging.rb": {
         "lines": [
           null,
           null,
@@ -778,7 +716,7 @@
           null
         ]
       },
-      "/csce431/csce431/testMember/BMCMemberTracker/config/initializers/inflections.rb": {
+      "/csce431/BMCMemberTracker/config/initializers/inflections.rb": {
         "lines": [
           null,
           null,
@@ -798,7 +736,7 @@
           null
         ]
       },
-      "/csce431/csce431/testMember/BMCMemberTracker/config/initializers/mime_types.rb": {
+      "/csce431/BMCMemberTracker/config/initializers/mime_types.rb": {
         "lines": [
           null,
           null,
@@ -806,7 +744,7 @@
           null
         ]
       },
-      "/csce431/csce431/testMember/BMCMemberTracker/config/initializers/permissions_policy.rb": {
+      "/csce431/BMCMemberTracker/config/initializers/permissions_policy.rb": {
         "lines": [
           null,
           null,
@@ -821,7 +759,7 @@
           null
         ]
       },
-      "/csce431/csce431/testMember/BMCMemberTracker/config/initializers/wrap_parameters.rb": {
+      "/csce431/BMCMemberTracker/config/initializers/wrap_parameters.rb": {
         "lines": [
           null,
           null,
@@ -839,7 +777,7 @@
           null
         ]
       },
-      "/csce431/csce431/testMember/BMCMemberTracker/config/routes.rb": {
+      "/csce431/BMCMemberTracker/config/routes.rb": {
         "lines": [
           1,
           1,
@@ -859,118 +797,292 @@
           null
         ]
       },
-      "/csce431/csce431/testMember/BMCMemberTracker/app/models/admin.rb": {
+      "/csce431/BMCMemberTracker/app/models/admin.rb": {
         "lines": [
           1,
           1,
           null,
           1,
-          7,
-          7,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/csce431/BMCMemberTracker/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/csce431/BMCMemberTracker/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          1,
+          17,
+          17,
+          17,
           null,
           null
         ]
       },
-      "/csce431/csce431/testMember/BMCMemberTracker/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/csce431/csce431/testMember/BMCMemberTracker/app/helpers/application_helper.rb": {
-        "lines": [
-          1,
-          1,
-          77,
-          77,
-          77,
-          null,
-          null
-        ]
-      },
-      "/csce431/csce431/testMember/BMCMemberTracker/app/helpers/deposits_helper.rb": {
+      "/csce431/BMCMemberTracker/app/helpers/deposits_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/csce431/csce431/testMember/BMCMemberTracker/app/helpers/members_helper.rb": {
+      "/csce431/BMCMemberTracker/app/helpers/members_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/csce431/csce431/testMember/BMCMemberTracker/app/helpers/officers_helper.rb": {
+      "/csce431/BMCMemberTracker/app/helpers/officers_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/csce431/csce431/testMember/BMCMemberTracker/app/helpers/payments_helper.rb": {
+      "/csce431/BMCMemberTracker/app/helpers/payments_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/csce431/csce431/testMember/BMCMemberTracker/app/helpers/transaction_types_helper.rb": {
+      "/csce431/BMCMemberTracker/app/helpers/transaction_types_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/csce431/csce431/testMember/BMCMemberTracker/app/helpers/withdrawals_helper.rb": {
+      "/csce431/BMCMemberTracker/app/helpers/withdrawals_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/csce431/csce431/testMember/BMCMemberTracker/app/controllers/officers_controller.rb": {
+      "/csce431/BMCMemberTracker/app/controllers/members_controller.rb": {
         "lines": [
           1,
           1,
           null,
           null,
           1,
-          7,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
           null,
           null,
           null,
           1,
           null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          18,
           null,
           null,
           1,
           3,
           null,
-          null,
-          null,
+          null
+        ]
+      },
+      "/csce431/BMCMemberTracker/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
           1,
           null,
           null,
           null,
           1,
-          3,
           null,
-          3,
-          3,
-          2,
           1,
           null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          6,
+          null,
+          null,
+          1,
+          null,
+          3,
+          null,
+          null
+        ]
+      },
+      "/csce431/BMCMemberTracker/app/controllers/admins/sessions_controller.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/csce431/BMCMemberTracker/app/controllers/admins/omniauth_callbacks_controller.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
           4,
+          null,
+          null
+        ]
+      },
+      "/csce431/BMCMemberTracker/app/models/member.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/csce431/BMCMemberTracker/app/controllers/deposits_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          0,
+          0,
+          null,
           2,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          2,
-          2,
-          2,
-          1,
-          null,
-          2,
           1,
           null,
           null,
@@ -978,226 +1090,40 @@
           null,
           null,
           1,
-          1,
-          1,
-          2,
-          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
           null,
           null,
-          null,
-          1,
-          null,
-          1,
-          8,
           null,
           null,
           null,
           1,
-          5,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          1,
           null,
           null
         ]
       },
-      "/csce431/csce431/testMember/BMCMemberTracker/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          49,
-          null,
-          null,
-          1,
-          null,
-          29,
-          null,
-          null
-        ]
-      },
-      "/csce431/csce431/testMember/BMCMemberTracker/app/controllers/admins/sessions_controller.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null
-        ]
-      },
-      "/csce431/csce431/testMember/BMCMemberTracker/app/controllers/admins/omniauth_callbacks_controller.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          7,
-          null,
-          7,
-          7,
-          7,
-          7,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          7,
-          null,
-          null,
-          1,
-          null,
-          1,
-          7,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          28,
-          null,
-          null
-        ]
-      },
-      "/csce431/csce431/testMember/BMCMemberTracker/app/controllers/members_controller.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          7,
-          7,
-          7,
-          7,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          84,
-          null,
-          null,
-          1,
-          14,
-          null,
-          null
-        ]
-      },
-      "/csce431/csce431/testMember/BMCMemberTracker/app/models/member.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/csce431/csce431/testMember/BMCMemberTracker/app/models/officer.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null
-        ]
-      },
-      "/csce431/csce431/testMember/BMCMemberTracker/app/models/payment.rb": {
+      "/csce431/BMCMemberTracker/app/models/deposit.rb": {
         "lines": [
           1,
           null,
@@ -1206,7 +1132,17 @@
           null,
           1,
           1,
+          1,
+          1,
+          1,
+          1,
           null,
+          null,
+          null
+        ]
+      },
+      "/csce431/BMCMemberTracker/app/models/transaction_type.rb": {
+        "lines": [
           1,
           1,
           1,
@@ -1216,6 +1152,6 @@
         ]
       }
     },
-    "timestamp": 1634934591
+    "timestamp": 1635124406
   }
 }

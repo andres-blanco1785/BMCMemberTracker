@@ -1,7 +1,7 @@
 require 'rails_helper'
 RSpec.describe Deposit, type: :model do
   subject do
-    described_class.new(officer_uin: '111000123', transcation_id: '111',
+    described_class.new(officer_uin: '111000123', category: '111',
       amount: 100, date:"2021-10-03")
   end
 
@@ -14,8 +14,8 @@ RSpec.describe Deposit, type: :model do
     expect(subject).not_to be_valid
   end
 
-  it 'is not valid without a transaction ID' do
-    subject.transcation_id = nil
+  it 'is not valid without a category' do
+    subject.category = nil
     expect(subject).not_to be_valid
   end
 
