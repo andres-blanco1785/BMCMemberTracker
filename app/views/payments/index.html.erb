@@ -28,9 +28,15 @@
         <td><%= payment.amount %></td>
 		<td><%= payment.officer_uin %></td>
 		<td><%= payment.member_uin %></td>
+<<<<<<< HEAD
+        <td><%= link_to 'Show', payment %></td>
+        <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
+        <td><%= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+=======
         <td><%= link_to 'Show', payment, class: "btn btn-info" %></td>
         <td><%= link_to 'Edit', edit_payment_path(payment), class: "btn btn-secondary" %></td>
         <td><%= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
+>>>>>>> a9d3eb132d822c6bc59390c6047b5d0437d7e28e
       </tr>
     <% end %>
   </tbody>
