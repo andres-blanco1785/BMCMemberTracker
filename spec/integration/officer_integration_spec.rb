@@ -10,7 +10,7 @@ RSpec.describe 'Create officer', type: :feature do
     click_link 'Sign in with your TAMU Google Account'
     visit new_officer_path
     click_on 'Create Officer'
-    expect(page).to have_content("Officer uin can't be blank")
+    expect(page).to have_content("Officer UIN can't be blank")
     expect(page).to have_content("Name can't be blank")
     expect(page).to have_content("Email can't be blank")
 
@@ -56,7 +56,7 @@ RSpec.describe 'Create officer', type: :feature do
     fill_in 'Email', with: 'yueh@tamu.edu'
     fill_in 'Amount Owed', with: 0
     click_on 'Create Officer'
-    expect(page).to have_content('Officer uin has already been taken')
+    expect(page).to have_content('Officer UIN has already been taken')
     expect(page).to have_content('Email has already been taken')
 
 
@@ -131,7 +131,7 @@ RSpec.describe 'Edit officer', type: :feature do
     fill_in 'Email', with: 'lisha@tamu.edu'
     fill_in 'Amount Owed', with: 0
     click_on 'Update Officer'
-    expect(page).to have_content('Officer uin has already been taken')
+    expect(page).to have_content('Officer UIN has already been taken')
   end
 end
 
