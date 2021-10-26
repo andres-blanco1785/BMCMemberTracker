@@ -1,11 +1,8 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Deposits</h1>
 
-<table>
-  <thead>
+<table class="table table-striped table-dark table-bordered table-hover table-sm">
+  <thead class="thead-light">
     <tr>
-      <th>Deposit</th>
       <th>Officer UIN</th>
       <th>Transaction Type</th>
       <th>Amount</th>
@@ -17,19 +14,26 @@
   <tbody>
     <% @deposits.each do |deposit| %>
       <tr>
-        <td><%= deposit.deposit_id %></td>
         <td><%= deposit.officer_uin %></td>
         <td><%= deposit.category %></td>
         <td><%= deposit.amount %></td>
         <td><%= deposit.date %></td>
-        <td><%= link_to 'Show', deposit %></td>
-        <td><%= link_to 'Edit', edit_deposit_path(deposit) %></td>
-        <td><%= link_to 'Destroy', deposit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', deposit, class: "btn btn-outline-info" %></td>
+        <td><%= link_to 'Edit', edit_deposit_path(deposit), class: "btn btn-secondary" %></td>
+        <td><%= link_to 'Destroy', deposit, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<% @deposits.each do |deposit| %>
+
+    <% @sum += deposit.amount %>
+
+<% end %>
+<br>
+<h3>Total Deposits: $<%= @sum%></h3>
+
 <br>
 
-<%= link_to 'New Deposit', new_deposit_path %>
+<%= link_to 'New Deposit', new_deposit_path, class: 'btn btn-light btn-lg btn-block' %>

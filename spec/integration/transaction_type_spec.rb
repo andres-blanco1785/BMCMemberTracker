@@ -117,6 +117,25 @@ RSpec.describe 'Edit member', type: :feature do
         expect(page).to have_content('Transaction type was successfully updated.')
         expect(page).to have_content("New Category")
     end
+
+    scenario 'unsuccessfully' do
+        visit transaction_types_path
+
+        # need to sign in before visiting any path and doing testing
+        click_link 'Sign in with your TAMU Google Account'
+
+        expect(TransactionType.count).to eq(1)
+        visit transaction_types_path
+        expect(page).to have_content("Test Category")
+
+        click_on 'Edit'
+
+        # fill in with blank attribute
+        fill_in 'Category', with: ' '
+        click_on 'Update Transaction type'
+
+        expect(page).to have_content("Category can't be blank")
+    end
 end
 
 

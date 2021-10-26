@@ -4,6 +4,7 @@ class WithdrawalsController < ApplicationController
   # GET /withdrawals or /withdrawals.json
   def index
     @withdrawals = Withdrawal.all
+    @sum = 0
   end
 
   # GET /withdrawals/1 or /withdrawals/1.json

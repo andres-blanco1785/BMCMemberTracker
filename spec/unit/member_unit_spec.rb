@@ -1,7 +1,7 @@
 require 'rails_helper'
 RSpec.describe Member, type: :model do
   subject do 
-    described_class.new(member_id: "727002594", first_name: 'Andres', last_name: 'Blanco', email: 'andresblanco1785@tamu.edu',
+    described_class.new(member_uin: "727002594", first_name: 'Andres', last_name: 'Blanco', email: 'andresblanco1785@tamu.edu',
                         phone_number: "8326608665", join_date: "2021-10-03")
   end
 
@@ -9,7 +9,7 @@ RSpec.describe Member, type: :model do
     expect(subject).to be_valid
   end
   it 'is not valid without an member ID' do 
-    subject.member_id = nil
+    subject.member_uin = nil
     expect(subject).not_to be_valid
   end
 

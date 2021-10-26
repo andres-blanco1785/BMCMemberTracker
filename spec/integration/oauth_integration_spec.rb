@@ -40,25 +40,27 @@ RSpec.feature "testing oauth" do
         expect(page).to have_current_path(root_path)
     end
 
-    # scenario 'visit payments page, sign in w/valid credentials, and redirect to root path' do
-    #     visit payments_path
+    scenario 'visit payments page, sign in w/valid credentials, and redirect to root path' do
+        visit payments_path
 
-    #     expect(page).to have_link('Sign in with your TAMU Google Account')
-    #     click_link 'Sign in with your TAMU Google Account'
+        expect(page).to have_link('Sign in with your TAMU Google Account')
+        click_link 'Sign in with your TAMU Google Account'
 
-    #     expect(page).to have_content('Successfully authenticated from Google account.')
-    #     expect(page).to have_current_path('/payments')
-    # end
+        expect(page).to have_content('Successfully authenticated from Google account.')
+        visit payments_path
+        expect(page).to have_current_path('/payments')
+    end
 
-    # scenario 'visit officers page, sign in w/valid credentials, and redirect to root path' do
-    #     visit officers_path
+    scenario 'visit officers page, sign in w/valid credentials, and redirect to root path' do
+        visit officers_path
 
-    #     expect(page).to have_link('Sign in with your TAMU Google Account')
-    #     click_link 'Sign in with your TAMU Google Account'
+        expect(page).to have_link('Sign in with your TAMU Google Account')
+        click_link 'Sign in with your TAMU Google Account'
 
-    #     expect(page).to have_content('Successfully authenticated from Google account.')
-    #     expect(page).to have_current_path('/officers')
-    # end
+        expect(page).to have_content('Successfully authenticated from Google account.')
+        visit officers_path
+        expect(page).to have_current_path('/officers')
+    end
 
     scenario 'signing out redirects to sign in page' do
         visit root_path

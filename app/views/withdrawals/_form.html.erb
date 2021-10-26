@@ -11,42 +11,40 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :withdraw_id %>
-    <%= form.number_field :withdraw_id %>
+  <div class="field form-group">
   </div>
 
   <div class="field">
     <%= form.label :officer_uin %>
-    <%= form.number_field :officer_uin %>
+    <%= form.number_field :officer_uin, class:"form-control", placeholder:"Officer UIN" %>
   </div>
 
   <div class="field">
     <%= form.label :category %>
-    <%= form.select :category, TransactionType.all.collect { |t| [t.category] }, include_blank: true %>
+    <%= form.select :category, TransactionType.all.collect { |t| [t.category] }, include_blank: true, class:"form-control", placeholder:"Category" %>
   </div>
 
   <div class="field">
     <%= form.label :amount %>
-    <%= form.text_field :amount %>
+    <%= form.number_field :amount, class:"form-control", placeholder:"Amount"%>
   </div>
 
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class:"form-control", placeholder:"Title" %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_field :description %>
+    <%= form.text_field :description, class:"form-control", placeholder:"Description" %>
   </div>
 
   <div class="field">
     <%= form.label :date %>
-    <%= form.date_select :date %>
+    <%= form.date_select :date, class:"form-control", placeholder:"Date" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:'btn btn-warning btn-lg btn-block'%>
   </div>
 <% end %>
