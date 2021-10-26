@@ -46,9 +46,7 @@
   <%# sprint 3 try to do: form.collection_select(:officer_uin, Officer.all, :id, :officer_uin), class:"form-control". %> 
   <div class="field form-group">
     <%= form.label :officer_uin %>
-
-  	<%= form.collection_select(:officer_uin, Officer.all, :id, :officer_uin) %>
-
+    <%= form.text_field :officer_uin, class:"form-control", placeholder: "Officer UIN" %>
   </div>
   
   <div class="actions">
