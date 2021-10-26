@@ -19,7 +19,8 @@ RSpec.describe 'Creating a payment', type: :feature do
     visit new_payment_path
     click_on 'Create Payment'
     expect(page).to have_content("Member must exist")
-    expect(page).to have_content("Officer must exist")
+    #expect(page).to have_content("Officer must exist") 
+    #this is deleted beacuse the officer already be selected by default
     expect(page).to have_content("Amount can't be blank")
 
     # No Payment record is created
@@ -41,7 +42,7 @@ RSpec.describe 'Creating a payment', type: :feature do
 	select '31', :from => 'payment_membership_expiration_3i'
     fill_in 'payment_amount', with: '15'
     fill_in 'payment_member_uin', with: '111222333'
-    fill_in 'payment_officer_uin', with: '999899799'
+    select '999899799', :from => 'payment_officer_uin'
     click_on 'Create Payment'
 	expect(page).to have_content("Payment was successfully created.")
     visit payments_path
@@ -112,7 +113,7 @@ RSpec.describe 'Edit payment', type: :feature do
 	select '31', :from => 'payment_membership_expiration_3i'
     fill_in 'payment_amount', with: '15'
     fill_in 'payment_member_uin', with: '123456789'
-    fill_in 'payment_officer_uin', with: '987654321'
+    #select '987654321', :from => 'payment_officer_uin'
     click_on 'Update Payment'
     expect(page).to have_content('Payment was successfully updated.')
     expect(page).to have_content("Venmo")
@@ -121,7 +122,7 @@ RSpec.describe 'Edit payment', type: :feature do
 end
  
  
-  RSpec.describe 'Show payment', type: :feature do
+RSpec.describe 'Show payment', type: :feature do
   let!(:officer) { Officer.create(officer_uin: 987654321, name: 'Onam', email: 'e@tamu.edu', 
   amount_owed: 15) }
   let!(:member) { Member.create(member_uin: 123456789, first_name: 'Fnam', last_name: 'Lnam', 
