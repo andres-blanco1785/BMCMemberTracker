@@ -42,10 +42,11 @@
   </div>
 
   <%# Officer selectable, member not b/c would need text search mobile support due to amount of members. %>
-  <%# This simple implementation allows search on PC, but not mobile. %> 
+  <%# This simple implementation allows search on PC, but not mobile. %>
+  <%# sprint 3 try to do: form.collection_select(:officer_uin, Officer.all, :id, :officer_uin), class:"form-control". %> 
   <div class="field form-group">
     <%= form.label :officer_uin %>
-	<%= form.collection_select(:officer_uin, Officer.all, :id, :officer_uin), class:"form-control" %>
+	<%= form.collection_select(:officer_uin, Officer.all, :id, :officer_uin) %>
   </div>
   
   <div class="actions">
