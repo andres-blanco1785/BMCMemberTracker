@@ -1,4 +1,6 @@
-Rails.application.routes.draw do  
+# frozen_string_literal: true
+
+Rails.application.routes.draw do
   root 'members#index'
   # root to: 'dashboards#show'
   devise_for :admins, controllers: { omniauth_callbacks: 'admins/omniauth_callbacks' }

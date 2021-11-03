@@ -1,4 +1,6 @@
-require "active_support/core_ext/integer/time"
+# frozen_string_literal: true
+
+require 'active_support/core_ext/integer/time'
 
 # The test environment is used exclusively to run your application's
 # test suite. You never need to work with it otherwise. Remember that
@@ -18,9 +20,7 @@ Rails.application.configure do
 
   # Configure public file server for tests with Cache-Control for performance.
   config.public_file_server.enabled = true
-  config.public_file_server.headers = {
-    'Cache-Control' => "public, max-age=#{1.hour.to_i}"
-  }
+  config.public_file_server.headers = { 'Cache-Control' => "public, max-age=#{1.hour.to_i}" }
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
@@ -63,34 +63,11 @@ Rails.application.configure do
   # have mock information for OmniAuth
   OmniAuth.config.test_mode = true
   OmniAuth.config.allowed_request_methods += %i[get]
-  OmniAuth.config.mock_auth[:google] = OmniAuth::AuthHash.new({
-    provider: 'google_oauth2',
-    uid: '123456789',
-    info: {
-      name: 'John Doe',
-      email: 'johndoe@example.com',
-      first_name: 'John',
-      last_name: 'Doe',
-      image: 'https://lh3.googleusercontent.com/url/photo.jpg'
-    },
-    credentials: {
-      token: 'token',
-      refresh_token: 'another_token',
-      expires_at: 1_354_920_555,
-      expires: true
-    }
-  })
-  
+  OmniAuth.config.mock_auth[:google] = OmniAuth::AuthHash.new({ provider: 'google_oauth2', uid: '123456789', info: { name: 'John Doe', email: 'johndoe@example.com', first_name: 'John', last_name: 'Doe', image: 'https://lh3.googleusercontent.com/url/photo.jpg' }, credentials: { token: 'token', refresh_token: 'another_token', expires_at: 1_354_920_555, expires: true } })
+
   # payment email seems to work w/o, but error "cannot render from ..."
-  #config.web_console.permissions = '172.17.0.1'
-  
+  # config.web_console.permissions = '172.17.0.1'
+
   # SMTP settings for gmail
-  config.action_mailer.smtp_settings = {
-    :address              => 'smtp.gmail.com',
-    :port                 => 587,
-    :user_name            => 'BMCT.test.J@gmail.com',
-    :password             => '0nward!J',
-    :authentication       => 'plain',
-    :enable_starttls_auto => true
-  }
+  config.action_mailer.smtp_settings = { address: 'smtp.gmail.com', port: 587, user_name: 'BMCT.test.J@gmail.com', password: '0nward!J', authentication: 'plain', enable_starttls_auto: true }
 end
