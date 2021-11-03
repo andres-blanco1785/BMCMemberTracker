@@ -4,8 +4,8 @@ require 'rails_helper'
 
 RSpec.describe Withdrawal, type: :model do
   subject(:withdrawal) do
-    off_uin_temp = Officer.create(officer_uin: 999_899_799, name: 'Onam', email: 'e@tamu.edu', amount_owed: 15)
-    trans_type_temp = TransactionType.create(category: 'party')
+    Officer.create(officer_uin: 999_899_799, name: 'Onam', email: 'e@tamu.edu', amount_owed: 15)
+    TransactionType.create(category: 'party')
 
     described_class.new(officer_uin: 999_899_799, category: 'party', amount: '10')
   end
