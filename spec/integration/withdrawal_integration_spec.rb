@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-
 RSpec.describe 'Create withdrawal', type: :feature do
   let!(:officer) do
     Officer.create(officer_uin: '631009798',

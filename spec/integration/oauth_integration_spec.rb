@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'testing oauth' do
+RSpec.describe 'Testing oauth', type: :feature do
   before do
     Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
     Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google]
