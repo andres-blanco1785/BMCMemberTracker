@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class OfficersController < ApplicationController
-  before_action :set_officer, only: %i[ show edit update destroy ]
+  before_action :set_officer, only: %i[show edit update destroy]
 
   # GET /officers or /officers.json
   def index
@@ -7,8 +9,7 @@ class OfficersController < ApplicationController
   end
 
   # GET /officers/1 or /officers/1.json
-  def show
-  end
+  def show; end
 
   # GET /officers/new
   def new
@@ -16,8 +17,7 @@ class OfficersController < ApplicationController
   end
 
   # GET /officers/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /officers or /officers.json
   def create
@@ -25,7 +25,7 @@ class OfficersController < ApplicationController
 
     respond_to do |format|
       if @officer.save
-        format.html { redirect_to @officer, notice: "Officer was successfully created." }
+        format.html { redirect_to @officer, notice: 'Officer was successfully created.' }
         format.json { render :show, status: :created, location: @officer }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class OfficersController < ApplicationController
   def update
     respond_to do |format|
       if @officer.update(officer_params)
-        format.html { redirect_to @officer, notice: "Officer was successfully updated." }
+        format.html { redirect_to @officer, notice: 'Officer was successfully updated.' }
         format.json { render :show, status: :ok, location: @officer }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,19 +51,20 @@ class OfficersController < ApplicationController
   def destroy
     @officer.destroy
     respond_to do |format|
-      format.html { redirect_to officers_url, notice: "Officer was successfully destroyed." }
+      format.html { redirect_to officers_url, notice: 'Officer was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_officer
-      @officer = Officer.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def officer_params
-      params.require(:officer).permit(:officer_uin, :name, :email, :amount_owed)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_officer
+    @officer = Officer.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def officer_params
+    params.require(:officer).permit(:officer_uin, :name, :email, :amount_owed)
+  end
 end

@@ -1,165 +1,163 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Create TransactionType', type: :feature do
-    before do
-        Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
-        Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google]
-    end
+  before do
+    Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
+    Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google]
+  end
 
-    scenario 'empty category' do
-        visit new_transaction_type_path
+  it 'empty category' do
+    visit new_transaction_type_path
 
-        # need to sign in before doing testing
-        click_link 'Sign in with your TAMU Google Account'
+    # need to sign in before doing testing
+    click_link 'Sign in with your TAMU Google Account'
 
-        visit new_transaction_type_path
-        expect(page).to have_current_path('/transaction_types/new')
+    visit new_transaction_type_path
+    expect(page.has_current_path?('/transaction_types/new')).to be(true)
 
-        click_on 'Create Transaction type'
+    click_on 'Create Transaction type'
 
-        expect(page).to have_content("Category can't be blank")
+    expect(page.has_content?("Category can't be blank")).to be(true)
 
-        # No transaction type record is created
-        expect(Member.count).to eq(0)
-    end
+    # No transaction type record is created
+    expect(Member.count).to eq(0)
+  end
 
-    scenario 'valid inputs' do
-        visit new_transaction_type_path
+  it 'valid inputs' do
+    visit new_transaction_type_path
 
-        # need to sign in before visiting any path and doing testing
-        click_link 'Sign in with your TAMU Google Account'
+    # need to sign in before visiting any path and doing testing
+    click_link 'Sign in with your TAMU Google Account'
 
-        visit new_transaction_type_path
-        fill_in 'Category', with: 'Test Category'
-        click_on 'Create Transaction type'
+    visit new_transaction_type_path
+    fill_in 'Category', with: 'Test Category'
+    click_on 'Create Transaction type'
 
-        # A transaction type has been created
-        expect(TransactionType.count).to eq(1)
-        expect(page).to have_content("Transaction type was successfully created.")
-        visit transaction_types_path
-        expect(page).to have_content("Test Category")
-    end
+    # A transaction type has been created
+    expect(TransactionType.count).to eq(1)
+    expect(page.has_content?('Transaction type was successfully created.')).to be(true)
+    visit transaction_types_path
+    expect(page.has_content?('Test Category')).to be(true)
+  end
 
-    scenario 'duplicated category' do
-        visit transaction_types_path
+  it 'duplicated category' do
+    visit transaction_types_path
 
-        # need to sign in before visiting any path and doing testing
-        click_link 'Sign in with your TAMU Google Account'
+    # need to sign in before visiting any path and doing testing
+    click_link 'Sign in with your TAMU Google Account'
 
-        TransactionType.create(category: "Test Category")
+    TransactionType.create(category: 'Test Category')
 
-        # A member has been created
-        expect(TransactionType.count).to eq(1)
-        visit transaction_types_path
-        expect(page).to have_content("Test Category")
+    # A member has been created
+    expect(TransactionType.count).to eq(1)
+    visit transaction_types_path
+    expect(page.has_content?('Test Category')).to be(true)
 
-        visit new_transaction_type_path
-        fill_in 'Category', with: 'Test Category'
-        click_on 'Create Transaction type'
-        expect(page).to have_content('Category has already been taken')
-    end
+    visit new_transaction_type_path
+    fill_in 'Category', with: 'Test Category'
+    click_on 'Create Transaction type'
+    expect(page.has_content?('Category has already been taken')).to be(true)
+  end
 end
 
 RSpec.describe 'Destroy TransactionType', type: :feature do
-    before do
-        Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
-        Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google]
-    end
-    
-    # Create mock Transaction Type object
-    let!(:transaction_types) { TransactionType.create(category: "Test Category") }
+  before do
+    Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
+    Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google]
+  end
 
-    scenario 'successfully' do
-        visit transaction_types_path
+  # Create mock Transaction Type object
+  let!(:transaction_types) { TransactionType.create(category: 'Test Category') }
 
-        # need to sign in before visiting any path and doing testing
-        click_link 'Sign in with your TAMU Google Account'
+  it 'successfully' do
+    visit transaction_types_path
 
-        expect(TransactionType.count).to eq(1)
-        visit transaction_types_path
-        expect(page).to have_content("Test Category")
+    # need to sign in before visiting any path and doing testing
+    click_link 'Sign in with your TAMU Google Account'
 
-        click_on 'Destroy'
+    expect(TransactionType.count).to eq(1)
+    visit transaction_types_path
+    expect(page.has_content?('Test Category')).to be(true)
 
-        expect(page).to have_content('Transaction type was successfully destroyed.')
-        expect(Member.count).to eq(0)
-    end
+    click_on 'Destroy'
+
+    expect(page.has_content?('Transaction type was successfully destroyed.')).to be(true)
+    expect(Member.count).to eq(0)
+  end
 end
-
-
 
 RSpec.describe 'Edit member', type: :feature do
-    before do
-        Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
-        Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google]
-    end
-    
-    # Create mock Transaction Type object
-    let!(:transaction_types) { TransactionType.create(category: "Test Category") }
-    
-    scenario 'successfully' do
-        visit transaction_types_path
+  before do
+    Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
+    Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google]
+  end
 
-        # need to sign in before visiting any path and doing testing
-        click_link 'Sign in with your TAMU Google Account'
+  # Create mock Transaction Type object
+  let!(:transaction_types) { TransactionType.create(category: 'Test Category') }
 
-        expect(TransactionType.count).to eq(1)
-        visit transaction_types_path
-        expect(page).to have_content("Test Category")
+  it 'successfully' do
+    visit transaction_types_path
 
-        click_on 'Edit'
+    # need to sign in before visiting any path and doing testing
+    click_link 'Sign in with your TAMU Google Account'
 
-        # fill in attributes
-        fill_in 'Category', with: 'New Category'
-        click_on 'Update Transaction type'
+    expect(TransactionType.count).to eq(1)
+    visit transaction_types_path
+    expect(page.has_content?('Test Category')).to be(true)
 
+    click_on 'Edit'
 
-        expect(page).to have_content('Transaction type was successfully updated.')
-        expect(page).to have_content("New Category")
-    end
+    # fill in attributes
+    fill_in 'Category', with: 'New Category'
+    click_on 'Update Transaction type'
 
-    scenario 'unsuccessfully' do
-        visit transaction_types_path
+    expect(page.has_content?('Transaction type was successfully updated.')).to be(true)
+    expect(page.has_content?('New Category')).to be(true)
+  end
 
-        # need to sign in before visiting any path and doing testing
-        click_link 'Sign in with your TAMU Google Account'
+  it 'unsuccessfully' do
+    visit transaction_types_path
 
-        expect(TransactionType.count).to eq(1)
-        visit transaction_types_path
-        expect(page).to have_content("Test Category")
+    # need to sign in before visiting any path and doing testing
+    click_link 'Sign in with your TAMU Google Account'
 
-        click_on 'Edit'
+    expect(TransactionType.count).to eq(1)
+    visit transaction_types_path
+    expect(page.has_content?('Test Category')).to be(true)
 
-        # fill in with blank attribute
-        fill_in 'Category', with: ' '
-        click_on 'Update Transaction type'
+    click_on 'Edit'
 
-        expect(page).to have_content("Category can't be blank")
-    end
+    # fill in with blank attribute
+    fill_in 'Category', with: ' '
+    click_on 'Update Transaction type'
+
+    expect(page.has_content?("Category can't be blank")).to be(true)
+  end
 end
 
-
 RSpec.describe 'Show TransactionType', type: :feature do
-    before do
-        Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
-        Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google]
-    end
+  before do
+    Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
+    Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google]
+  end
 
-    # Create mock Transaction Type object
-    let!(:transaction_types) { TransactionType.create(category: "Test Category") }
-    
-    scenario 'successfully' do
-        visit transaction_types_path
+  # Create mock Transaction Type object
+  let!(:transaction_types) { TransactionType.create(category: 'Test Category') }
 
-        # need to sign in before visiting any path and doing testing
-        click_link 'Sign in with your TAMU Google Account'
+  it 'successfully' do
+    visit transaction_types_path
 
-        expect(TransactionType.count).to eq(1)
-        visit transaction_types_path
-        expect(page).to have_content("Test Category")
-        
-        click_on 'Show'
-        
-        expect(page).to have_content("Test Category")
-    end
+    # need to sign in before visiting any path and doing testing
+    click_link 'Sign in with your TAMU Google Account'
+
+    expect(TransactionType.count).to eq(1)
+    visit transaction_types_path
+    expect(page.has_content?('Test Category')).to be(true)
+
+    click_on 'Show'
+
+    expect(page.has_content?('Test Category')).to be(true)
+  end
 end
