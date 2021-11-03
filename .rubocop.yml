@@ -86,6 +86,9 @@ Lint/UselessAccessModifier:
     - 'def_matcher'
     - 'def_node_matcher'
 
+Metrics/AbcSize:
+  Max: 30
+
 Metrics/BlockLength:
   Exclude:
     - 'Rakefile'
