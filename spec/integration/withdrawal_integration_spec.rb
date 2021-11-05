@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-RSpec.describe 'Create withdrawal', type: :feature do
+RSpec.describe 'Withdrawal Features', type: :feature do
   let!(:officer) do
     Officer.create(officer_uin: '631009798',
                    name: 'Yue Hu', email: 'yueh@tamu.edu', amount_owed: 0)
@@ -13,7 +13,7 @@ RSpec.describe 'Create withdrawal', type: :feature do
     Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google]
   end
 
-  it 'empty officer, category, amount' do
+  it 'Create Withdrawal w/empty officer, category, amount' do
     visit new_withdrawal_path
     click_link 'Sign in with your TAMU Google Account'
     visit new_withdrawal_path
@@ -26,7 +26,7 @@ RSpec.describe 'Create withdrawal', type: :feature do
     expect(Withdrawal.count).to eq(0)
   end
 
-  it 'valid inputs' do
+  it 'Create Withdrawal w/valid inputs' do
     visit new_withdrawal_path
     click_link 'Sign in with your TAMU Google Account'
     visit new_withdrawal_path
@@ -48,21 +48,8 @@ RSpec.describe 'Create withdrawal', type: :feature do
     expect(page.has_content?('happy hour')).to be(true)
     expect(page.has_content?('Just drink and dance')).to be(true)
   end
-end
 
-RSpec.describe 'Destroy Withdrawal', type: :feature do
-  let!(:officer) do
-    Officer.create(officer_uin: '631009798',
-                   name: 'Yue Hu', email: 'yueh@tamu.edu', amount_owed: 0)
-  end
-  let!(:transaction_type) { TransactionType.create(category: 'party') }
-
-  before do
-    Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
-    Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google]
-  end
-
-  it 'Destroy successfully' do
+  it 'Destroy Withdrawal successfully' do
     visit new_withdrawal_path
     click_link 'Sign in with your TAMU Google Account'
     visit new_withdrawal_path
@@ -81,21 +68,8 @@ RSpec.describe 'Destroy Withdrawal', type: :feature do
     expect(page.has_content?('Withdrawal was successfully destroyed.')).to be(true)
     expect(Withdrawal.count).to eq(0)
   end
-end
 
-RSpec.describe 'Edit Withdrawal', type: :feature do
-  let!(:officer) do
-    Officer.create(officer_uin: '631009798',
-                   name: 'Yue Hu', email: 'yueh@tamu.edu', amount_owed: 0)
-  end
-  let!(:transaction_type) { TransactionType.create(category: 'party') }
-
-  before do
-    Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
-    Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google]
-  end
-
-  it 'Successfully' do
+  it 'Edit Withdrawal Successfully' do
     visit new_withdrawal_path
     click_link 'Sign in with your TAMU Google Account'
     visit new_withdrawal_path
@@ -122,21 +96,8 @@ RSpec.describe 'Edit Withdrawal', type: :feature do
     expect(page.has_content?('happy hour111')).to be(true)
     expect(page.has_content?('Just drink and dance111')).to be(true)
   end
-end
 
-RSpec.describe 'Show Withdrawal', type: :feature do
-  let!(:officer) do
-    Officer.create(officer_uin: '631009798',
-                   name: 'Yue Hu', email: 'yueh@tamu.edu', amount_owed: 0)
-  end
-  let!(:transaction_type) { TransactionType.create(category: 'party') }
-
-  before do
-    Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
-    Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google]
-  end
-
-  it 'successfully' do
+  it 'Show Withdrawal successfully' do
     visit new_withdrawal_path
     click_link 'Sign in with your TAMU Google Account'
     visit new_withdrawal_path

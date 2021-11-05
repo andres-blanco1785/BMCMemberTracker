@@ -13,7 +13,6 @@ RSpec.describe 'Create Member', type: :feature do
                   phone_number: '8326608665', join_date: '2021-10-03')
   end
 
-
   it 'empty UIN, name, phone and email' do
     visit new_member_path
     click_link 'Sign in with your TAMU Google Account'
@@ -33,21 +32,21 @@ RSpec.describe 'Create Member', type: :feature do
     visit new_member_path
     click_link 'Sign in with your TAMU Google Account'
     visit new_member_path
-    fill_in 'UIN', with: '727002594'
-    fill_in 'First Name', with: 'Andres'
-    fill_in 'Last Name', with: 'Blanco'
-    fill_in 'Email', with: 'andresblanco1785@tamu.edu'
-    fill_in 'Phone Number', with: '8326608665'
+    fill_in 'UIN', with: '100000000'
+    fill_in 'First Name', with: 'Alexandria'
+    fill_in 'Last Name', with: 'Curtis'
+    fill_in 'Email', with: 'acurtis55@tamu.edu'
+    fill_in 'Phone Number', with: '5125207373'
     click_on 'Create Member'
     # An member has been created
-    expect(Member.count).to eq(1)
+    expect(Member.count).to eq(2)
     expect(page.has_content?('Member was successfully created.')).to be(true)
     visit members_path
-    expect(page.has_content?('727002594')).to be(true)
-    expect(page.has_content?('Andres')).to be(true)
-    expect(page.has_content?('Blanco')).to be(true)
-    expect(page.has_content?('8326608665')).to be(true)
-    expect(page.has_content?('andresblanco1785@tamu.edu')).to be(true)
+    expect(page.has_content?('100000000')).to be(true)
+    expect(page.has_content?('Alexandria')).to be(true)
+    expect(page.has_content?('Curtis')).to be(true)
+    expect(page.has_content?('5125207373')).to be(true)
+    expect(page.has_content?('acurtis55@tamu.edu')).to be(true)
   end
 
   it 'duplicated UIN and email' do
@@ -92,7 +91,7 @@ RSpec.describe 'Create Member', type: :feature do
     expect(page.has_content?('ms@tamu.edu')).to be(false)
   end
 
-  it 'successfully' do
+  it 'delete member' do
     # An member has been created
     expect(Member.count).to eq(1)
     visit members_path
@@ -108,7 +107,7 @@ RSpec.describe 'Create Member', type: :feature do
     expect(Member.count).to eq(0)
   end
 
-  it 'successfully' do
+  it 'edit member' do
     # An member has been created
     expect(Member.count).to eq(1)
     visit members_path
@@ -134,34 +133,34 @@ RSpec.describe 'Create Member', type: :feature do
     expect(page.has_content?('8326608665')).to be(true)
   end
 
-  it 'successfully' do
+  it 'update member' do
     # An member has been created
     expect(Member.count).to eq(1)
     visit members_path
     click_link 'Sign in with your TAMU Google Account'
     visit members_path
-    expect(page.has_content?('827')).to be(true)
-    expect(page.has_content?('Michael')).to be(true)
-    expect(page.has_content?('Stewart')).to be(true)
-    expect(page.has_content?('832')).to be(true)
-    expect(page.has_content?('ms@tamu.edu')).to be(true)
+    expect(page.has_content?('727002594')).to be(true)
+    expect(page.has_content?('Andres')).to be(true)
+    expect(page.has_content?('Blanco')).to be(true)
+    expect(page.has_content?('8326608665')).to be(true)
+    expect(page.has_content?('andresblanco1785@tamu.edu')).to be(true)
     click_on 'Edit'
-    fill_in 'member_member_uin', with: 'hh'
+    fill_in 'member_member_uin', with: '123234345'
     fill_in 'member_first_name', with: 'Pauline'
     fill_in 'member_last_name', with: 'Wade'
     fill_in 'member_email', with: 'paulinewade@tamu.edu'
-    fill_in 'member_phone_number', with: '8326608665'
+    fill_in 'member_phone_number', with: '8326608664'
     click_on 'Update Member'
     visit members_path
     expect(page.has_content?('Member was successfully updated.')).to be(false)
-    expect(page.has_content?('hh')).to be(false)
-    expect(page.has_content?('Pauline')).to be(false)
-    expect(page.has_content?('Wade')).to be(false)
-    expect(page.has_content?('paulinewade@tamu.edu')).to be(false)
+    expect(page.has_content?('727002594')).to be(false)
+    expect(page.has_content?('Andres')).to be(false)
+    expect(page.has_content?('Blanco')).to be(false)
+    expect(page.has_content?('andresblanco1785@tamu.edu')).to be(false)
     expect(page.has_content?('8326608665')).to be(false)
   end
 
-  it 'successfully' do
+  it 'show member' do
     # An member has been created
     expect(Member.count).to eq(1)
     visit members_path
