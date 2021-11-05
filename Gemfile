@@ -69,5 +69,5 @@ gem 'omniauth-google-oauth2'
 # Rubocop
 gem 'rubocop'
 gem 'rubocop-performance'
-gem 'rubocop-rspec'
 gem 'rubocop-rake'
+gem 'rubocop-rspec'

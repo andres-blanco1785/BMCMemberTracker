@@ -8,8 +8,10 @@ RSpec.describe 'Testing Deposit', type: :feature do
   end
 
   let!(:transaction_type) { TransactionType.create(category: 'Venmo') }
-
-
+  let!(:deposit) do
+    Deposit.create(officer_uin: '111000123',
+                   category: 'Venmo', amount: 100, date: '2021-10-21')
+  end
 
   it 'empty officer uin, category, amount, and date' do
     visit new_member_path
@@ -21,11 +23,6 @@ RSpec.describe 'Testing Deposit', type: :feature do
     expect(page.has_content?("Amount can't be blank")).to be(true)
     # No deposit record is created
     expect(Deposit.count).to eq(1)
-  end
-
-  let!(:deposit) do
-    Deposit.create(officer_uin: '111000123',
-                   category: 'Venmo', amount: 100, date: '2021-10-21')
   end
 
   it 'valid inputs' do
@@ -49,7 +46,7 @@ RSpec.describe 'Testing Deposit', type: :feature do
     expect(page.has_content?('2021-10-21')).to be(true)
   end
 
-  it 'successfully' do
+  it 'destory deposit' do
     # An deposit has been created
     visit new_member_path
     click_link 'Sign in with your TAMU Google Account'
@@ -65,7 +62,7 @@ RSpec.describe 'Testing Deposit', type: :feature do
     expect(Deposit.count).to eq(0)
   end
 
-  it 'successfully' do
+  it 'update deposit' do
     visit new_member_path
     click_link 'Sign in with your TAMU Google Account'
     visit new_deposit_path
@@ -88,7 +85,7 @@ RSpec.describe 'Testing Deposit', type: :feature do
     expect(page.has_content?('2021-12-31')).to be(true)
   end
 
-  it 'successfully' do
+  it 'show deposit' do
     visit new_member_path
     click_link 'Sign in with your TAMU Google Account'
     visit new_deposit_path
