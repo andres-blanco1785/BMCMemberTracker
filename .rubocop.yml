@@ -15,6 +15,7 @@ AllCops:
     - 'tmp/**/*'
     - '.git/**/*'
     - 'bin/*'
+    - 'db/schema.rb'
 
   TargetRubyVersion: 2.5
   SuggestExtensions: false
@@ -54,9 +55,6 @@ Style/IpAddresses:
   # The test for this cop includes strings that would cause offenses
   Exclude:
   - spec/rubocop/cop/style/ip_addresses_spec.rb
-
-Style/StringLiterals:
-  Enabled: false
 
 Layout/EndOfLine:
   EnforcedStyle: lf
