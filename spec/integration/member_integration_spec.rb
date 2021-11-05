@@ -25,7 +25,7 @@ RSpec.describe 'Create Member', type: :feature do
     visit new_member_path
     click_link 'Sign in with your TAMU Google Account'
     visit new_member_path
-    fill_in 'UIN', with: '727002594'
+    fill_in "UIN / Driver's License", with: '727002594'
     fill_in 'First Name', with: 'Andres'
     fill_in 'Last Name', with: 'Blanco'
     fill_in 'Email', with: 'andresblanco1785@tamu.edu'
@@ -75,7 +75,7 @@ RSpec.describe 'Create invalid Member', type: :feature do
     visit new_member_path
     click_link 'Sign in with your TAMU Google Account'
     visit new_member_path
-    fill_in 'UIN', with: 'regularCharacters'
+    fill_in "UIN / Driver's License", with: 'regularCharacters'
     fill_in 'First Name', with: 'Michael'
     fill_in 'Last Name', with: 'Stewart'
     fill_in 'Email', with: 'ms@tamu.edu'
