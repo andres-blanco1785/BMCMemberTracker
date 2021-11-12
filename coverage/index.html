@@ -5069,7 +5069,7 @@
 
             
 
-            <code class="ruby">    params.require(:payment).permit(:payment_mtd, :date, :membership_type, :membership_expiration, :amount, :member_uin, :officer_uin)</code>
+            <code class="ruby">    params.require(:payment).permit(:method, :date, :membership_type, :membership_expiration, :amount, :member_uin, :officer_uin)</code>
           </li>
         </div>
       
@@ -8489,7 +8489,7 @@
 
             
 
-            <code class="ruby">  validates :payment_mtd, presence: true</code>
+            <code class="ruby">  validates :method, presence: true</code>
           </li>
         </div>
       
@@ -21379,7 +21379,7 @@
 
             
 
-            <code class="ruby">    Payment.create(payment_mtd: &#39;Cash&#39;, date: &#39;2021/09/01&#39;, membership_type: &#39;one semester&#39;,</code>
+            <code class="ruby">    Payment.create(method: &#39;Cash&#39;, date: &#39;2021/09/01&#39;, membership_type: &#39;one semester&#39;,</code>
           </li>
         </div>
       
@@ -21676,7 +21676,7 @@
 
             
 
-            <code class="ruby">    select &#39;Venmo&#39;, from: &#39;payment[payment_mtd]&#39;</code>
+            <code class="ruby">    select &#39;Venmo&#39;, from: &#39;payment[method]&#39;</code>
           </li>
         </div>
       
@@ -22094,7 +22094,7 @@
 
             
 
-            <code class="ruby">    select &#39;Venmo&#39;, from: &#39;payment[payment_mtd]&#39;</code>
+            <code class="ruby">    select &#39;Venmo&#39;, from: &#39;payment[method]&#39;</code>
           </li>
         </div>
       
@@ -28729,7 +28729,7 @@
 
             
 
-            <code class="ruby">    described_class.new(payment_id: 111, payment_mtd: &#39;cash&#39;, date: &#39;1813-01-28&#39;, membership_type: &#39;one semester&#39;, membership_expiration: &#39;1813-01-28&#39;, amount: 15, member_uin: 111_222_333, officer_uin: 999_899_799)</code>
+            <code class="ruby">    described_class.new(payment_id: 111, method: &#39;cash&#39;, date: &#39;1813-01-28&#39;, membership_type: &#39;one semester&#39;, membership_expiration: &#39;1813-01-28&#39;, amount: 15, member_uin: 111_222_333, officer_uin: 999_899_799)</code>
           </li>
         </div>
       
@@ -28817,7 +28817,7 @@
 
             
 
-            <code class="ruby">    payment.payment_mtd = nil</code>
+            <code class="ruby">    payment.method = nil</code>
           </li>
         </div>
       
