@@ -25,6 +25,7 @@ class PaymentsController < ApplicationController
 
     respond_to do |format|
       if @payment.save
+        @payment.officer.update(amount_owed:@payment.amount + @payment.officer.amount_owed)
         # Tell NotifyPymtMailer to send email after save
         # .deliver_now : forces deliver now to proceed, vs .deliver_later recommended but sends asynchronous
         # should get 1, but .first gets array[0] rather than array with one element... don't want [var] in email
