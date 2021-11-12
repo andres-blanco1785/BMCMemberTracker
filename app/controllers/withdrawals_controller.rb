@@ -26,6 +26,7 @@ class WithdrawalsController < ApplicationController
 
     respond_to do |format|
       if @withdrawal.save
+        @withdrawal.officer.update(amount_owed:@withdrawal.amount + @withdrawal.officer.amount_owed)
         format.html { redirect_to @withdrawal, notice: 'Withdrawal was successfully created.' }
         format.json { render :show, status: :created, location: @withdrawal }
       else

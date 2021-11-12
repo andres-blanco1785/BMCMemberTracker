@@ -26,6 +26,7 @@ class DepositsController < ApplicationController
 
     respond_to do |format|
       if @deposit.save
+        @deposit.officer.update(amount_owed: @deposit.officer.amount_owed - @deposit.amount)
         format.html { redirect_to @deposit, notice: 'Deposit was successfully created.' }
         format.json { render :show, status: :created, location: @deposit }
       else
