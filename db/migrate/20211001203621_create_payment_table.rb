@@ -7,6 +7,7 @@ class CreatePaymentTable < ActiveRecord::Migration[6.1]
       t.string :payment_mtd
       t.date :date
       t.string :membership_type
+      t.text :notes
       t.date :membership_expiration
       t.float :amount
       t.integer :member_uin, foreign_key: { to_table: :payments }
