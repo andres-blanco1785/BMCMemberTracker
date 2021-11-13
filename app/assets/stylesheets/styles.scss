@@ -29,9 +29,10 @@ body {
 .nav{
     // border-bottom: 1px solid rgb(150, 20, 20);
     border-bottom: 1px solid rgba(255, 205, 205, 0.399);
-
+    font-family: 'Lexend Deca', sans-serif;
     //label for the check box, can do this because the file is scss which allows nesting
     &__toggle{
+      font-family: 'Lexend Deca', sans-serif;
        position: absolute;
        cursor: pointer; //making it clear that it is interactive
        margin: 0rem 1rem;
@@ -51,6 +52,7 @@ body {
 
        //also editing menu icon
        .menu{
+        font-family: 'Lexend Deca', sans-serif;
         margin-top: 0.2rem;
        }
     }
@@ -70,6 +72,7 @@ body {
       margin-left: calc(50% - 100px);
       //all items in list
       li{
+        font-family: 'Lexend Deca', sans-serif;
         list-style: none;
         display: none;
 
@@ -95,6 +98,7 @@ body {
 
 //when the input of type checkbox is checked this will change the nav menu
 #nav__checkbox:checked ~ ul.nav__menu li{
+  font-family: 'Lexend Deca', sans-serif;
   display: block; //will prevent the items from being
   position: relative;
   //margin-left: 250px;  //sucks the first element of the list all the way to the right
@@ -117,18 +121,21 @@ body {
   display: none;
 }
 
-@media only screen and (min-width: 910px){  //width of all elements of nav bar next too each other
+@media only screen and (min-width: 956px){  //width of all elements of nav bar next too each other
   .nav{
+    font-family: 'Lexend Deca', sans-serif;
     &__toggle{
       display: none;  //hides from view
     }
 
     &__menu{
+      font-family: 'Lexend Deca', sans-serif;
       flex-direction: row;
       margin: 0rem;
-      margin-left: calc(50% - 460px);  //offset for nav bar center when widescreen, width of elements / 2
+      margin-left: calc(50% - 470px);  //offset for nav bar center when widescreen, width of elements / 2
 
       li{
+        font-family: 'Lexend Deca', sans-serif;
         display: block;
 
         &:last-child{
@@ -208,5 +215,11 @@ body {
   margin: 0;
   padding: 0;
   font-weight: bold;
+  font-family: 'Lexend Deca', sans-serif;
+}
+
+
+td
+{
   font-family: 'Lexend Deca', sans-serif;
 }
