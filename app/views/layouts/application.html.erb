@@ -38,7 +38,7 @@
         
       </label>
       <img src ="/logo.png" class="logoUI">
-    <ul class="nav__menu">
+      <ul class="nav__menu">
         <li><%= link_to 'Members', members_path, class: 'button alt' %></li>
         <li><%= link_to 'Officers', officers_path, class: 'button alt' %></li>
         <li><%= link_to 'Payments', new_payment_path, class: 'button alt' %></li>
@@ -46,9 +46,9 @@
         <li><%= link_to 'Withdrawals', withdrawals_path, class: 'button alt' %></li>
         <li><%= link_to 'Transaction Types', transaction_types_path, class: 'button alt' %></li>
         <li><%= link_to "Sign Out", destroy_admin_session_path %></li>
-    </ul>
+      </ul>
     </nav>
-
+  
     <% if flash.any? %>
       <% flash.each do |key, value| -%>
         <section class="flash flash__<%= key %>"><%= value.html_safe %></section>
