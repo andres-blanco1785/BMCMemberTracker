@@ -46,7 +46,9 @@ class PaymentsController < ApplicationController
   # PATCH/PUT /payments/1 or /payments/1.json
   def update
     respond_to do |format|
+      @old_amount = @payment.amount
       if @payment.update(payment_params)
+        @payment.officer.update(amount_owed: @payment.officer.amount_owed + @payment.amount - @old_amount)
         format.html { redirect_to @payment, notice: 'Payment was successfully updated.' }
         format.json { render :show, status: :ok, location: @payment }
       else

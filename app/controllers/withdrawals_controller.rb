@@ -39,7 +39,10 @@ class WithdrawalsController < ApplicationController
   # PATCH/PUT /withdrawals/1 or /withdrawals/1.json
   def update
     respond_to do |format|
+      @old_amount = @withdrawal.amount
       if @withdrawal.update(withdrawal_params)
+        @withdrawal.officer.update(amount_owed: @withdrawal.officer.amount_owed + @withdrawal.amount - @old_amount)
+
         format.html { redirect_to @withdrawal, notice: 'Withdrawal was successfully updated.' }
         format.json { render :show, status: :ok, location: @withdrawal }
       else
