@@ -47,8 +47,17 @@ class PaymentsController < ApplicationController
   def update
     respond_to do |format|
       @old_amount = @payment.amount
+      @old_officer_uin = @payment.officer_uin
+      @old_officer =@payment.officer
       if @payment.update(payment_params)
-        @payment.officer.update(amount_owed: @payment.officer.amount_owed + @payment.amount - @old_amount)
+        if @old_officer_uin != @payment.officer_uin
+          @payment.officer.update(amount_owed: @payment.officer.amount_owed + @payment.amount)
+          @old_officer.update(amount_owed:@old_officer.amount_owed - @old_amount)
+        else
+          @payment.officer.update(amount_owed: @payment.officer.amount_owed + @payment.amount - @old_amount)
+
+        end
+
         format.html { redirect_to @payment, notice: 'Payment was successfully updated.' }
         format.json { render :show, status: :ok, location: @payment }
       else
