@@ -32,7 +32,7 @@ RSpec.describe 'Create Member', type: :feature do
     visit new_member_path
     click_link 'Sign in with your TAMU Google Account'
     visit new_member_path
-    fill_in 'UIN', with: '100000000'
+    fill_in "UIN / Driver's License", with: '100000000'
     fill_in 'First Name', with: 'Alexandria'
     fill_in 'Last Name', with: 'Curtis'
     fill_in 'Email', with: 'acurtis55@tamu.edu'
@@ -75,7 +75,7 @@ RSpec.describe 'Create Member', type: :feature do
     visit new_member_path
     click_link 'Sign in with your TAMU Google Account'
     visit new_member_path
-    fill_in 'UIN', with: 'regularCharacters'
+    fill_in "UIN / Driver's License", with: 'regularCharacters'
     fill_in 'First Name', with: 'Michael'
     fill_in 'Last Name', with: 'Stewart'
     fill_in 'Email', with: 'ms@tamu.edu'
