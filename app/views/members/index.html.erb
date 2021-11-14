@@ -62,13 +62,8 @@
         <td class= 'memtpye'><%= member.payments.any? ? member.payments.first.membership_type : "N/A" %></td>
         <td class= 'date'><%= member.payments.any? ? member.payments.first.date : "N/A" %></td>
         <td class= 'officeruin'><%= member.payments.any? ? member.payments.first.officer.officer_uin : "N/A" %></td>
-<<<<<<< HEAD
-        <td class= 'mtd'><%= member.payments.any? ? member.payments.first.method : "N/A" %></td>
-        <td><%= link_to 'Show', member, class: "btn btn-outline-info" %></td>
-=======
-        <td class= 'mtd'><%= member.payments.any? ? member.payments.first.payment_mtd : "N/A" %></td>
 
->>>>>>> 2697f7a5aac35b1e4c7464b4480fb31d49113ee0
+        <td class= 'mtd'><%= member.payments.any? ? member.payments.first.method : "N/A" %></td>
         <td><%= link_to 'Edit', edit_member_path(member), class: "btn btn-secondary" %></td>
         <td><%= link_to 'Delete', member, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
       </tr>
