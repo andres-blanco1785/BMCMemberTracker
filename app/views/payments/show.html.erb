@@ -8,8 +8,9 @@
       <th scope="col">Member Type</th>
       <th scope="col">Membership Expiration</th>
       <th scope="col">Amount</th>
-      <th scope="col">Member Who Paid</th>
       <th scope="col">Officer Paid</th>
+      <th scope="col">Member Who Paid</th>
+      <th scope="col">Member UIN</th>
     </tr>
   </thead>
   <tbody>
@@ -19,8 +20,9 @@
       <td><%= @payment.membership_type %></td>
       <td><%= @payment.membership_expiration %></td>
       <td><%= @payment.amount %></td>
+      <td><%= @payment.officer.name %></td>
+      <td><%= @payment.member.first_name + ' ' + @payment.member.last_name %></td>
       <td><%= @payment.member_uin %></td>
-      <td><%= @payment.officer_uin %></td>
     </tr>
   </tbody>
 </table>
