@@ -1,5 +1,5 @@
 class PaymentMethodsController < ApplicationController
-  before_action :set_payment_method, only: %i[ show edit update destroy ]
+  before_action :set_payment_method, only: %i[show edit update destroy]
 
   # GET /payment_methods or /payment_methods.json
   def index
@@ -7,8 +7,7 @@ class PaymentMethodsController < ApplicationController
   end
 
   # GET /payment_methods/1 or /payment_methods/1.json
-  def show
-  end
+  def show; end
 
   # GET /payment_methods/new
   def new
@@ -16,8 +15,7 @@ class PaymentMethodsController < ApplicationController
   end
 
   # GET /payment_methods/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /payment_methods or /payment_methods.json
   def create
@@ -25,7 +23,7 @@ class PaymentMethodsController < ApplicationController
 
     respond_to do |format|
       if @payment_method.save
-        format.html { redirect_to @payment_method, notice: "Payment method was successfully created." }
+        format.html { redirect_to @payment_method, notice: 'Payment method was successfully created.' }
         format.json { render :show, status: :created, location: @payment_method }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class PaymentMethodsController < ApplicationController
   def update
     respond_to do |format|
       if @payment_method.update(payment_method_params)
-        format.html { redirect_to @payment_method, notice: "Payment method was successfully updated." }
+        format.html { redirect_to @payment_method, notice: 'Payment method was successfully updated.' }
         format.json { render :show, status: :ok, location: @payment_method }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,19 +49,20 @@ class PaymentMethodsController < ApplicationController
   def destroy
     @payment_method.destroy
     respond_to do |format|
-      format.html { redirect_to payment_methods_url, notice: "Payment method was successfully destroyed." }
+      format.html { redirect_to payment_methods_url, notice: 'Payment method was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_payment_method
-      @payment_method = PaymentMethod.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def payment_method_params
-      params.require(:payment_method).permit(:method)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_payment_method
+    @payment_method = PaymentMethod.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def payment_method_params
+    params.require(:payment_method).permit(:method)
+  end
 end
