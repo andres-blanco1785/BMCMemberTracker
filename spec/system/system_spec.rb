@@ -1,17 +1,15 @@
-
 require 'rails_helper'
-#  login --> create 3 members --> create 2 officers --> create 3 payment methods 
+#  login --> create 3 members --> create 2 officers --> create 3 payment methods
 #  --> create 3 payments --> create 2 deposits --> create 2 withdrawals
 RSpec.describe 'Create all entities using the UI', type: :feature do
-  #mock login 
+  # mock login
   before do
     Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
     Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google]
   end
 
- 
   it 'create all successfully' do
-    #Now create members
+    # Now create members
     visit new_member_path
     click_link 'Sign in with your TAMU Google Account'
     visit new_member_path
@@ -31,7 +29,7 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     fill_in 'Email', with: 'yueh@tamu.edu'
     fill_in 'Phone Number', with: '5409983608'
     click_on 'Create Member'
-    #Two members have been created
+    # Two members have been created
     expect(Member.count).to eq(2)
 
     visit new_member_path
@@ -41,7 +39,7 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     fill_in 'Email', with: 'andresblanco1785@tamu.edu'
     fill_in 'Phone Number', with: '8326608665'
     click_on 'Create Member'
-    #Three members have been created
+    # Three members have been created
     expect(Member.count).to eq(3)
 
     visit members_path
@@ -50,8 +48,8 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     expect(page.has_content?('Curtis')).to be(true)
     expect(page.has_content?('5125207373')).to be(true)
     expect(page.has_content?('acurtis55@tamu.edu')).to be(true)
-    
-    #now create 2 officers
+
+    # now create 2 officers
     visit new_officer_path
     fill_in 'Officer UIN', with: '631009798'
     fill_in 'Name', with: 'Yue Hu'
@@ -74,7 +72,7 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     expect(page.has_content?('Justin Yoo')).to be(true)
     expect(page.has_content?('justin@tamu.edu')).to be(true)
 
-    #now create 3 payment methods
+    # now create 3 payment methods
     visit new_payment_method_path
     fill_in 'Method', with: 'Cash'
     click_on 'Create Payment method'
@@ -85,9 +83,6 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     fill_in 'Method', with: 'Venmo'
     click_on 'Create Payment method'
     expect(PaymentMethod.count).to eq(3)
-
-
-
   end
 
   # it 'valid inputs' do

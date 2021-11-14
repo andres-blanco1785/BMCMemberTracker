@@ -43,11 +43,11 @@ class DepositsController < ApplicationController
       @old_officer_uin = @deposit.officer_uin
       @old_officer = @deposit.officer
       if @deposit.update(deposit_params)
-        if @old_officer_uin != @deposit.officer_uin
-          @deposit.officer.update(amount_owed: @deposit.officer.amount_owed - @deposit.amount)
-          @old_officer.update(amount_owed:@old_officer.amount_owed + @old_amount)
-        else
+        if @old_officer_uin == @deposit.officer_uin
           @deposit.officer.update(amount_owed: @deposit.officer.amount_owed - @deposit.amount + @old_amount)
+        else
+          @deposit.officer.update(amount_owed: @deposit.officer.amount_owed - @deposit.amount)
+          @old_officer.update(amount_owed: @old_officer.amount_owed + @old_amount)
         end
         format.html { redirect_to @deposit, notice: 'Deposit was successfully updated.' }
         format.json { render :show, status: :ok, location: @deposit }
