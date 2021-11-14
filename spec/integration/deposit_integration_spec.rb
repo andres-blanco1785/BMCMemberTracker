@@ -7,6 +7,8 @@ RSpec.describe 'Testing Deposit', type: :feature do
     Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google]
   end
 
+  let!(:officer) { Officer.create(officer_uin: '111000123', name: 'Yue Hu', email: 'yueh@tamu.edu', amount_owed: 0) }
+
   let!(:deposit) do
     Deposit.create(officer_uin: '111000123', amount: 100, date: '2021-10-21')
   end
@@ -26,7 +28,7 @@ RSpec.describe 'Testing Deposit', type: :feature do
     visit new_member_path
     click_link 'Sign in with your TAMU Google Account'
     visit new_deposit_path
-    fill_in 'deposit_officer_uin', with: 100_000_000
+    fill_in 'deposit_officer_uin', with: '111000123'
     fill_in 'deposit_amount', with: 20
     select '2021', from: 'deposit_date_1i'
     select 'December', from: 'deposit_date_2i'
@@ -57,6 +59,7 @@ RSpec.describe 'Testing Deposit', type: :feature do
   end
 
   it 'update deposit' do
+    Officer.create(officer_uin: '100_000_001', name: 'XiXi', email: 'xixi@tamu.edu', amount_owed: 0)
     visit new_member_path
     click_link 'Sign in with your TAMU Google Account'
     visit new_deposit_path

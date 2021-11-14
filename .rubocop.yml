@@ -95,7 +95,7 @@ Lint/UselessAccessModifier:
     - 'def_node_matcher'
 
 Metrics/AbcSize:
-  Max: 30
+  Max: 50
 
 Metrics/BlockLength:
   Exclude:
