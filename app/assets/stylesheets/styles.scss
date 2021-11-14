@@ -13,6 +13,7 @@ $radius: 0.2rem;
 html{
   height: 100%;
   background-image: linear-gradient(rgb(118, 31, 20), rgb(40, 5, 0));
+  overflow-x: hidden;
 }
 
 //styling the body
@@ -23,6 +24,7 @@ body {
   background-attachment: fixed;
   background-size: cover;
   color: rgb(255, 255, 255);
+  overflow-x: hidden;
 }
 
 //styling the nav bar, all elements in id=nav will be edited
