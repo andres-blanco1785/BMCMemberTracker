@@ -44,7 +44,8 @@
   <%# cannot select purely by name b/c names aren't always unique, show names but still save by uin which is unique %>
   <div class="field form-group">
     <%= form.label :member_uin %>
-	<%= form.collection_select(:member_uin, Member.all, :id, :names_with_uin) %>
+	<%# second parameter of collection select: M.all is unsorted, choice to sort by last name %>
+	<%= form.collection_select(:member_uin, Member.order('last_name ASC'), :id, :names_with_uin) %>
   </div>
 
   <%# Officer selectable, doing so for member might not be best b/c would need text search mobile support due to amount of members. %>
