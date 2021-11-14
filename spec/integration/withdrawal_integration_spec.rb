@@ -64,7 +64,7 @@ RSpec.describe 'Withdrawal Features', type: :feature do
     expect(Withdrawal.count).to eq(1)
 
     visit withdrawals_path
-    click_on 'Destroy'
+    click_on 'Delete'
     expect(page.has_content?('Withdrawal was successfully destroyed.')).to be(true)
     expect(Withdrawal.count).to eq(0)
   end
@@ -111,7 +111,6 @@ RSpec.describe 'Withdrawal Features', type: :feature do
     # An Withdrawal has been created
     expect(Withdrawal.count).to eq(1)
     visit withdrawals_path
-    click_on 'Show'
     expect(page.has_content?('631009798')).to be(true)
     expect(page.has_content?('party')).to be(true)
     expect(page.has_content?('10')).to be(true)
