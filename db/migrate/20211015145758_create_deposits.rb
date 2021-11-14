@@ -6,6 +6,7 @@ class CreateDeposits < ActiveRecord::Migration[6.1]
       t.integer :deposit_id
       t.integer :officer_uin
       t.float :amount
+      t.text :notes
       t.date :date
 
       t.timestamps

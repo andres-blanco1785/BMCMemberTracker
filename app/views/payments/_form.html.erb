@@ -36,6 +36,11 @@
     <%= form.text_field :amount, class:"form-control", placeholder: "Amount" %>
   </div>
   
+  <div class="field form-group">
+    <%= form.label :notes %>
+    <%= form.text_field :notes, class:"form-control", placeholder: "Notes" %>
+  </div>
+
   <%# cannot select purely by name b/c names aren't always unique, show names but still save by uin which is unique %>
   <div class="field form-group">
     <%= form.label :member_uin %>

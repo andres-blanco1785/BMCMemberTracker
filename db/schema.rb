@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2021_10_15_155527) do
+=======
 ActiveRecord::Schema.define(version: 2021_11_10_200149) do
+>>>>>>> test
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +33,7 @@ ActiveRecord::Schema.define(version: 2021_11_10_200149) do
     t.integer "deposit_id"
     t.integer "officer_uin"
     t.float "amount"
+    t.text "notes"
     t.date "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -67,6 +72,7 @@ ActiveRecord::Schema.define(version: 2021_11_10_200149) do
     t.string "membership_type"
     t.date "membership_expiration"
     t.float "amount"
+    t.text "notes"
     t.integer "member_uin"
     t.integer "officer_uin"
     t.datetime "created_at", precision: 6, null: false
