@@ -14,7 +14,7 @@ RSpec.describe 'Payments Features', type: :feature do
   end
 
   let!(:payment) do
-    Payment.create(payment_mtd: 'Cash', date: '2021/09/01', membership_type: 'one semester',
+    Payment.create(method: 'Cash', date: '2021/09/01', membership_type: 'one semester',
                    membership_expiration: '2021/12/31', amount: 15, member_uin: 111_222_333, officer_uin: 999_899_799)
   end
 
@@ -41,7 +41,7 @@ RSpec.describe 'Payments Features', type: :feature do
     visit new_payment_path
     click_link 'Sign in with your TAMU Google Account'
     visit new_payment_path
-    select 'Venmo', from: 'payment[payment_mtd]'
+    select 'Venmo', from: 'payment[method]'
     select '2021', from: 'payment_date_1i'
     select 'September', from: 'payment_date_2i'
     select '1', from: 'payment_date_3i'
@@ -79,7 +79,7 @@ RSpec.describe 'Payments Features', type: :feature do
     expect(page.has_content?('Cash')).to be(true)
     expect(page.has_content?('111222333')).to be(true)
     click_on 'Edit'
-    select 'Venmo', from: 'payment[payment_mtd]'
+    select 'Venmo', from: 'payment[method]'
     select '2021', from: 'payment_date_1i'
     select 'September', from: 'payment_date_2i'
     select '1', from: 'payment_date_3i'
