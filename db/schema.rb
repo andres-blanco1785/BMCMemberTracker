@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_10_15_155527) do
+=======
+ActiveRecord::Schema.define(version: 2021_11_10_200149) do
+>>>>>>> test
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +32,6 @@ ActiveRecord::Schema.define(version: 2021_10_15_155527) do
   create_table "deposits", force: :cascade do |t|
     t.integer "deposit_id"
     t.integer "officer_uin"
-    t.string "category"
     t.float "amount"
     t.text "notes"
     t.date "date"
@@ -56,23 +59,22 @@ ActiveRecord::Schema.define(version: 2021_10_15_155527) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "payments", force: :cascade do |t|
-    t.integer "payment_id"
-    t.string "payment_mtd"
-    t.date "date"
-    t.string "membership_type"
-    t.text "notes"
-    t.date "membership_expiration"
-    t.float "amount"
-    t.integer "member_uin"
-    t.integer "officer_uin"
+  create_table "payment_methods", force: :cascade do |t|
+    t.string "method"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "transaction_types", force: :cascade do |t|
-    t.integer "transaction_id"
-    t.string "category"
+  create_table "payments", force: :cascade do |t|
+    t.integer "payment_id"
+    t.string "method"
+    t.date "date"
+    t.string "membership_type"
+    t.date "membership_expiration"
+    t.float "amount"
+    t.text "notes"
+    t.integer "member_uin"
+    t.integer "officer_uin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -80,7 +82,6 @@ ActiveRecord::Schema.define(version: 2021_10_15_155527) do
   create_table "withdrawals", force: :cascade do |t|
     t.integer "withdraw_id"
     t.integer "officer_uin"
-    t.string "category"
     t.float "amount"
     t.string "title"
     t.string "description"

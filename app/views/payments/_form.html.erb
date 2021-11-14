@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field form-group">
-    <%= form.label :payment_mtd %>
-    <%= form.select(:payment_mtd, ['Cash', 'Venmo', 'Other'], {}, {}) %>
+    <%= form.label :method %>
+    <%= form.select :method, PaymentMethod.all.collect { |t| [t.method] }, include_blank: true, class:"form-control", placeholder:"Payment Method" %>
   </div>
 
   <div class="field form-group">

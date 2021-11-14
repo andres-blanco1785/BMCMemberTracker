@@ -4,7 +4,6 @@
   <thead class="thead-light">
     <tr>
       <th>Officer UIN</th>
-      <th>Transaction Type</th>
       <th>Amount</th>
       <th>Notes</th>
       <th>Date</th>
@@ -16,7 +15,6 @@
     <% @deposits.each do |deposit| %>
       <tr>
         <td><%= deposit.officer_uin %></td>
-        <td><%= deposit.category %></td>
         <td><%= deposit.amount %></td>
         <td><%= deposit.notes %></td>
         <td><%= deposit.date %></td>

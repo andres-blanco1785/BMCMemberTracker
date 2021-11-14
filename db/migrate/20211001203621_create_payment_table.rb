@@ -4,7 +4,7 @@ class CreatePaymentTable < ActiveRecord::Migration[6.1]
   def change
     create_table :payments do |t|
       t.integer :payment_id
-      t.string :payment_mtd
+      t.string :method
       t.date :date
       t.string :membership_type
       t.text :notes
