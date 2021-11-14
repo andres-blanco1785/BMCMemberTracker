@@ -17,6 +17,8 @@ RSpec.describe 'Payments Features', type: :feature do
     Payment.create(method: 'Cash', date: '2021/09/01', membership_type: 'one semester',
                    membership_expiration: '2021/12/31', amount: 15, member_uin: 111_222_333, officer_uin: 999_899_799)
   end
+  
+  let!(:payment_method) { PaymentMethod.create(method: 'Cash') }
 
   before do
     Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
@@ -41,7 +43,7 @@ RSpec.describe 'Payments Features', type: :feature do
     visit new_payment_path
     click_link 'Sign in with your TAMU Google Account'
     visit new_payment_path
-    select 'Venmo', from: 'payment[method]'
+    select 'Cash', from: 'payment[method]'
     select '2021', from: 'payment_date_1i'
     select 'September', from: 'payment_date_2i'
     select '1', from: 'payment_date_3i'
@@ -70,6 +72,7 @@ RSpec.describe 'Payments Features', type: :feature do
     expect(Payment.count).to eq(0)
   end
 
+  @payment_method = PaymentMethod.create method: 'Venmo'
   it 'Edit payment successfully' do
     # A payment has been created
     expect(Payment.count).to eq(1)

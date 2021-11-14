@@ -3,7 +3,7 @@
 require 'rails_helper'
 RSpec.describe Deposit, type: :model do
   subject(:deposit) do
-    described_class.new(officer_uin: '111000123', category: '111',
+    described_class.new(officer_uin: '111000123',
                         amount: 100, date: '2021-10-03')
   end
 
@@ -13,11 +13,6 @@ RSpec.describe Deposit, type: :model do
 
   it 'is not valid without an officer UIN' do
     deposit.officer_uin = nil
-    expect(deposit.valid?).to be(false)
-  end
-
-  it 'is not valid without a category' do
-    deposit.category = nil
     expect(deposit.valid?).to be(false)
   end
 
