@@ -6,20 +6,18 @@ RSpec.describe 'Withdrawal Features', type: :feature do
     Officer.create(officer_uin: '631009798',
                    name: 'Yue Hu', email: 'yueh@tamu.edu', amount_owed: 0)
   end
-  let!(:transaction_type) { TransactionType.create(category: 'party') }
 
   before do
     Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
     Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google]
   end
 
-  it 'Create Withdrawal w/empty officer, category, amount' do
+  it 'Create Withdrawal w/empty officer, amount' do
     visit new_withdrawal_path
     click_link 'Sign in with your TAMU Google Account'
     visit new_withdrawal_path
     click_on 'Create Withdrawal'
     expect(page.has_content?("Officer uin can't be blank")).to be(true)
-    expect(page.has_content?("Category can't be blank")).to be(true)
     expect(page.has_content?("Amount can't be blank")).to be(true)
 
     # No Officer record is created
@@ -33,7 +31,6 @@ RSpec.describe 'Withdrawal Features', type: :feature do
     click_on 'Create Withdrawal'
 
     fill_in 'Officer UIN', with: 631_009_798
-    select 'party', from: 'withdrawal_category'
     fill_in 'Amount', with: 10
     fill_in 'withdrawal_title', with: 'happy hour'
     fill_in 'Description', with: 'Just drink and dance'
@@ -43,7 +40,6 @@ RSpec.describe 'Withdrawal Features', type: :feature do
     expect(page.has_content?('Withdrawal was successfully created.')).to be(true)
     visit withdrawals_path
     expect(page.has_content?('631009798')).to be(true)
-    expect(page.has_content?('party')).to be(true)
     expect(page.has_content?('10')).to be(true)
     expect(page.has_content?('happy hour')).to be(true)
     expect(page.has_content?('Just drink and dance')).to be(true)
@@ -55,7 +51,6 @@ RSpec.describe 'Withdrawal Features', type: :feature do
     visit new_withdrawal_path
     click_on 'Create Withdrawal'
     fill_in 'Officer UIN', with: 631_009_798
-    select 'party', from: 'withdrawal_category'
     fill_in 'Amount', with: 10
     fill_in 'withdrawal_title', with: 'happy hour'
     fill_in 'Description', with: 'Just drink and dance'
@@ -75,7 +70,6 @@ RSpec.describe 'Withdrawal Features', type: :feature do
     visit new_withdrawal_path
     click_on 'Create Withdrawal'
     fill_in 'Officer UIN', with: 631_009_798
-    select 'party', from: 'withdrawal_category'
     fill_in 'Amount', with: 10
     fill_in 'withdrawal_title', with: 'happy hour'
     fill_in 'Description', with: 'Just drink and dance'
@@ -86,7 +80,6 @@ RSpec.describe 'Withdrawal Features', type: :feature do
     visit withdrawals_path
     click_on 'Edit'
     fill_in 'Officer UIN', with: 631_009_798
-    select 'party', from: 'withdrawal_category'
     fill_in 'Amount', with: 100
     fill_in 'withdrawal_title', with: 'happy hour111'
     fill_in 'Description', with: 'Just drink and dance111'
@@ -103,7 +96,6 @@ RSpec.describe 'Withdrawal Features', type: :feature do
     visit new_withdrawal_path
     click_on 'Create Withdrawal'
     fill_in 'Officer UIN', with: 631_009_798
-    select 'party', from: 'withdrawal_category'
     fill_in 'Amount', with: 10
     fill_in 'withdrawal_title', with: 'happy hour'
     fill_in 'Description', with: 'Just drink and dance'
@@ -113,7 +105,6 @@ RSpec.describe 'Withdrawal Features', type: :feature do
     visit withdrawals_path
     click_on 'Show'
     expect(page.has_content?('631009798')).to be(true)
-    expect(page.has_content?('party')).to be(true)
     expect(page.has_content?('10')).to be(true)
     expect(page.has_content?('happy hour')).to be(true)
     expect(page.has_content?('Just drink and dance')).to be(true)

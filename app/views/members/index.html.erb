@@ -24,7 +24,7 @@
 
 <input type="checkbox" onclick="toggleElements_id('fn')" id="fnBox" checked>First Name</input>
 <input type="checkbox" onclick="toggleElements_id('ln')" id="lnBox" checked>Last Name</input>
-<input type="checkbox" onclick="toggleElements_id('uin')" id="uinBox" checked>UIN</input>
+<input type="checkbox" onclick="toggleElements_id('uin')" id="uinBox" checked>UIN / DL</input>
 <input type="checkbox" onclick="toggleElements_id('email')" id="emailBox" checked>Email</input>
 <input type="checkbox" onclick="toggleElements_id('pn')" id="pnBox" checked>Phone Number</input>
 <input type="checkbox" onclick="toggleElements_id('join')" id="joinBox" checked>Join Date</input>
@@ -38,14 +38,14 @@
     <tr>
       <th class= 'fn' style="display: ;"><%= sortable 'first_name'%></th>
       <th class= 'ln' style="display: ;"><%= sortable 'last_name'%></th>
-      <th class= 'uin' style="display: ;"><%= sortable 'member_uin', 'UIN'%></th>
+      <th class= 'uin' style="display: ;"><%= sortable 'member_uin', 'UIN / DL'%></th>
       <th class= 'email' style="display: ;"><%= sortable 'email'%></th>
       <th class= 'pn' style="display: ;"><%= sortable 'phone_number'%></th>
       <th class= 'join' style="display: ;"><%= sortable 'join_date'%></th>
       <th class= 'memtpye' style="display: ;"><%= sortable 'membership_type'%></th>
       <th class= 'date' style="display: ;"><%= sortable 'date'%></th>
       <th class= 'officeruin' style="display: ;"><%= sortable 'officer_uin'%></th>
-      <th class= 'mtd' style="display: ;"><%= sortable 'payment_mtd'%></th>
+      <th class= 'mtd' style="display: ;"><%= sortable 'method'%></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -62,10 +62,9 @@
         <td class= 'memtpye'><%= member.payments.any? ? member.payments.first.membership_type : "N/A" %></td>
         <td class= 'date'><%= member.payments.any? ? member.payments.first.date : "N/A" %></td>
         <td class= 'officeruin'><%= member.payments.any? ? member.payments.first.officer.officer_uin : "N/A" %></td>
-        <td class= 'mtd'><%= member.payments.any? ? member.payments.first.payment_mtd : "N/A" %></td>
-        <td><%= link_to 'Show', member, class: "btn btn-outline-info" %></td>
+        <td class= 'mtd'><%= member.payments.any? ? member.payments.first.method : "N/A" %></td>
         <td><%= link_to 'Edit', edit_member_path(member), class: "btn btn-secondary" %></td>
-        <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
+        <td><%= link_to 'Delete', member, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>

@@ -19,7 +19,7 @@
   <tbody>
     <% @payments.each do |payment| %>
       <tr>
-        <td><%= payment.payment_mtd %></td>
+        <td><%= payment.method %></td>
         <td><%= payment.date %></td>
 		<td><%= payment.membership_type %></td>
         <td><%= payment.membership_expiration %></td>
@@ -34,9 +34,8 @@
 		<% @UIN_start = @a_member_str.index("member_uin") + 12 %>
 		<% @UIN_end = @a_member_str.index("first_name") - 3 %>
 		<td><%= @a_member_str[@first_name_start..@first_name_end] + " " + @a_member_str[@last_name_start..@last_name_end] + ", " + @a_member_str[@UIN_start..@UIN_end] %></td>
-        <td><%= link_to 'Show', payment, class: "btn btn-info" %></td>
         <td><%= link_to 'Edit', edit_payment_path(payment), class: "btn btn-secondary" %></td>
-        <td><%= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
+        <td><%= link_to 'Delete', payment, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>

@@ -4,7 +4,6 @@
   <thead class="thead-light">
     <tr>
       <th>Officer UIN</th>
-      <th>Transaction Type</th>
       <th>Amount</th>
       <th>Date</th>
       <th colspan="3"></th>
@@ -15,7 +14,6 @@
     <% @deposits.each do |deposit| %>
       <tr>
         <td><%= deposit.officer_uin %></td>
-        <td><%= deposit.category %></td>
         <td><%= deposit.amount %></td>
         <td><%= deposit.date %></td>
         <td><%= link_to 'Show', deposit, class: "btn btn-outline-info" %></td>
