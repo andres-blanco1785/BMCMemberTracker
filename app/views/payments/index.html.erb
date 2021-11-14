@@ -21,11 +21,19 @@
       <tr>
         <td><%= payment.payment_mtd %></td>
         <td><%= payment.date %></td>
-        <td><%= payment.membership_type %></td>
+		<td><%= payment.membership_type %></td>
         <td><%= payment.membership_expiration %></td>
         <td><%= payment.amount %></td>
 		<td><%= payment.officer_uin %></td>
-		<td><%= payment.member_uin %></td>
+		<%# For member, display full name and UIN.  UIN guarantees unique, name does not, but BMCT wants name %>
+		<% @a_member_str = Member.where(member_uin: payment.member_uin).first.inspect %>
+		<% @first_name_start = @a_member_str.index("first_name") + 13 %>
+		<% @first_name_end = @a_member_str.index("last_name") - 4 %>
+		<% @last_name_start = @a_member_str.index("last_name") + 12 %>
+		<% @last_name_end = @a_member_str.index("email") - 4 %>
+		<% @UIN_start = @a_member_str.index("member_uin") + 12 %>
+		<% @UIN_end = @a_member_str.index("first_name") - 3 %>
+		<td><%= @a_member_str[@first_name_start..@first_name_end] + " " + @a_member_str[@last_name_start..@last_name_end] + ", " + @a_member_str[@UIN_start..@UIN_end] %></td>
         <td><%= link_to 'Show', payment, class: "btn btn-info" %></td>
         <td><%= link_to 'Edit', edit_payment_path(payment), class: "btn btn-secondary" %></td>
         <td><%= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
