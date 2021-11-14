@@ -24,8 +24,9 @@
         <td><%= payment.membership_type %></td>
         <td><%= payment.membership_expiration %></td>
         <td><%= payment.amount %></td>
-		<td><%= payment.officer_uin %></td>
-		<td><%= payment.member_uin %></td>
+        <td><%= payment.notes %></td>
+		    <td><%= payment.officer_uin %></td>
+		    <td><%= payment.member_uin %></td>
         <td><%= link_to 'Edit', edit_payment_path(payment), class: "btn btn-secondary" %></td>
         <td><%= link_to 'Delete', payment, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
       </tr>
