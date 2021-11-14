@@ -17,8 +17,8 @@
         <td><%= officer.officer_uin %></td>
         <td><%= officer.name %></td>
         <td><%= officer.email %></td>
+        <td><%= officer.amount_owed %></td>
 
-        <td><%= officer.payments.any?? officer.payments.sum(:amount)- officer.deposits.sum(:amount) + officer.withdrawals.sum(:amount) : "N/A"%></td>
         <td><%= link_to 'Edit', edit_officer_path(officer), class: "btn btn-secondary" %></td>
         <td><%= link_to 'Delete', officer, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
       </tr>

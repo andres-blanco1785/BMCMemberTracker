@@ -22,6 +22,7 @@ class OfficersController < ApplicationController
   # POST /officers or /officers.json
   def create
     @officer = Officer.new(officer_params)
+    @officer.amount_owed = 0
 
     respond_to do |format|
       if @officer.save

@@ -25,6 +25,7 @@ class PaymentsController < ApplicationController
 
     respond_to do |format|
       if @payment.save
+        @payment.officer.update(amount_owed: @payment.amount + @payment.officer.amount_owed)
         # Tell NotifyPymtMailer to send email after save
         # .deliver_now : forces deliver now to proceed, vs .deliver_later recommended but sends asynchronous
         # should get 1, but .first gets array[0] rather than array with one element... don't want [var] in email
@@ -45,7 +46,18 @@ class PaymentsController < ApplicationController
   # PATCH/PUT /payments/1 or /payments/1.json
   def update
     respond_to do |format|
+      @old_amount = @payment.amount
+      @old_officer_uin = @payment.officer_uin
+      @old_officer = @payment.officer
       if @payment.update(payment_params)
+        if @old_officer_uin == @payment.officer_uin
+          @payment.officer.update(amount_owed: @payment.officer.amount_owed + @payment.amount - @old_amount)
+
+        else
+          @payment.officer.update(amount_owed: @payment.officer.amount_owed + @payment.amount)
+          @old_officer.update(amount_owed: @old_officer.amount_owed - @old_amount)
+        end
+
         format.html { redirect_to @payment, notice: 'Payment was successfully updated.' }
         format.json { render :show, status: :ok, location: @payment }
       else
