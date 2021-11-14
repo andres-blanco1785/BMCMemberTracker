@@ -30,7 +30,7 @@ RSpec.describe 'Payments Features', type: :feature do
     click_link 'Sign in with your TAMU Google Account'
     visit new_payment_path
     click_on 'Create Payment'
-    expect(page.has_content?('Member must exist')).to be(true)
+    # expect(page.has_content?('Member must exist')).to be(true)
 	# this is deleted because the member already be selected by default
     # expect(page).to have_content("Officer must exist")
     # this is deleted beacuse the officer already be selected by default
@@ -53,8 +53,9 @@ RSpec.describe 'Payments Features', type: :feature do
     select 'December', from: 'payment_membership_expiration_2i'
     select '31', from: 'payment_membership_expiration_3i'
     fill_in 'payment_amount', with: '15'
-	select 111_222_333, from: 'payment_member_uin'
-    select 999_899_799, from: 'payment_officer_uin'
+	# under the hood these are still UIN, but to the BMCT officers names were wanted
+	select 'Fnam Lnam, 111222333', from: 'payment_member_uin'
+    select 'Onam', from: 'payment_officer_uin'
     click_on 'Create Payment'
     expect(page.has_content?('Payment was successfully created.')).to be(true)
     visit payments_path
@@ -92,6 +93,7 @@ RSpec.describe 'Payments Features', type: :feature do
     select 'December', from: 'payment_membership_expiration_2i'
     select '31', from: 'payment_membership_expiration_3i'
     fill_in 'payment_amount', with: '15'
+	# OLD: notice changes to selects - creating payment w/valid inputs - if want to do similar to commented
     # fill_in 'payment_member_uin', with: '111222333'
 	# select '111222333', :from => 'payment_member_uin'
     # select '987654321', :from => 'payment_officer_uin'
