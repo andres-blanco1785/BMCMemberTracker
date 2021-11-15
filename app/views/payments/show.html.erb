@@ -10,8 +10,8 @@
       <th scope="col">Amount</th>
       <th scope="col">Officer Paid</th>
       <th scope="col">Member Who Paid</th>
-      <th scope="col">Member UIN</th>
-      <th scope="col">Notes</th>
+      <th scope="col">Member UIN/ID</th>
+	  <th scope="col">Notes</th>
     </tr>
   </thead>
   <tbody>
@@ -24,7 +24,7 @@
       <td><%= @payment.officer.name %></td>
       <td><%= @payment.member.first_name + ' ' + @payment.member.last_name %></td>
       <td><%= @payment.member_uin %></td>
-      <td><%= @payment.notes %></td>
+	  <td><%= @payment.notes %></td>
     </tr>
   </tbody>
 </table>

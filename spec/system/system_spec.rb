@@ -1,6 +1,6 @@
 require 'rails_helper'
 #  login --> create 3 members --> create 2 officers --> create 3 payment methods
-#  --> create 3 payments --> modify payments --> create 2 deposits 
+#  --> create 3 payments --> modify payments --> create 2 deposits
 #  --> modify deposits -->create 2 withdrawals --> modify withdrawals
 RSpec.describe 'Create all entities using the UI', type: :feature do
   # mock login
@@ -14,7 +14,7 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     visit new_member_path
     click_link 'Sign in with your TAMU Google Account'
     visit new_member_path
-    fill_in "UIN / Driver's License", with: '100000000'
+    fill_in "UIN / Driver's License", with: '11111'
     fill_in 'First Name', with: 'Alexandria'
     fill_in 'Last Name', with: 'Curtis'
     fill_in 'Email', with: 'acurtis55@tamu.edu'
@@ -34,7 +34,7 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     expect(Member.count).to eq(2)
 
     visit new_member_path
-    fill_in "UIN / Driver's License", with: '727002594'
+    fill_in "UIN / Driver's License", with: '111111'
     fill_in 'First Name', with: 'Andres'
     fill_in 'Last Name', with: 'Blanco'
     fill_in 'Email', with: 'andresblanco1785@tamu.edu'
@@ -44,7 +44,7 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     expect(Member.count).to eq(3)
 
     visit members_path
-    expect(page.has_content?('100000000')).to be(true)
+    expect(page.has_content?('11111')).to be(true)
     expect(page.has_content?('Alexandria')).to be(true)
     expect(page.has_content?('Curtis')).to be(true)
     expect(page.has_content?('5125207373')).to be(true)
@@ -85,10 +85,11 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     click_on 'Create Payment method'
     expect(PaymentMethod.count).to eq(3)
 
-    #now create 3 payments
+    # now create 3 payments
     visit new_payment_path
     fill_in 'Amount', with: '15'
-    fill_in 'Member uin', with: '100000000'
+    fill_in 'Notes', with: 'the first payment'
+    select 'Alexandria Curtis', from: 'payment[member_uin]'
     select 'Yue Hu', from: 'payment_officer_uin'
     select 'Cash', from: 'payment[method]'
     click_on 'Create Payment'
@@ -99,7 +100,9 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
 
     visit new_payment_path
     fill_in 'Amount', with: '25'
-    fill_in 'Member uin', with: '111111111'
+    fill_in 'Notes', with: 'the second payment'
+
+    select 'Yue Hu', from: 'payment[member_uin]'
     select 'Michael Stewart', from: 'payment_officer_uin'
     select 'Venmo', from: 'payment[method]'
     click_on 'Create Payment'
@@ -110,7 +113,8 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
 
     visit new_payment_path
     fill_in 'Amount', with: '50'
-    fill_in 'Member uin', with: '727002594'
+    fill_in 'Notes', with: 'the third payment'
+    select 'Andres Blanco', from: 'payment[member_uin]'
     select 'Michael Stewart', from: 'payment_officer_uin'
     select 'Paypal', from: 'payment[method]'
     click_on 'Create Payment'
@@ -119,88 +123,130 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     expect(page.has_content?('Yue Hu')).to be(true)
     expect(Payment.count).to eq(3)
 
-    #Yue has 15 amount owed, Michael has 75 amount owed
+    # Yue has 15 amount owed, Michael has 75 amount owed
     visit officers_path
     expect(page.has_content?('75')).to be(true)
     expect(page.has_content?('15')).to be(true)
 
-    #Make the second payment to Yue, change the third payment amount as 90  
+    # Make the second payment to Yue, change the third payment amount as 90
     visit payments_path
-    find(:xpath, "//tr[td[contains(.,'25')]]/td/a", :text => 'Edit').click
+    find(:xpath, "//tr[td[contains(.,'the second payment')]]/td/a", text: 'Edit').click
     select 'Yue Hu', from: 'payment_officer_uin'
     click_on('Update Payment')
     visit officers_path
-    expect(page.has_content?('40')). to be(true)
-    expect(page.has_content?('50')). to be(true)
+    expect(page.has_content?('40')).to be(true)
+    expect(page.has_content?('50')).to be(true)
     visit payments_path
-    find(:xpath, "//tr[td[contains(.,'Michael Stewart')]]/td/a", :text => 'Edit').click
+    find(:xpath, "//tr[td[contains(.,'Michael Stewart')]]/td/a", text: 'Edit').click
     fill_in 'Amount', with: '90'
     click_on('Update Payment')
     visit officers_path
-    expect(page.has_content?('90')). to be(true)
-    expect(page.has_content?('40')). to be(true)
+    expect(page.has_content?('90')).to be(true)
+    expect(page.has_content?('40')).to be(true)
 
-    #Delete the third payment, should not affect officer's amount due
+    # Delete the third payment, should not affect officer's amount due
     visit payments_path
-    find(:xpath, "//tr[td[contains(.,'Michael Stewart')]]/td/a", :text => 'Delete').click
+    find(:xpath, "//tr[td[contains(.,'Michael Stewart')]]/td/a", text: 'Delete').click
     expect(Payment.count).to eq(2)
     visit officers_path
-    expect(page.has_content?('90')). to be(true) #Michael
-    expect(page.has_content?('40')). to be(true) #Yue Hu
+    expect(page.has_content?('90')).to be(true) # Michael
+    expect(page.has_content?('40')).to be(true) # Yue Hu
 
-    #Now create 2 deposits
+    # Now create 2 deposits
     visit new_deposit_path
-    fill_in 'Officer uin', with: '111111111' #Yue Hu
+    select 'Yue Hu', from: 'deposit[officer_uin]'
     fill_in 'Amount', with: 23
-    fill_in 'Notes', with: 'just take my money and shut up'
+    fill_in 'Notes', with: 'the first deposit'
     click_on 'Create Deposit'
     expect(page.has_content?('Deposit was successfully created.')).to be(true)
     # An deposit has been created
     expect(Deposit.count).to eq(1)
     visit officers_path
-    expect(page.has_content?('90')). to be(true)
-    expect(page.has_content?('17')). to be(true)
-
+    expect(page.has_content?('90')).to be(true)
+    expect(page.has_content?('17')).to be(true)
 
     visit new_deposit_path
-    fill_in 'Officer uin', with: '99999999' #Michael
+    select 'Michael Stewart', from: 'deposit[officer_uin]'
     fill_in 'Amount', with: 14
-    fill_in 'Notes', with: 'just take my money and shut up'
+    fill_in 'Notes', with: 'the second deposit'
     click_on 'Create Deposit'
     expect(page.has_content?('Deposit was successfully created.')).to be(true)
     expect(Deposit.count).to eq(2)
     visit officers_path
-    expect(page.has_content?('76')). to be(true) #Michael
-    expect(page.has_content?('17')). to be(true) #Yue Hu
+    expect(page.has_content?('76')).to be(true) # Michael
+    expect(page.has_content?('17')).to be(true) # Yue Hu
 
-    #Change the second deposit to Yue, change the first deposit amount to 17
+    # Change the second deposit to Yue, change the first deposit amount to 17
     visit deposits_path
-    find(:xpath, "//tr[td[contains(.,'14')]]/td/a", :text => 'Edit').click
-    fill_in 'Officer uin', with: '111111111'
+    find(:xpath, "//tr[td[contains(.,'the second deposit')]]/td/a", text: 'Edit').click
+    select 'Yue Hu', from: 'deposit[officer_uin]'
     click_on 'Update Deposit'
     visit officers_path
-    expect(page.has_content?('90')). to be(true) #Michael
-    expect(page.has_content?('3')). to be(true) #Yue Hu
+    expect(page.has_content?('90')).to be(true) # Michael
+    expect(page.has_content?('3')).to be(true) # Yue Hu
 
     visit deposits_path
-    find(:xpath, "//tr[td[contains(.,'23')]]/td/a", :text => 'Edit').click
-    fill_in 'Amount', with:'17'
+    find(:xpath, "//tr[td[contains(.,'the first deposit')]]/td/a", text: 'Edit').click
+    fill_in 'Amount', with: '13'
     click_on 'Update Deposit'
+    expect(page.has_content?('Deposit was successfully updated.')).to be(true)
     visit officers_path
-    expect(page.has_content?('90')). to be(true) #Michael
-    expect(page.has_content?('0')). to be(true) #Yue Hu
+    expect(page.has_content?('90')).to be(true) # Michael
+    expect(page.has_content?('13')).to be(true) # Yue Hu
 
-    #Delete the sceond depost, and nothing changes
+    # Delete the sceond depost, and nothing changes
     visit deposits_path
-    find(:xpath, "//tr[td[contains(.,'17')]]/td/a", :text => 'Destroy').click
+    find(:xpath, "//tr[td[contains(.,'the second deposit')]]/td/a", text: 'Destroy').click
     visit officers_path
-    expect(page.has_content?('90')). to be(true) #Michael
-    expect(page.has_content?('0')). to be(true) #Yue Hu
+    expect(page.has_content?('90')).to be(true) # Michael
+    expect(page.has_content?('13')).to be(true) # Yue Hu
 
-    #Now create 2 withdrawals
-    
+    # Now create 2 withdrawals
+    visit new_withdrawal_path
+    select 'Yue Hu', from: 'withdrawal[officer_uin]'
+    fill_in 'Amount', with: '444'
+    fill_in 'Description', with: 'the first withdrawal'
+    click_on 'Create Withdrawal'
+    expect(page.has_content?('Withdrawal was successfully created.')).to be(true)
+    expect(Withdrawal.count).to eq(1)
+    visit officers_path
+    expect(page.has_content?('90')).to be(true) # Michael
+    expect(page.has_content?('457')).to be(true) # Yue Hu
+
+    visit new_withdrawal_path
+    select 'Michael Stewart', from: 'withdrawal[officer_uin]'
+
+    fill_in 'Amount', with: '333'
+    fill_in 'Description', with: 'the second withdrawal'
+    click_on 'Create Withdrawal'
+    expect(page.has_content?('Withdrawal was successfully created.')).to be(true)
+    expect(Withdrawal.count).to eq(2)
+    visit officers_path
+    expect(page.has_content?('423')).to be(true) # Michael
+    expect(page.has_content?('457')).to be(true) # Yue Hu
+
+    # Change the second withdrawal to Yue, change the first withdrawal amount to 17
+    visit withdrawals_path
+    find(:xpath, "//tr[td[contains(.,'the second withdrawal')]]/td/a", text: 'Edit').click
+    select 'Yue Hu', from: 'withdrawal[officer_uin]'
+    click_on 'Update Withdrawal'
+    visit officers_path
+    expect(page.has_content?('90')).to be(true) # Michael
+    expect(page.has_content?('790')).to be(true) # Yue Hu
+
+    visit withdrawals_path
+    find(:xpath, "//tr[td[contains(.,'the first withdrawal')]]/td/a", text: 'Edit').click
+    fill_in 'Amount', with: '17'
+    click_on 'Update Withdrawal'
+    visit officers_path
+    expect(page.has_content?('90')).to be(true) # Michael
+    expect(page.has_content?('363')).to be(true) # Yue Hu
+
+    # Delete the sceond withdrawal, and nothing changes
+    visit withdrawals_path
+    find(:xpath, "//tr[td[contains(.,'the second withdrawal')]]/td/a", text: 'Delete').click
+    visit officers_path
+    expect(page.has_content?('90')).to be(true) # Michael
+    expect(page.has_content?('363')).to be(true) # Yue Hu
   end
-
-
-  
 end

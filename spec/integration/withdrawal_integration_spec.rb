@@ -30,7 +30,7 @@ RSpec.describe 'Withdrawal Features', type: :feature do
     visit new_withdrawal_path
     click_on 'Create Withdrawal'
 
-    fill_in 'Officer UIN', with: 631_009_798
+    select 'Yue Hu', from: 'withdrawal_officer_uin'
     fill_in 'Amount', with: 10
     fill_in 'withdrawal_title', with: 'happy hour'
     fill_in 'Description', with: 'Just drink and dance'
@@ -39,7 +39,7 @@ RSpec.describe 'Withdrawal Features', type: :feature do
     expect(Withdrawal.count).to eq(1)
     expect(page.has_content?('Withdrawal was successfully created.')).to be(true)
     visit withdrawals_path
-    expect(page.has_content?('631009798')).to be(true)
+    expect(page.has_content?('Yue Hu')).to be(true)
     expect(page.has_content?('10')).to be(true)
     expect(page.has_content?('happy hour')).to be(true)
     expect(page.has_content?('Just drink and dance')).to be(true)
@@ -50,7 +50,7 @@ RSpec.describe 'Withdrawal Features', type: :feature do
     click_link 'Sign in with your TAMU Google Account'
     visit new_withdrawal_path
     click_on 'Create Withdrawal'
-    fill_in 'Officer UIN', with: 631_009_798
+    select 'Yue Hu', from: 'withdrawal_officer_uin'
     fill_in 'Amount', with: 10
     fill_in 'withdrawal_title', with: 'happy hour'
     fill_in 'Description', with: 'Just drink and dance'
@@ -69,7 +69,7 @@ RSpec.describe 'Withdrawal Features', type: :feature do
     click_link 'Sign in with your TAMU Google Account'
     visit new_withdrawal_path
     click_on 'Create Withdrawal'
-    fill_in 'Officer UIN', with: 631_009_798
+    select 'Yue Hu', from: 'withdrawal_officer_uin'
     fill_in 'Amount', with: 10
     fill_in 'withdrawal_title', with: 'happy hour'
     fill_in 'Description', with: 'Just drink and dance'
@@ -79,7 +79,7 @@ RSpec.describe 'Withdrawal Features', type: :feature do
 
     visit withdrawals_path
     click_on 'Edit'
-    fill_in 'Officer UIN', with: 631_009_798
+    select 'Yue Hu', from: 'withdrawal_officer_uin'
     fill_in 'Amount', with: 100
     fill_in 'withdrawal_title', with: 'happy hour111'
     fill_in 'Description', with: 'Just drink and dance111'
@@ -95,7 +95,7 @@ RSpec.describe 'Withdrawal Features', type: :feature do
     click_link 'Sign in with your TAMU Google Account'
     visit new_withdrawal_path
     click_on 'Create Withdrawal'
-    fill_in 'Officer UIN', with: 631_009_798
+    select 'Yue Hu', from: 'withdrawal_officer_uin'
     fill_in 'Amount', with: 10
     fill_in 'withdrawal_title', with: 'happy hour'
     fill_in 'Description', with: 'Just drink and dance'
@@ -103,7 +103,7 @@ RSpec.describe 'Withdrawal Features', type: :feature do
     # An Withdrawal has been created
     expect(Withdrawal.count).to eq(1)
     visit withdrawals_path
-    expect(page.has_content?('631009798')).to be(true)
+    expect(page.has_content?('Yue Hu')).to be(true)
     expect(page.has_content?('10')).to be(true)
     expect(page.has_content?('happy hour')).to be(true)
     expect(page.has_content?('Just drink and dance')).to be(true)
