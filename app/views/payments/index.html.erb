@@ -26,12 +26,14 @@
 		<td><%= payment.membership_type %></td>
         <td><%= payment.membership_expiration %></td>
         <td><%= payment.amount %></td>
+
 		<td><%= payment.officer.name %></td>
 		<%# For member, display full name and UIN.  UIN guarantees unique, name does not, but BMCT wants name %>
 		<td><%= payment.member.first_name + ' ' + payment.member.last_name %></td>
         <td><%= payment.member_uin %></td>
 	    <td><%= payment.notes %></td>
 		<td><%= link_to 'Edit', edit_payment_path(payment), class: "btn btn-secondary" %></td>
+
         <td><%= link_to 'Delete', payment, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
       </tr>
     <% end %>
