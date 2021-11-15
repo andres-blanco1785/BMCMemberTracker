@@ -10,8 +10,9 @@
       <th>MembershipType</th>
       <th>MembershipExpiration</th>
       <th>Amount</th>
-	  <th>Officer Paid to</th>
-	  <th>Member Paying</th>
+	    <th>Officer Paid to</th>
+	    <th>Member Paying</th>
+      <th>Notes</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,9 +25,10 @@
         <td><%= payment.membership_type %></td>
         <td><%= payment.membership_expiration %></td>
         <td><%= payment.amount %></td>
+		    <td><%= payment.officer.name %></td>
+		    <td><%= payment.member.first_name + ' ' + payment.member.last_name %></td>
         <td><%= payment.notes %></td>
-		    <td><%= payment.officer_uin %></td>
-		    <td><%= payment.member_uin %></td>
+        <td><%= link_to 'Show', payment, class: "btn btn-info" %></td>
         <td><%= link_to 'Edit', edit_payment_path(payment), class: "btn btn-secondary" %></td>
         <td><%= link_to 'Delete', payment, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
       </tr>
