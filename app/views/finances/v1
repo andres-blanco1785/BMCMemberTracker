@@ -1,0 +1,40 @@
+<h1>Finances</h1>
+
+<% @sum_w = 0 %>
+<% @withdrawals.each do |withdrawal| %>
+  <% @sum_w += withdrawal.amount %>
+<% end %>
+<% @sum_d = 0 %>
+<% @deposits.each do |deposit| %>
+    <% @sum_d += deposit.amount %>
+<% end %>
+	
+<table class="table table-striped table-dark table-bordered table-hover table-sm">
+  <thead class="thead-light">
+    <tr>
+      <th>Deposits</th>
+      <th>Withdrawals</th>
+      <th>Payment</th>
+      <th>Total Balance</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @withdrawals.each do |withdrawal| %>
+      <tr>
+        <td><%= @sum_w %></td>
+        <td><%= @sum_d %></td>
+        <td><%= 'Is payment needed?' %></td>
+		<td><%= @sum_d - @sum_w %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<h3>Total Deposits: $<%= @sum%></h3>
+
+<h3>Total Withdrawals: $<%= @sum%></h3>
+
+<%= link_to 'New Withdrawal', new_withdrawal_path, class: 'btn btn-light btn-lg btn-block' %>
