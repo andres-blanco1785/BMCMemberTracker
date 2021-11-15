@@ -54,7 +54,7 @@
     <%= form.label :officer %>
     <%= form.collection_select(:officer_uin, Officer.all, :id, :name) %>
   </div>
-  
+
   <div class="actions">
     <%= form.submit class:'btn-warning btn-lg btn-block' %>
   </div>
