@@ -7,19 +7,18 @@ RSpec.describe 'Testing Deposit', type: :feature do
     Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google]
   end
 
-  let!(:transaction_type) { TransactionType.create(category: 'Venmo') }
+  let!(:officer) { Officer.create(officer_uin: '111000123', name: 'Yue Hu', email: 'yueh@tamu.edu', amount_owed: 0) }
+
   let!(:deposit) do
-    Deposit.create(officer_uin: '111000123',
-                   category: 'Venmo', amount: 100, date: '2021-10-21')
+    Deposit.create(officer_uin: '111000123', amount: 100, date: '2021-10-21')
   end
 
-  it 'empty officer uin, category, amount, and date' do
+  it 'empty officer uin, amount, and date' do
     visit new_member_path
     click_link 'Sign in with your TAMU Google Account'
     visit new_deposit_path
     click_on 'Create Deposit'
     expect(page.has_content?("Officer uin can't be blank")).to be(true)
-    expect(page.has_content?("Category can't be blank")).to be(true)
     expect(page.has_content?("Amount can't be blank")).to be(true)
     # No deposit record is created
     expect(Deposit.count).to eq(1)
@@ -29,8 +28,7 @@ RSpec.describe 'Testing Deposit', type: :feature do
     visit new_member_path
     click_link 'Sign in with your TAMU Google Account'
     visit new_deposit_path
-    fill_in 'deposit_officer_uin', with: 100_000_000
-    select 'Venmo', from: 'deposit[category]'
+    fill_in 'deposit_officer_uin', with: '111000123'
     fill_in 'deposit_amount', with: 20
     select '2021', from: 'deposit_date_1i'
     select 'December', from: 'deposit_date_2i'
@@ -41,7 +39,6 @@ RSpec.describe 'Testing Deposit', type: :feature do
     expect(page.has_content?('Deposit was successfully created.')).to be(true)
     visit deposits_path
     expect(page.has_content?('111000123')).to be(true)
-    expect(page.has_content?('Venmo')).to be(true)
     expect(page.has_content?('20')).to be(true)
     expect(page.has_content?('2021-10-21')).to be(true)
   end
@@ -54,7 +51,6 @@ RSpec.describe 'Testing Deposit', type: :feature do
     expect(Deposit.count).to eq(1)
     visit deposits_path
     expect(page.has_content?('111000123')).to be(true)
-    expect(page.has_content?('Venmo')).to be(true)
     expect(page.has_content?('100')).to be(true)
     expect(page.has_content?('2021-10-21')).to be(true)
     click_on 'Destroy'
@@ -63,13 +59,13 @@ RSpec.describe 'Testing Deposit', type: :feature do
   end
 
   it 'update deposit' do
+    Officer.create(officer_uin: '100_000_001', name: 'XiXi', email: 'xixi@tamu.edu', amount_owed: 0)
     visit new_member_path
     click_link 'Sign in with your TAMU Google Account'
     visit new_deposit_path
     expect(Deposit.count).to eq(1)
     visit deposits_path
     expect(page.has_content?('111000123')).to be(true)
-    expect(page.has_content?('Venmo')).to be(true)
     expect(page.has_content?('100')).to be(true)
     expect(page.has_content?('2021-10-21')).to be(true)
     click_on 'Edit'
@@ -80,7 +76,6 @@ RSpec.describe 'Testing Deposit', type: :feature do
     select '31', from: 'deposit_date_3i'
     click_on 'Update Deposit'
     expect(page.has_content?('100000001')).to be(true)
-    expect(page.has_content?('Venmo')).to be(true)
     expect(page.has_content?('200')).to be(true)
     expect(page.has_content?('2021-12-31')).to be(true)
   end
@@ -92,12 +87,10 @@ RSpec.describe 'Testing Deposit', type: :feature do
     expect(Deposit.count).to eq(1)
     visit deposits_path
     expect(page.has_content?('111000123')).to be(true)
-    expect(page.has_content?('Venmo')).to be(true)
     expect(page.has_content?('100')).to be(true)
     expect(page.has_content?('2021-10-21')).to be(true)
     click_on 'Show'
     expect(page.has_content?('111000123')).to be(true)
-    expect(page.has_content?('Venmo')).to be(true)
     expect(page.has_content?('100')).to be(true)
     expect(page.has_content?('2021-10-21')).to be(true)
   end

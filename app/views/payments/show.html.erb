@@ -11,11 +11,12 @@
       <th scope="col">Officer Paid</th>
       <th scope="col">Member Who Paid</th>
       <th scope="col">Member UIN</th>
+      <th scope="col">Notes</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><%= @payment.payment_mtd %></td>
+      <td><%= @payment.method %></td>
       <td><%= @payment.date %></td>
       <td><%= @payment.membership_type %></td>
       <td><%= @payment.membership_expiration %></td>
@@ -23,48 +24,10 @@
       <td><%= @payment.officer.name %></td>
       <td><%= @payment.member.first_name + ' ' + @payment.member.last_name %></td>
       <td><%= @payment.member_uin %></td>
+      <td><%= @payment.notes %></td>
     </tr>
   </tbody>
 </table>
-
-<!-- <p>
-  <strong>Payment Method:</strong>
-  <%= @payment.payment_mtd %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @payment.date %>
-</p>
-
-<p>
-  <strong>Member Type:</strong>
-  <%= @payment.membership_type %>
-</p>
-
-<p>
-  <strong>Membership Expiration:</strong>
-  <%= @payment.membership_expiration %>
-</p>
-
-<p>
-  <strong>Amount:</strong>
-  <%= @payment.amount %>
-</p>
-
-<p>
-  <strong>Member who Paid:</strong>
-  <%= @payment.member_uin %>
-</p>
-
-<p>
-  <strong>Officer Paid to:</strong>
-  <%= @payment.officer_uin %>
-
-</p>
-
-
-</p> -->
 
 <%= link_to 'Edit', edit_payment_path(@payment), class:"btn btn-warning btn-lg btn-block" %>
 <%= link_to 'Back', payments_path, class:"btn btn-dark btn-lg btn-block"  %>

@@ -3,8 +3,8 @@
     <tr>
       <th scope="col">Deposit ID</th>
       <th scope="col">Officer UIN</th>
-      <th scope="col">Category</th>
       <th scope="col">Amount</th>
+      <th scope="col">Notes</th>
       <th scope="col">Date</th>
     </tr>
   </thead>
@@ -12,8 +12,8 @@
     <tr>
       <th scope="row"><%= @deposit.deposit_id %></th>
       <td><%= @deposit.officer_uin %></td>
-      <td><%= @deposit.category %></td>
       <td><%= @deposit.amount %></td>
+      <td><%= @deposit.notes %></td>
       <td><%= @deposit.date %></td>
     </tr>
   </tbody>
@@ -25,13 +25,13 @@
 </p>
 
 <p>
-  <strong>Transaction Type:</strong>
-  <%= @deposit.category %>
+  <strong>Amount:</strong>
+  <%= @deposit.amount %>
 </p>
 
 <p>
   <strong>Amount:</strong>
-  <%= @deposit.amount %>
+  <%= @deposit.notes %>
 </p>
 
 <p>

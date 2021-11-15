@@ -26,6 +26,7 @@ class DepositsController < ApplicationController
 
     respond_to do |format|
       if @deposit.save
+        @deposit.officer.update(amount_owed: @deposit.officer.amount_owed - @deposit.amount)
         format.html { redirect_to @deposit, notice: 'Deposit was successfully created.' }
         format.json { render :show, status: :created, location: @deposit }
       else
@@ -38,7 +39,16 @@ class DepositsController < ApplicationController
   # PATCH/PUT /deposits/1 or /deposits/1.json
   def update
     respond_to do |format|
+      @old_amount = @deposit.amount
+      @old_officer_uin = @deposit.officer_uin
+      @old_officer = @deposit.officer
       if @deposit.update(deposit_params)
+        if @old_officer_uin == @deposit.officer_uin
+          @deposit.officer.update(amount_owed: @deposit.officer.amount_owed - @deposit.amount + @old_amount)
+        else
+          @deposit.officer.update(amount_owed: @deposit.officer.amount_owed - @deposit.amount)
+          @old_officer.update(amount_owed: @old_officer.amount_owed + @old_amount)
+        end
         format.html { redirect_to @deposit, notice: 'Deposit was successfully updated.' }
         format.json { render :show, status: :ok, location: @deposit }
       else
@@ -66,6 +76,6 @@ class DepositsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def deposit_params
-    params.require(:deposit).permit(:deposit_id, :officer_uin, :category, :amount, :date)
+    params.require(:deposit).permit(:deposit_id, :officer_uin, :amount, :notes, :date)
   end
 end

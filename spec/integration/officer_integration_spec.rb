@@ -31,7 +31,6 @@ RSpec.describe 'Create officer', type: :feature do
     fill_in 'Officer UIN', with: 631_009_797
     fill_in 'Name', with: 'Yue'
     fill_in 'Email', with: 'yue@tamu.edu'
-    fill_in 'Amount Owed', with: 0
     click_on 'Create Officer'
     # An officer has been created
     expect(Officer.count).to eq(2)
@@ -58,7 +57,6 @@ RSpec.describe 'Create officer', type: :feature do
     fill_in 'Officer UIN', with: 631_009_798
     fill_in 'Name', with: 'Yuan Lisha'
     fill_in 'Email', with: 'yueh@tamu.edu'
-    fill_in 'Amount Owed', with: 0
     click_on 'Create Officer'
     expect(page.has_content?('Officer UIN has already been taken')).to be(true)
     expect(page.has_content?('Email has already been taken')).to be(true)
@@ -74,7 +72,7 @@ RSpec.describe 'Create officer', type: :feature do
     expect(page.has_content?('Yue Hu')).to be(true)
     expect(page.has_content?('0')).to be(true)
     expect(page.has_content?('yueh@tamu.edu')).to be(true)
-    click_on 'Destroy'
+    click_on 'Delete'
     expect(page.has_content?('Officer was successfully destroyed.')).to be(true)
     expect(Officer.count).to eq(0)
   end
@@ -93,7 +91,7 @@ RSpec.describe 'Create officer', type: :feature do
     fill_in 'Officer UIN', with: 631_009_798
     fill_in 'Name', with: 'Yuan Lisha'
     fill_in 'Email', with: 'lisha@tamu.edu'
-    fill_in 'Amount Owed', with: 0
+
     click_on 'Update Officer'
     expect(page.has_content?('Officer was successfully updated.')).to be(true)
     expect(page.has_content?('631009798')).to be(true)
@@ -114,25 +112,7 @@ RSpec.describe 'Create officer', type: :feature do
     fill_in 'Officer UIN', with: 631_009_798
     fill_in 'Name', with: 'Yuan Lisha'
     fill_in 'Email', with: 'lisha@tamu.edu'
-    fill_in 'Amount Owed', with: 0
     click_on 'Update Officer'
     expect(page.has_content?('Officer UIN has already been taken')).to be(true)
-  end
-
-  it 'show officer' do
-    visit new_officer_path
-    click_link 'Sign in with your TAMU Google Account'
-    # An officer has been created
-    expect(Officer.count).to eq(1)
-    visit officers_path
-    expect(page.has_content?('631009798')).to be(true)
-    expect(page.has_content?('Yue Hu')).to be(true)
-    expect(page.has_content?('0')).to be(true)
-    expect(page.has_content?('yueh@tamu.edu')).to be(true)
-    click_on 'Show'
-    expect(page.has_content?('631009798')).to be(true)
-    expect(page.has_content?('Yue Hu')).to be(true)
-    expect(page.has_content?('0')).to be(true)
-    expect(page.has_content?('yueh@tamu.edu')).to be(true)
   end
 end
