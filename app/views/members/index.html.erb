@@ -57,7 +57,7 @@
         <td class='fn'><%= member.first_name.titleize %></td>
         <td class= 'ln'><%= member.last_name.titleize %></td>
         <td class= 'uin'><%= member.member_uin %></td>
-        <td class= 'email'><%= member.email.titleize %></td>
+        <td class= 'email'><%= member.email.downcase %></td>
         <td class= 'pn'><%= member.phone_number %></td>
         <td class= 'join'><%= member.join_date %></td>
         <td class= 'memtpye'><%= member.payments.any? ? member.payments.first.membership_type : "N/A" %></td>
