@@ -1,0 +1,45 @@
+<%= form_with(model: withdrawal) do |form| %>
+  <% if withdrawal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(withdrawal.errors.count, "error") %> prohibited this withdrawal from being saved:</h2>
+
+      <ul>
+        <% withdrawal.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+  </div>
+
+  <div class="field">
+    <%= form.label :officer %>
+    <%= form.collection_select(:officer_uin, Officer.all, :id, :name, include_blank: true) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.number_field :amount, class:"form-control", placeholder:"Amount"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, class:"form-control", placeholder:"Title" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, class:"form-control", placeholder:"Description" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date, class:"form-control", placeholder:"Date" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class:'btn btn-warning btn-lg btn-block'%>
+  </div>
+<% end %>

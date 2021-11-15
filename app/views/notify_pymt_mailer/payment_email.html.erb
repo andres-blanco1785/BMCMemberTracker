@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>TAMU Badminton Club Payment Recorded</h1>
+    <p>
+	  Howdy <%= @rec_name %>!	  
+      Your recently paid dues to the TAMU Badminton Club have been recorded.<br>
+    </p>
+	<p>Recorded date: <%= @payment.date %></p>
+	<p>Payment Amount: $ <%= @payment.amount %></p>
+	<p>Payment Method: <%= @payment.method %></p>
+	<p>Membership expires: <%= @payment.membership_expiration %></p>
+	<p>Officer Paid to: <%= @off_name %></p>
+    <p>
+      If you believe this email was not meant for you, please email us or ignore it.
+    </p>
+    <p>Have a great day!</p>
+  </body>
+</html>

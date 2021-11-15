@@ -11,37 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :uin %>
-    <%= form.number_field :uin %>
+  <div class="field form-group">
+    <%= form.label :UIN, "UIN / DL" %>
+    <%= form.number_field :member_uin, class:"form-control", placeholder: "UIN / Driver's License" %>
   </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="field form-group">
+    <%= form.label :FirstName, "First Name" %>
+    <%= form.text_field :first_name, class:"form-control" , placeholder: "First Name" %>
   </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+  <div class="field form-group">
+    <%= form.label :LastName, "Last Name" %>
+    <%= form.text_field :last_name, class:"form-control", placeholder: "Last Name" %>
   </div>
 
-  <div class="field">
-    <%= form.label :membershipType %>
-    <%= form.text_field :membershipType %>
+  <div class="field form-group">
+    <%= form.label :email, "Email" %>
+    <%= form.text_field :email, class:"form-control" , placeholder: "Email" %>
   </div>
 
-  <div class="field">
-    <%= form.label :expiration %>
-    <%= form.date_select :expiration %>
+  <div class="field form-group">
+    <%= form.label :phoneNumber,"Phone Number" %>
+    <%= form.text_field :phone_number, class:"form-control" , placeholder: "Phone Number" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :joinDate %>
-    <%= form.date_select :joinDate %>
+    <%= form.date_select :join_date, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:'btn btn-warning btn-lg btn-block'%>
   </div>
 <% end %>

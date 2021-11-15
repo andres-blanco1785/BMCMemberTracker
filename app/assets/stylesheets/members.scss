@@ -1,3 +1,20 @@
 // Place all the styles related to the Members controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+//styling the body
+.newmemberbutton{
+  display: flex;
+  height: 50px;
+  padding-top: 15px;
+  padding-left: 38%;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  overflow: hidden;
+  font-family: "Andika New Basic", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+
+}

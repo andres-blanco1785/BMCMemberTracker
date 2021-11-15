@@ -1,4 +1,6 @@
-require "active_support/core_ext/integer/time"
+# frozen_string_literal: true
+
+require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -21,9 +23,7 @@ Rails.application.configure do
     config.action_controller.enable_fragment_cache_logging = true
 
     config.cache_store = :memory_store
-    config.public_file_server.headers = {
-      'Cache-Control' => "public, max-age=#{2.days.to_i}"
-    }
+    config.public_file_server.headers = { 'Cache-Control' => "public, max-age=#{2.days.to_i}" }
   else
     config.action_controller.perform_caching = false
 
@@ -73,4 +73,20 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  ENV['GOOGLE_OAUTH_CLIENT_ID'] = '308764736339-4mrbvmm136v1dh7bet7ohc53if23bmo3.apps.googleusercontent.com'
+  ENV['GOOGLE_OAUTH_CLIENT_SECRET'] = 'gWLEafhah4SqjNyFUfMrFDN-'
+
+  # ADDED FOR PAYMENT EMAIL
+  config.action_mailer.delivery_method = :smtp
+  host = 'localhost:3000' # replace with your own url
+  config.action_mailer.default_url_options = { host: host }
+  # while using localhost, may need to use the next version
+  config.action_mailer.default_url_options = { host: 'localhost:3000', protocol: 'http' }
+
+  # payment email seems to work w/o, but error "cannot render from ..."
+  # config.web_console.permissions = '172.17.0.1'
+
+  # SMTP settings for gmail
+  config.action_mailer.smtp_settings = { address: 'smtp.gmail.com', port: 587, user_name: 'BMCT.test.J@gmail.com', password: '0nward!J', authentication: 'plain', enable_starttls_auto: true }
 end

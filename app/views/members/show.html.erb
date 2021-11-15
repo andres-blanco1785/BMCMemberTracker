@@ -1,34 +1,26 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Uin:</strong>
-  <%= @member.uin %>
-</p>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">UIN / DL</th>
+      <th scope="col">Name</th>
+      <th scope="col">Last</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Join Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%= @member.member_uin %></th>
+      <td><%= @member.first_name %></td>
+      <td><%= @member.last_name %></td>
+      <td><%= @member.email %></td>
+      <td><%= @member.phone_number %></td>
+      <td><%= @member.join_date %></td>
+    </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Name:</strong>
-  <%= @member.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @member.email %>
-</p>
-
-<p>
-  <strong>Membershiptype:</strong>
-  <%= @member.membershipType %>
-</p>
-
-<p>
-  <strong>Expiration:</strong>
-  <%= @member.expiration %>
-</p>
-
-<p>
-  <strong>Joindate:</strong>
-  <%= @member.joinDate %>
-</p>
-
-<%= link_to 'Edit', edit_member_path(@member) %> |
-<%= link_to 'Back', members_path %>
+<%= link_to 'Edit', edit_member_path(@member), class:"btn btn-warning btn-lg btn-block" %>
+<%= link_to 'Back', members_path, class:"btn btn-dark btn-lg btn-block" %>

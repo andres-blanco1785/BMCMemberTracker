@@ -1,8 +1,27 @@
-<p id="notice"><%= notice %></p>
+<!-- Using the table method to display variables -->
 
-<p>
-  <strong>Officeruin:</strong>
-  <%= @officer.officerUIN %>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">UIN</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Amount Owed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%= @officer.officer_uin %></th>
+      <td><%= @officer.name %></td>
+      <td><%= @officer.email %></td>
+      <td><%= @officer.amount_owed %></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- <p>
+  <strong>Officer UIN:</strong>
+  <%= @officer.officer_uin %>
 </p>
 
 <p>
@@ -16,9 +35,9 @@
 </p>
 
 <p>
-  <strong>Amountowed:</strong>
-  <%= @officer.amountOwed %>
-</p>
+  <strong>Amount Owed:</strong>
+  <%= @officer.amount_owed %>
+</p> -->
 
-<%= link_to 'Edit', edit_officer_path(@officer) %> |
-<%= link_to 'Back', officers_path %>
+<%= link_to 'Edit', edit_officer_path(@officer), class:"btn btn-warning btn-lg btn-block" %>
+<%= link_to 'Back', officers_path, class:"btn btn-dark btn-lg btn-block" %>

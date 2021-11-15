@@ -1,29 +1,33 @@
-<p id="notice"><%= notice %></p>
+<!-- Using the table method to display variables -->
 
-<p>
-  <strong>Paymethod:</strong>
-  <%= @payment.payMethod %>
-</p>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Payment Method</th>
+      <th scope="col">Date</th>
+      <th scope="col">Member Type</th>
+      <th scope="col">Membership Expiration</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Officer Paid</th>
+      <th scope="col">Member Who Paid</th>
+      <th scope="col">Member UIN/ID</th>
+	  <th scope="col">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @payment.method %></td>
+      <td><%= @payment.date %></td>
+      <td><%= @payment.membership_type %></td>
+      <td><%= @payment.membership_expiration %></td>
+      <td><%= @payment.amount %></td>
+      <td><%= @payment.officer.name %></td>
+      <td><%= @payment.member.first_name + ' ' + @payment.member.last_name %></td>
+      <td><%= @payment.member_uin %></td>
+	  <td><%= @payment.notes %></td>
+    </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Date:</strong>
-  <%= @payment.date %>
-</p>
-
-<p>
-  <strong>Membertype:</strong>
-  <%= @payment.memberType %>
-</p>
-
-<p>
-  <strong>Membershipexp:</strong>
-  <%= @payment.memberShipExp %>
-</p>
-
-<p>
-  <strong>Amount:</strong>
-  <%= @payment.amount %>
-</p>
-
-<%= link_to 'Edit', edit_payment_path(@payment) %> |
-<%= link_to 'Back', payments_path %>
+<%= link_to 'Edit', edit_payment_path(@payment), class:"btn btn-warning btn-lg btn-block" %>
+<%= link_to 'Back', payments_path, class:"btn btn-dark btn-lg btn-block"  %>

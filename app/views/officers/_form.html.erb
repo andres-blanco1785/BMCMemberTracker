@@ -11,27 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :officerUIN %>
-    <%= form.number_field :officerUIN %>
+  <div class="field form-group">
+    <%= form.label :officer_uin, "Officer UIN" %>
+    <%= form.number_field :officer_uin, class:"form-control", placeholder: "UIN" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class:"form-control", placeholder: "Name" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, class:"form-control", placeholder: "Email" %>
   </div>
 
-  <div class="field">
-    <%= form.label :amountOwed %>
-    <%= form.text_field :amountOwed %>
-  </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:'btn-warning btn-lg btn-block'%>
   </div>
 <% end %>

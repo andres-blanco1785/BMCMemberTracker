@@ -31,3 +31,15 @@
 
 en:
   hello: "Hello world"
+
+en:
+  activerecord:
+    attributes:
+      officer:
+        officer_uin: "Officer UIN"
+    errors:
+      models:
+        officer:
+          attributes:
+            officer_uin:
+              blank: "can't be blank"
