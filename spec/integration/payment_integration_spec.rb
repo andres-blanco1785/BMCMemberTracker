@@ -99,5 +99,22 @@ RSpec.describe 'Payments Features', type: :feature do
     expect(page.has_content?('Fnam Lnam')).to be(true)
   end
 
+<<<<<<< HEAD
 
+=======
+  # it 'Show payment successfully' do
+  #   # A payment has been created
+  #   expect(Payment.count).to eq(1)
+  #   visit payments_path
+  #   click_link 'Sign in with your TAMU Google Account'
+  #   visit payments_path
+  #   expect(page.has_content?('Cash')).to be(true)
+  #   expect(page.has_content?('2021-09-01')).to be(true)
+  #   expect(page.has_content?('111222333')).to be(true)
+  #   click_on 'Show'
+  #   expect(page.has_content?('Cash')).to be(true)
+  #   expect(page.has_content?('2021-09-01')).to be(true)
+  #   expect(page.has_content?('111222333')).to be(true)
+  # end
+>>>>>>> 95d4811bf2984e9756e0ad9d5b0fb2c50340ba6a
 end

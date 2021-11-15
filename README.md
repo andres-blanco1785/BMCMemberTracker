@@ -30,6 +30,9 @@ Download this code repository by using git:
 An RSpec test suite is available and can be ran using:
 
   `rspec spec/`
+  
+We also used RuboCop to check Syntax
+  `rubocop`
 
 ## Execute Code ##
 
