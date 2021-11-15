@@ -28,7 +28,7 @@ RSpec.describe 'Testing Deposit', type: :feature do
     visit new_member_path
     click_link 'Sign in with your TAMU Google Account'
     visit new_deposit_path
-    fill_in 'deposit_officer_uin', with: '111000123'
+    select 'Yue Hu', from: 'deposit_officer_uin'
     fill_in 'deposit_amount', with: 20
     select '2021', from: 'deposit_date_1i'
     select 'December', from: 'deposit_date_2i'
@@ -38,7 +38,7 @@ RSpec.describe 'Testing Deposit', type: :feature do
     expect(Deposit.count).to eq(2)
     expect(page.has_content?('Deposit was successfully created.')).to be(true)
     visit deposits_path
-    expect(page.has_content?('111000123')).to be(true)
+    expect(page.has_content?('Yue Hu')).to be(true)
     expect(page.has_content?('20')).to be(true)
     expect(page.has_content?('2021-10-21')).to be(true)
   end
@@ -50,7 +50,7 @@ RSpec.describe 'Testing Deposit', type: :feature do
     visit new_deposit_path
     expect(Deposit.count).to eq(1)
     visit deposits_path
-    expect(page.has_content?('111000123')).to be(true)
+    expect(page.has_content?('Yue Hu')).to be(true)
     expect(page.has_content?('100')).to be(true)
     expect(page.has_content?('2021-10-21')).to be(true)
     click_on 'Destroy'
@@ -65,17 +65,17 @@ RSpec.describe 'Testing Deposit', type: :feature do
     visit new_deposit_path
     expect(Deposit.count).to eq(1)
     visit deposits_path
-    expect(page.has_content?('111000123')).to be(true)
+    expect(page.has_content?('Yue Hu')).to be(true)
     expect(page.has_content?('100')).to be(true)
     expect(page.has_content?('2021-10-21')).to be(true)
     click_on 'Edit'
-    fill_in 'deposit_officer_uin', with: 100_000_001
+    select 'XiXi', from: 'deposit_officer_uin'
     fill_in 'deposit_amount', with: 200
     select '2021', from: 'deposit_date_1i'
     select 'December', from: 'deposit_date_2i'
     select '31', from: 'deposit_date_3i'
     click_on 'Update Deposit'
-    expect(page.has_content?('100000001')).to be(true)
+    expect(page.has_content?('XiXi')).to be(true)
     expect(page.has_content?('200')).to be(true)
     expect(page.has_content?('2021-12-31')).to be(true)
   end
@@ -86,11 +86,11 @@ RSpec.describe 'Testing Deposit', type: :feature do
     visit new_deposit_path
     expect(Deposit.count).to eq(1)
     visit deposits_path
-    expect(page.has_content?('111000123')).to be(true)
+    expect(page.has_content?('Yue Hu')).to be(true)
     expect(page.has_content?('100')).to be(true)
     expect(page.has_content?('2021-10-21')).to be(true)
     click_on 'Show'
-    expect(page.has_content?('111000123')).to be(true)
+    expect(page.has_content?('Yue Hu')).to be(true)
     expect(page.has_content?('100')).to be(true)
     expect(page.has_content?('2021-10-21')).to be(true)
   end
