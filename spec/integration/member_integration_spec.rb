@@ -1,3 +1,4 @@
+
 # frozen_string_literal: true
 
 require 'rails_helper'
@@ -159,23 +160,6 @@ RSpec.describe 'Create Member', type: :feature do
     expect(page.has_content?('andresblanco1785@tamu.edu')).to be(false)
     expect(page.has_content?('8326608665')).to be(false)
   end
-
-  # it 'show member' do
-  #   # An member has been created
-  #   expect(Member.count).to eq(1)
-  #   visit members_path
-  #   click_link 'Sign in with your TAMU Google Account'
-  #   visit members_path
-  #   expect(page.has_content?('727002594')).to be(true)
-  #   expect(page.has_content?('Andres')).to be(true)
-  #   expect(page.has_content?('Blanco')).to be(true)
-  #   expect(page.has_content?('8326608665')).to be(true)
-  #   expect(page.has_content?('andresblanco1785')).to be(true)
-  #   click_on 'Show'
-  #   expect(page.has_content?('727002594')).to be(true)
-  #   expect(page.has_content?('Andres')).to be(true)
-  #   expect(page.has_content?('Blanco')).to be(true)
-  #   expect(page.has_content?('8326608665')).to be(true)
-  #   expect(page.has_content?('andresblanco1785')).to be(true)
-  # end
 end
+
+
