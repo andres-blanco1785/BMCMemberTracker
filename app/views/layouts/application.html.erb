@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BMC Tracker</title>
+    <title>A&M Badminton</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -17,6 +17,11 @@
      <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@729&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#781e10">
+    <link rel="icon" href="/tabIcon512.png">
   </head>
 
   <body class="ml-2 mr-2">
@@ -34,15 +39,17 @@
         
         
       </label>
-    <ul class="nav__menu">
+      <img src ="/logo.png" class="logoUI">
+      <ul class="nav__menu">
         <li><%= link_to 'Members', members_path, class: 'button alt' %></li>
         <li><%= link_to 'Officers', officers_path, class: 'button alt' %></li>
         <li><%= link_to 'Payments', new_payment_path, class: 'button alt' %></li>
         <li><%= link_to 'Deposits', deposits_path, class: 'button alt' %></li>
         <li><%= link_to 'Withdrawals', withdrawals_path, class: 'button alt' %></li>
-        <li><%= link_to 'Transaction Types', transaction_types_path, class: 'button alt' %></li>
+        <li><%= link_to 'Payment Methods', payment_methods_path, class: 'button alt' %></li>
+		<li><%= link_to 'Finances', finances_path, class: 'button alt' %></li>
         <li><%= link_to "Sign Out", destroy_admin_session_path %></li>
-    </ul>
+      </ul>
     </nav>
 
     <% if flash.any? %>
@@ -53,5 +60,7 @@
     <%= yield %>
 
     
+    
   </body>
+  <img src ="/logo.png" width=100%>
 </html>

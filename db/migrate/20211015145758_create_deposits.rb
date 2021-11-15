@@ -5,8 +5,8 @@ class CreateDeposits < ActiveRecord::Migration[6.1]
     create_table :deposits do |t|
       t.integer :deposit_id
       t.integer :officer_uin
-      t.string :category
       t.float :amount
+      t.text :notes
       t.date :date
 
       t.timestamps

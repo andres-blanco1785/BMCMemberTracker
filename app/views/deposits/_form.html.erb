@@ -11,19 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :officer_uin %>
-    <%= form.number_field :officer_uin, class:"form-control", placeholder:"Officer UIN" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.select :category, TransactionType.all.collect { |t| [t.category] }, include_blank: true, class:"form-control", placeholder:"Category" %>
+  <div class="field form">
+    <%= form.label :officer %>
+    <%= form.collection_select(:officer_uin, Officer.all, :id, :name, include_blank: true) %>
   </div>
 
   <div class="field">
     <%= form.label :amount %>
     <%= form.number_field :amount, class:"form-control", placeholder:"Amount" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_field :notes, class:"form-control", placeholder:"Notes" %>
   </div>
 
   <div class="field">

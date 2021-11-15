@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field form-group">
-    <%= form.label :payment_mtd %>
-    <%= form.select(:payment_mtd, ['Cash', 'Venmo', 'Other'], {}, {}) %>
+    <%= form.label :method %>
+    <%= form.select :method, PaymentMethod.all.collect { |t| [t.method] }, include_blank: true, class:"form-control", placeholder:"Payment Method" %>
   </div>
 
   <div class="field form-group">
@@ -37,18 +37,24 @@
   </div>
 
   <div class="field form-group">
-    <%= form.label :member_uin %>
-    <%= form.text_field :member_uin, class:"form-control", placeholder: "Member UIN" %>
+    <%= form.label :notes %>
+    <%= form.text_field :notes, class:"form-control", placeholder: "Notes" %>
   </div>
 
-  <%# Officer selectable, member not b/c would need text search mobile support due to amount of members. %>
-  <%# This simple implementation allows search on PC, but not mobile. %>
-  <%# sprint 3 try to do: form.collection_select(:officer_uin, Officer.all, :id, :officer_uin), class:"form-control". %> 
+  <%# cannot select purely by name b/c names aren't always unique, show names but still save by uin which is unique %>
   <div class="field form-group">
-    <%= form.label :officer_uin %>
-    <%= form.collection_select(:officer_uin, Officer.all, :id, :officer_uin) %>
+    <%= form.label :member %>
+	<%# second parameter of collection select: M.all is unsorted, choice to sort by last name %>
+	<%= form.collection_select(:member_uin, Member.order('last_name ASC'), :id, :names_with_uin) %>
   </div>
-  
+
+  <%# Officer selectable, doing so for member might not be best b/c would need text search mobile support due to amount of members. %>
+  <%# This simple implementation allows search on PC, but not mobile. %>
+  <div class="field form-group">
+    <%= form.label :officer %>
+    <%= form.collection_select(:officer_uin, Officer.all, :id, :name) %>
+  </div>
+
   <div class="actions">
     <%= form.submit class:'btn-warning btn-lg btn-block' %>
   </div>

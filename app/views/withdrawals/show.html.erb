@@ -2,7 +2,6 @@
   <thead class="thead-dark">
     <tr>
       <th scope="col">Officer UIN</th>
-      <th scope="col">Category</th>
       <th scope="col">Amount</th>
       <th scope="col">Title</th>
       <th scope="col">Description</th>
@@ -12,7 +11,6 @@
   <tbody>
     <tr>
       <td><%= @withdrawal.officer_uin %></td>
-      <td><%= @withdrawal.category %></td>
       <td><%= @withdrawal.amount %></td>
       <td><%= @withdrawal.title %></td>
       <td><%= @withdrawal.description %></td>
@@ -21,36 +19,5 @@
   </tbody>
 </table>
 
-
-<p>
-  <strong>Officer UIN:</strong>
-  <%= @withdrawal.officer_uin %>
-</p>
-
-<p>
-  <strong>Transaction Type:</strong>
-  <%= @withdrawal.category %>
-</p>
-
-<p>
-  <strong>Amount:</strong>
-  <%= @withdrawal.amount %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @withdrawal.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @withdrawal.description %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @withdrawal.date %>
-</p>
-
-<%= link_to 'Edit', edit_withdrawal_path(@withdrawal) %> |
+<%= link_to 'Edit', edit_withdrawal_path(@withdrawal), class:"btn btn-warning btn-lg btn-block" %>
 <%= link_to 'Back', withdrawals_path, class:"btn btn-dark btn-lg btn-block"%>

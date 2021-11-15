@@ -5,7 +5,6 @@ class CreateWithdrawals < ActiveRecord::Migration[6.1]
     create_table :withdrawals do |t|
       t.integer :withdraw_id
       t.integer :officer_uin
-      t.string :category
       t.float :amount
       t.string :title
       t.string :description
