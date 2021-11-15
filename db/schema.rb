@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2021_11_10_200149) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -67,9 +66,9 @@ ActiveRecord::Schema.define(version: 2021_11_10_200149) do
     t.string "method"
     t.date "date"
     t.string "membership_type"
+    t.text "notes"
     t.date "membership_expiration"
     t.float "amount"
-    t.text "notes"
     t.integer "member_uin"
     t.integer "officer_uin"
     t.datetime "created_at", precision: 6, null: false
