@@ -123,7 +123,7 @@ body {
   display: none;
 }
 
-@media only screen and (min-width: 956px){  //width of all elements of nav bar next too each other
+@media only screen and (min-width: 1070px){  //width of all elements of nav bar next too each other
   .nav{
     font-family: 'Lexend Deca', sans-serif;
     &__toggle{
@@ -134,7 +134,7 @@ body {
       font-family: 'Lexend Deca', sans-serif;
       flex-direction: row;
       margin: 0rem;
-      margin-left: calc(50% - 470px);  //offset for nav bar center when widescreen, width of elements / 2
+      margin-left: calc(50% - 530px);  //offset for nav bar center when widescreen, width of elements / 2
 
       li{
         font-family: 'Lexend Deca', sans-serif;
