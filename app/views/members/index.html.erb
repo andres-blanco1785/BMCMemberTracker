@@ -36,7 +36,7 @@
 <table class="table table-striped table-dark table-bordered table-hover table-sm">
   <thead class="thead-light">
     <tr>
-      <!-- <th class= 'fn' style="display: ;"><%= sortable 'first_name'%></th>
+      <th class= 'fn' style="display: ;"><%= sortable 'first_name'%></th>
       <th class= 'ln' style="display: ;"><%= sortable 'last_name'%></th>
       <th class= 'uin' style="display: ;"><%= sortable 'member_uin', 'UIN / DL'%></th>
       <th class= 'email' style="display: ;"><%= sortable 'email'%></th>
@@ -46,29 +46,18 @@
       <th class= 'date' style="display: ;"><%= sortable 'date'%></th>
       <th class= 'officeruin' style="display: ;"><%= sortable 'officer_uin'%></th>
       <th class= 'mtd' style="display: ;"><%= sortable 'method'%></th>
-      <th colspan="3"></th> -->
-
-      <th class= 'fn' style="display: ;"><%=  'First Name'%></th>
-      <th class= 'ln' style="display: ;"><%=  'Last Name'%></th>
-      <th class= 'uin' style="display: ;"><%=  'UIN / DL'%></th>
-      <th class= 'email' style="display: ;"><%=  'Email'%></th>
-      <th class= 'pn' style="display: ;"><%=  'Phone Number'%></th>
-      <th class= 'join' style="display: ;"><%=  'Join Date'%></th>
-      <th class= 'memtpye' style="display: ;"><%=  'Membership Type'%></th>
-      <th class= 'date' style="display: ;"><%=  'Date'%></th>
-      <th class= 'officeruin' style="display: ;"><%= 'Officer Uin'%></th>
-      <th class= 'mtd' style="display: ;"><%= 'method'%></th>
       <th colspan="3"></th>
+
     </tr>
   </thead>
 
   <tbody id = 'fulltable'>
     <% @members.each do |member| %>
       <tr>
-        <td class='fn'><%= member.first_name %></td>
-        <td class= 'ln'><%= member.last_name %></td>
+        <td class='fn'><%= member.first_name.titleize %></td>
+        <td class= 'ln'><%= member.last_name.titleize %></td>
         <td class= 'uin'><%= member.member_uin %></td>
-        <td class= 'email'><%= member.email %></td>
+        <td class= 'email'><%= member.email.titleize %></td>
         <td class= 'pn'><%= member.phone_number %></td>
         <td class= 'join'><%= member.join_date %></td>
         <td class= 'memtpye'><%= member.payments.any? ? member.payments.first.membership_type : "N/A" %></td>

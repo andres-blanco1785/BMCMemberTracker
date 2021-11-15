@@ -8,7 +8,9 @@ class Member < ApplicationRecord
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
   validates :phone_number, presence: true
-
+  before_save { first_name.downcase! }
+  before_save { last_name.downcase! }
+  before_save { email.downcase! }
   # this allows payment to display name and uin for member... BMCT wants name, but names aren't unique
   def names_with_uin
     "#{first_name} #{last_name}, #{member_uin}"
