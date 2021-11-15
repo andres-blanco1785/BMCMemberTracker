@@ -3,7 +3,7 @@
 <table class="table table-striped table-dark table-bordered table-hover table-sm">
   <thead class="thead-light">
     <tr>
-      <th>Officer UIN</th>
+      <th>Officer</th>
       <th>Amount</th>
       <th>Notes</th>
       <th>Date</th>
@@ -14,7 +14,7 @@
   <tbody>
     <% @deposits.each do |deposit| %>
       <tr>
-        <td><%= deposit.officer_uin %></td>
+        <td><%= deposit.officer.name %></td>
         <td><%= deposit.amount %></td>
         <td><%= deposit.notes %></td>
         <td><%= deposit.date %></td>

@@ -35,7 +35,7 @@
     <%= form.label :amount %>
     <%= form.text_field :amount, class:"form-control", placeholder: "Amount" %>
   </div>
-  
+
   <div class="field form-group">
     <%= form.label :notes %>
     <%= form.text_field :notes, class:"form-control", placeholder: "Notes" %>
@@ -43,7 +43,7 @@
 
   <%# cannot select purely by name b/c names aren't always unique, show names but still save by uin which is unique %>
   <div class="field form-group">
-    <%= form.label :member_uin %>
+    <%= form.label :member %>
 	<%# second parameter of collection select: M.all is unsorted, choice to sort by last name %>
 	<%= form.collection_select(:member_uin, Member.order('last_name ASC'), :id, :names_with_uin) %>
   </div>
