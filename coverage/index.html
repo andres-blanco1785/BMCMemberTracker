@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2021-11-15T05:45:37+00:00">2021-11-15T05:45:37+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2021-11-15T05:57:50+00:00">2021-11-15T05:57:50+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -4868,7 +4868,7 @@
 
             
 
-            <code class="ruby">    return nil unless ((Officer.where(email: email).exists?(conditions = :none)) or (/test@tamu.edu\z/.match?(email)))</code>
+            <code class="ruby">    return nil unless Officer.where(email: email).exists? || /test@tamu.edu\z/.match?(email)</code>
           </li>
         </div>
       
