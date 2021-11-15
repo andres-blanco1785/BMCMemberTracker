@@ -81,9 +81,13 @@ class MembersController < ApplicationController
     params[:direction] || 'asc'
   end
   # https://stackoverflow.com/questions/37902387/sorting-associated-column-in-table
+
   # JOINED_TABLE_COLUMNS = %w(payments.membership_type, member.date, member.officer_uin, member.method)
   # def sort_column
-  #   if JOINED_TABLE_COLUMNS.include?(params[:sort]) || Member.column_names.include?(params[:sort])
+  #   @mem_cols = ["member_uin", "first_name", "last_name", "email", "phone_number", "join_date"]
+  #   @pay_cols = ["method", "date", "membership_type", "officer_uin"]
+  #   @all = @mem_cols | @pay_cols
+  #   if  @mem_cols.include?(params[:sort])
   #     params[:sort]
   #   else
   #     'first_name'

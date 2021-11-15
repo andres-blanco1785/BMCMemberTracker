@@ -22,7 +22,7 @@
 <%= link_to 'New Member', new_member_path, class: 'btn btn-light btn-lg btn-block' %>
 <br>
 
-<input type="checkbox" onclick="toggleElements_id('fn')" id="fnBox" checked>First Name</input>
+<input type="checkbox" onclick="toggleElements_id('fn');toggleElements_id('ln')" id="fnBox" checked>First Name</input>
 <input type="checkbox" onclick="toggleElements_id('ln')" id="lnBox" checked>Last Name</input>
 <input type="checkbox" onclick="toggleElements_id('uin')" id="uinBox" checked>UIN / DL</input>
 <input type="checkbox" onclick="toggleElements_id('email')" id="emailBox" checked>Email</input>
@@ -70,4 +70,6 @@
       </tr>
     <% end %>
   </tbody>
+
+<%# <%= @all%> %>
 </table>
