@@ -189,82 +189,18 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     visit officers_path
     expect(page.has_content?('90')). to be(true) #Michael
     expect(page.has_content?('0')). to be(true) #Yue Hu
+
+    #Delete the sceond depost, and nothing changes
+    visit deposits_path
+    find(:xpath, "//tr[td[contains(.,'17')]]/td/a", :text => 'Destroy').click
+    visit officers_path
+    expect(page.has_content?('90')). to be(true) #Michael
+    expect(page.has_content?('0')). to be(true) #Yue Hu
+
+    #Now create 2 withdrawals
+    
   end
 
-  # it 'valid inputs' do
-  #   visit new_member_path
-  #   click_link 'Sign in with your TAMU Google Account'
-  #   visit new_deposit_path
-  #   fill_in 'deposit_officer_uin', with: 100_000_000
-  #   select 'Venmo', from: 'deposit[category]'
-  #   fill_in 'deposit_amount', with: 20
-  #   select '2021', from: 'deposit_date_1i'
-  #   select 'December', from: 'deposit_date_2i'
-  #   select '31', from: 'deposit_date_3i'
-  #   click_on 'Create Deposit'
-  #   # An deposit has been created
-  #   expect(Deposit.count).to eq(2)
-  #   expect(page.has_content?('Deposit was successfully created.')).to be(true)
-  #   visit deposits_path
-  #   expect(page.has_content?('111000123')).to be(true)
-  #   expect(page.has_content?('Venmo')).to be(true)
-  #   expect(page.has_content?('20')).to be(true)
-  #   expect(page.has_content?('2021-10-21')).to be(true)
-  # end
 
-  # it 'destory deposit' do
-  #   # An deposit has been created
-  #   visit new_member_path
-  #   click_link 'Sign in with your TAMU Google Account'
-  #   visit new_deposit_path
-  #   expect(Deposit.count).to eq(1)
-  #   visit deposits_path
-  #   expect(page.has_content?('111000123')).to be(true)
-  #   expect(page.has_content?('Venmo')).to be(true)
-  #   expect(page.has_content?('100')).to be(true)
-  #   expect(page.has_content?('2021-10-21')).to be(true)
-  #   click_on 'Destroy'
-  #   expect(page.has_content?('Deposit was successfully destroyed.')).to be(true)
-  #   expect(Deposit.count).to eq(0)
-  # end
-
-  # it 'update deposit' do
-  #   visit new_member_path
-  #   click_link 'Sign in with your TAMU Google Account'
-  #   visit new_deposit_path
-  #   expect(Deposit.count).to eq(1)
-  #   visit deposits_path
-  #   expect(page.has_content?('111000123')).to be(true)
-  #   expect(page.has_content?('Venmo')).to be(true)
-  #   expect(page.has_content?('100')).to be(true)
-  #   expect(page.has_content?('2021-10-21')).to be(true)
-  #   click_on 'Edit'
-  #   fill_in 'deposit_officer_uin', with: 100_000_001
-  #   fill_in 'deposit_amount', with: 200
-  #   select '2021', from: 'deposit_date_1i'
-  #   select 'December', from: 'deposit_date_2i'
-  #   select '31', from: 'deposit_date_3i'
-  #   click_on 'Update Deposit'
-  #   expect(page.has_content?('100000001')).to be(true)
-  #   expect(page.has_content?('Venmo')).to be(true)
-  #   expect(page.has_content?('200')).to be(true)
-  #   expect(page.has_content?('2021-12-31')).to be(true)
-  # end
-
-  # it 'show deposit' do
-  #   visit new_member_path
-  #   click_link 'Sign in with your TAMU Google Account'
-  #   visit new_deposit_path
-  #   expect(Deposit.count).to eq(1)
-  #   visit deposits_path
-  #   expect(page.has_content?('111000123')).to be(true)
-  #   expect(page.has_content?('Venmo')).to be(true)
-  #   expect(page.has_content?('100')).to be(true)
-  #   expect(page.has_content?('2021-10-21')).to be(true)
-  #   click_on 'Show'
-  #   expect(page.has_content?('111000123')).to be(true)
-  #   expect(page.has_content?('Venmo')).to be(true)
-  #   expect(page.has_content?('100')).to be(true)
-  #   expect(page.has_content?('2021-10-21')).to be(true)
-  # end
+  
 end
