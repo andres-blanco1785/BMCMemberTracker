@@ -60,7 +60,7 @@ RSpec/ExpectOutput:
 
 # Offense count: 370
 RSpec/MultipleExpectations:
-  Max: 25
+  Max: 100
 
 # Offense count: 5
 RSpec/SubjectStub:

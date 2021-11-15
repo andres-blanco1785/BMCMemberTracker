@@ -102,19 +102,4 @@ RSpec.describe 'Payments Features', type: :feature do
     expect(page.has_content?('Venmo')).to be(true)
     expect(page.has_content?('Fnam Lnam')).to be(true)
   end
-
-  # it 'Show payment successfully' do
-  #   # A payment has been created
-  #   expect(Payment.count).to eq(1)
-  #   visit payments_path
-  #   click_link 'Sign in with your TAMU Google Account'
-  #   visit payments_path
-  #   expect(page.has_content?('Cash')).to be(true)
-  #   expect(page.has_content?('2021-09-01')).to be(true)
-  #   expect(page.has_content?('111222333')).to be(true)
-  #   click_on 'Show'
-  #   expect(page.has_content?('Cash')).to be(true)
-  #   expect(page.has_content?('2021-09-01')).to be(true)
-  #   expect(page.has_content?('111222333')).to be(true)
-  # end
 end
