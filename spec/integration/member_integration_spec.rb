@@ -127,8 +127,8 @@ RSpec.describe 'Create Member', type: :feature do
     click_on 'Update Member'
     expect(page.has_content?('Member was successfully updated.')).to be(true)
     expect(page.has_content?('727002594')).to be(true)
-    expect(page.has_content?('Pauline')).to be(true)
-    expect(page.has_content?('Wade')).to be(true)
+    expect(page.has_content?('pauline')).to be(true)
+    expect(page.has_content?('wade')).to be(true)
     expect(page.has_content?('paulinewade@tamu.edu')).to be(true)
     expect(page.has_content?('8326608665')).to be(true)
   end

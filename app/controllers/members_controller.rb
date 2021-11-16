@@ -6,7 +6,7 @@ class MembersController < ApplicationController
   # GET /members or /members.json
   helper_method :sort_column, :sort_direction
   def index
-    @members = Member.order("#{sort_column} #{sort_direction}")
+    @members = Member.includes(:payments).order("#{sort_column} #{sort_direction}")
     @attributes = ['UIN', 'Email', 'Phone Number', 'Join Date', 'Membership Type', 'Date', 'Officer Uin', 'Payment Method']
     # @attributeName = ['member_uin', 'email', 'phoneNumber', 'joinDate']
     @attr = Member.all
@@ -73,11 +73,33 @@ class MembersController < ApplicationController
     params.require(:member).permit(:member_uin, :first_name, :last_name, :email, :phone_number, :join_date)
   end
 
-  def sort_column
-    Member.column_names.include?(params[:sort]) ? params[:sort] : 'first_name'
-  end
+  # def sort_column
+  #   params[:sort] || 'first_name'
+  # end
 
   def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
+    params[:direction] || 'asc'
   end
+  # https://stackoverflow.com/questions/37902387/sorting-associated-column-in-table
+
+  # JOINED_TABLE_COLUMNS = %w(payments.membership_type, member.date, member.officer_uin, member.method)
+  def sort_column
+    # @mem_cols = ["member_uin", "first_name", "last_name", "email", "phone_number", "join_date"]
+    @pay_cols = %w[mem_type date membership_type officer_uin]
+    if Member.column_names.include?(params[:sort])
+      params[:sort]
+    elsif @pay_cols.include?(params[:sort])
+      "payments.#{params[:sort]}"
+    else
+      'first_name'
+    end
+  end
+  #
+  # def sort_direction
+  #   if %w[asc desc].include?(params[:direction]) || JOINED_TABLE_COLUMNS.include?(params[:direction])
+  #     params[:direction]
+  #   else
+  #     "asc"
+  #   end
+  # end
 end
