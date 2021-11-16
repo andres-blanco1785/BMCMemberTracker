@@ -13,6 +13,6 @@ class Member < ApplicationRecord
   before_save { email.downcase! }
   # this allows payment to display name and uin for member... BMCT wants name, but names aren't unique
   def names_with_uin
-    "#{first_name} #{last_name}, #{member_uin}"
+    "#{first_name.titleize} #{last_name.titleize}, #{member_uin}"
   end
 end

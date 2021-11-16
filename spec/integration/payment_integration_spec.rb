@@ -54,7 +54,7 @@ RSpec.describe 'Payments Features', type: :feature do
     select '31', from: 'payment_membership_expiration_3i'
     fill_in 'payment_amount', with: '15'
     # under the hood these are still UIN, but to the BMCT officers names were wanted
-    select 'fnam lnam, 111222333', from: 'payment_member_uin'
+    select 'Fnam Lnam, 111222333', from: 'payment_member_uin'
     select 'Onam', from: 'payment_officer_uin'
     click_on 'Create Payment'
     expect(page.has_content?('Payment was successfully created.')).to be(true)

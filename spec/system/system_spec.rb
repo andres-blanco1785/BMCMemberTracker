@@ -53,7 +53,7 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     # now create 2 officers
     visit new_officer_path
     fill_in 'Officer UIN', with: '111111111'
-    fill_in 'Name', with: 'yue hu'
+    fill_in 'Name', with: 'Yue Hu'
     fill_in 'Email', with: 'yueh@tamu.edu'
     click_on 'Create Officer'
     # An officer has been created
@@ -89,8 +89,8 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     visit new_payment_path
     fill_in 'Amount', with: '15'
     fill_in 'Notes', with: 'the first payment'
-    select 'alexandria curtis', from: 'payment[member_uin]'
-    select 'yue hu', from: 'payment_officer_uin'
+    select 'Alexandria Curtis', from: 'payment[member_uin]'
+    select 'Yue Hu', from: 'payment_officer_uin'
     select 'Cash', from: 'payment[method]'
     click_on 'Create Payment'
     expect(page.has_content?('Payment was successfully created.')).to be(true)
@@ -102,7 +102,7 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     fill_in 'Amount', with: '25'
     fill_in 'Notes', with: 'the second payment'
 
-    select 'yue hu', from: 'payment[member_uin]'
+    select 'Yue Hu', from: 'payment[member_uin]'
     select 'Michael Stewart', from: 'payment_officer_uin'
     select 'Venmo', from: 'payment[method]'
     click_on 'Create Payment'
@@ -114,7 +114,7 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     visit new_payment_path
     fill_in 'Amount', with: '50'
     fill_in 'Notes', with: 'the third payment'
-    select 'andres blanco', from: 'payment[member_uin]'
+    select 'Andres Blanco', from: 'payment[member_uin]'
     select 'Michael Stewart', from: 'payment_officer_uin'
     select 'Paypal', from: 'payment[method]'
     click_on 'Create Payment'
@@ -131,7 +131,7 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     # Make the second payment to Yue, change the third payment amount as 90
     visit payments_path
     find(:xpath, "//tr[td[contains(.,'the second payment')]]/td/a", text: 'Edit').click
-    select 'yue hu', from: 'payment_officer_uin'
+    select 'Yue Hu', from: 'payment_officer_uin'
     click_on('Update Payment')
     visit officers_path
     expect(page.has_content?('40')).to be(true)
@@ -154,7 +154,7 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
 
     # Now create 2 deposits
     visit new_deposit_path
-    select 'yue hu', from: 'deposit[officer_uin]'
+    select 'Yue Hu', from: 'deposit[officer_uin]'
     fill_in 'Amount', with: 23
     fill_in 'Notes', with: 'the first deposit'
     click_on 'Create Deposit'
@@ -179,7 +179,7 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     # Change the second deposit to Yue, change the first deposit amount to 17
     visit deposits_path
     find(:xpath, "//tr[td[contains(.,'the second deposit')]]/td/a", text: 'Edit').click
-    select 'yue hu', from: 'deposit[officer_uin]'
+    select 'Yue Hu', from: 'deposit[officer_uin]'
     click_on 'Update Deposit'
     visit officers_path
     expect(page.has_content?('90')).to be(true) # Michael
@@ -203,7 +203,7 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
 
     # Now create 2 withdrawals
     visit new_withdrawal_path
-    select 'yue hu', from: 'withdrawal[officer_uin]'
+    select 'Yue Hu', from: 'withdrawal[officer_uin]'
     fill_in 'Amount', with: '444'
     fill_in 'Description', with: 'the first withdrawal'
     click_on 'Create Withdrawal'
@@ -228,7 +228,7 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     # Change the second withdrawal to Yue, change the first withdrawal amount to 17
     visit withdrawals_path
     find(:xpath, "//tr[td[contains(.,'the second withdrawal')]]/td/a", text: 'Edit').click
-    select 'yue hu', from: 'withdrawal[officer_uin]'
+    select 'Yue Hu', from: 'withdrawal[officer_uin]'
     click_on 'Update Withdrawal'
     visit officers_path
     expect(page.has_content?('90')).to be(true) # Michael
