@@ -1,13 +1,14 @@
 <h1>Members</h1>
 
 <script>
-  function toggleElements_id(id) {
+  function toggleElements_id(id, update) {
      var myElement = document.getElementsByClassName(id);
      var displaySetting = myElement[0].style.display;
-
+     update = id;
      if (displaySetting == '') {
        for (var i = 0; i < myElement.length; i++) {
          myElement[i].style.display = 'none';
+         update = id;
        }
      }
      else {
@@ -21,8 +22,8 @@
 
 <%= link_to 'New Member', new_member_path, class: 'btn btn-light btn-lg btn-block' %>
 <br>
-
-<input type="checkbox" onclick="toggleElements_id('fn');toggleElements_id('ln')" id="fnBox" checked>First Name</input>
+<script> var update = ''</script>
+<input type="checkbox" onclick="toggleElements_id('fn', update);" id="fnBox" checked>First Name</input>
 <input type="checkbox" onclick="toggleElements_id('ln')" id="lnBox" checked>Last Name</input>
 <input type="checkbox" onclick="toggleElements_id('uin')" id="uinBox" checked>UIN / DL</input>
 <input type="checkbox" onclick="toggleElements_id('email')" id="emailBox" checked>Email</input>
@@ -65,11 +66,10 @@
         <td class= 'officeruin'><%= member.payments.any? ? member.payments.first.officer.officer_uin : "N/A" %></td>
 
         <td class= 'mtd'><%= member.payments.any? ? member.payments.first.method : "N/A" %></td>
+
         <td><%= link_to 'Edit', edit_member_path(member), class: "btn btn-secondary" %></td>
         <td><%= link_to 'Delete', member, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
-
-<%# <%= @all%> %>
 </table>
