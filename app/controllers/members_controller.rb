@@ -85,7 +85,7 @@ class MembersController < ApplicationController
   # JOINED_TABLE_COLUMNS = %w(payments.membership_type, member.date, member.officer_uin, member.method)
   def sort_column
     # @mem_cols = ["member_uin", "first_name", "last_name", "email", "phone_number", "join_date"]
-    @pay_cols = %w[mem_type date membership_type officer_uin]
+    @pay_cols = %w[membership_type]
     if Member.column_names.include?(params[:sort])
       params[:sort]
     elsif @pay_cols.include?(params[:sort])
