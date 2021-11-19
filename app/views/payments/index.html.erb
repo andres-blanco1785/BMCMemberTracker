@@ -29,7 +29,7 @@
 
 		<td><%= payment.officer.name %></td>
 		<%# For member, display full name and UIN.  UIN guarantees unique, name does not, but BMCT wants name %>
-		<td><%= payment.member.first_name + ' ' + payment.member.last_name %></td>
+		<td><%= payment.member.first_name.titleize + ' ' + payment.member.last_name.titleize %></td>
         <td><%= payment.member_uin %></td>
 	    <td><%= payment.notes %></td>
 		<td><%= link_to 'Edit', edit_payment_path(payment), class: "btn btn-secondary" %></td>

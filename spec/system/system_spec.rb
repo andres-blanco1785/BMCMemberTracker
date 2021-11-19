@@ -95,7 +95,7 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     click_on 'Create Payment'
     expect(page.has_content?('Payment was successfully created.')).to be(true)
     visit payments_path
-    expect(page.has_content?('alexandria curtis')).to be(true)
+    expect(page.has_content?('Alexandria Curtis')).to be(true)
     expect(Payment.count).to eq(1)
 
     visit new_payment_path
@@ -108,7 +108,7 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     click_on 'Create Payment'
     expect(page.has_content?('Payment was successfully created.')).to be(true)
     visit payments_path
-    expect(page.has_content?('yue hu')).to be(true)
+    expect(page.has_content?('Yue Hu')).to be(true)
     expect(Payment.count).to eq(2)
 
     visit new_payment_path
@@ -120,7 +120,7 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     click_on 'Create Payment'
     expect(page.has_content?('Payment was successfully created.')).to be(true)
     visit payments_path
-    expect(page.has_content?('yue hu')).to be(true)
+    expect(page.has_content?('Yue Hu')).to be(true)
     expect(Payment.count).to eq(3)
 
     # Yue has 15 amount owed, Michael has 75 amount owed
