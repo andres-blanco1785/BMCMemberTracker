@@ -59,7 +59,7 @@ RSpec.describe 'Payments Features', type: :feature do
     click_on 'Create Payment'
     expect(page.has_content?('Payment was successfully created.')).to be(true)
     visit payments_path
-    expect(page.has_content?('fnam lnam')).to be(true)
+    expect(page.has_content?('Fnam Lnam')).to be(true)
   end
 
   it 'Destory payment successfully' do
@@ -82,7 +82,7 @@ RSpec.describe 'Payments Features', type: :feature do
     click_link 'Sign in with your TAMU Google Account'
     visit payments_path
     expect(page.has_content?('Cash')).to be(true)
-    expect(page.has_content?('fnam lnam')).to be(true)
+    expect(page.has_content?('Fnam Lnam')).to be(true)
     click_on 'Edit'
     select 'Venmo', from: 'payment[method]'
     select '2021', from: 'payment_date_1i'
@@ -100,6 +100,6 @@ RSpec.describe 'Payments Features', type: :feature do
     click_on 'Update Payment'
     expect(page.has_content?('Payment was successfully updated.')).to be(true)
     expect(page.has_content?('Venmo')).to be(true)
-    expect(page.has_content?('fnam lnam')).to be(true)
+    expect(page.has_content?('Fnam Lnam')).to be(true)
   end
 end
