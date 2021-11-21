@@ -60,7 +60,10 @@ class DepositsController < ApplicationController
 
   # DELETE /deposits/1 or /deposits/1.json
   def destroy
+    @old_amount = @deposit.amount
+    @old_officer = @deposit.officer
     @deposit.destroy
+    @old_officer&.update(amount_owed: @old_officer.amount_owed + @old_amount)
     respond_to do |format|
       format.html { redirect_to deposits_url, notice: 'Deposit was successfully destroyed.' }
       format.json { head :no_content }
