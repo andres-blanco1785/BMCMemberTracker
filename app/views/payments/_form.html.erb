@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field form-group">
-    <%= form.label :method %>
+    <%= form.label :payment_method %>
     <%= form.select :method, PaymentMethod.all.collect { |t| [t.method] }, include_blank: true, class:"form-control", placeholder:"Payment Method" %>
   </div>
 
   <div class="field form-group">
-    <%= form.label :date %>
+    <%= form.label :payment_date %>
     <%= form.date_select :date, class:"form-control", placeholder: "Date" %>
   </div>
 
