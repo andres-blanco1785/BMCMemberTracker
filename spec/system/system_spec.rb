@@ -211,7 +211,7 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     expect(Withdrawal.count).to eq(1)
     visit officers_path
     expect(page.has_content?('90')).to be(true) # Michael
-    expect(page.has_content?('457')).to be(true) # yue hu
+    expect(page.has_content?('13')).to be(true) # yue hu
 
     visit new_withdrawal_path
     select 'Michael Stewart', from: 'withdrawal[officer_uin]'
@@ -222,8 +222,8 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     expect(page.has_content?('Withdrawal was successfully created.')).to be(true)
     expect(Withdrawal.count).to eq(2)
     visit officers_path
-    expect(page.has_content?('423')).to be(true) # Michael
-    expect(page.has_content?('457')).to be(true) # yue hu
+    expect(page.has_content?('90')).to be(true) # Michael
+    expect(page.has_content?('13')).to be(true) # yue hu
 
     # Change the second withdrawal to Yue, change the first withdrawal amount to 17
     visit withdrawals_path
@@ -232,7 +232,7 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     click_on 'Update Withdrawal'
     visit officers_path
     expect(page.has_content?('90')).to be(true) # Michael
-    expect(page.has_content?('790')).to be(true) # yue hu
+    expect(page.has_content?('13')).to be(true) # yue hu
 
     visit withdrawals_path
     find(:xpath, "//tr[td[contains(.,'the first withdrawal')]]/td/a", text: 'Edit').click
@@ -240,13 +240,13 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     click_on 'Update Withdrawal'
     visit officers_path
     expect(page.has_content?('90')).to be(true) # Michael
-    expect(page.has_content?('363')).to be(true) # yue hu
+    expect(page.has_content?('13')).to be(true) # yue hu
 
     # Delete the sceond withdrawal, and nothing changes
     visit withdrawals_path
     find(:xpath, "//tr[td[contains(.,'the second withdrawal')]]/td/a", text: 'Delete').click
     visit officers_path
     expect(page.has_content?('90')).to be(true) # Michael
-    expect(page.has_content?('363')).to be(true) # yue hu
+    expect(page.has_content?('13')).to be(true) # yue hu
   end
 end
