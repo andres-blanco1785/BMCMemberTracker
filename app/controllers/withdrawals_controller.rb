@@ -26,7 +26,7 @@ class WithdrawalsController < ApplicationController
 
     respond_to do |format|
       if @withdrawal.save
-        @withdrawal.officer.update(amount_owed: @withdrawal.amount + @withdrawal.officer.amount_owed)
+        # @withdrawal.officer.update(amount_owed: @withdrawal.amount + @withdrawal.officer.amount_owed)
         format.html { redirect_to @withdrawal, notice: 'Withdrawal was successfully created.' }
         format.json { render :show, status: :created, location: @withdrawal }
       else
@@ -43,12 +43,12 @@ class WithdrawalsController < ApplicationController
       @old_officer = @withdrawal.officer
       @old_officer_uin = @withdrawal.officer_uin
       if @withdrawal.update(withdrawal_params)
-        if @old_officer_uin == @withdrawal.officer_uin
-          @withdrawal.officer.update(amount_owed: @withdrawal.officer.amount_owed + @withdrawal.amount - @old_amount)
-        else
-          @withdrawal.officer.update(amount_owed: @withdrawal.officer.amount_owed + @withdrawal.amount)
-          @old_officer.update(amount_owed: @old_officer.amount_owed - @old_amount)
-        end
+        # if @old_officer_uin == @withdrawal.officer_uin
+        #   @withdrawal.officer.update(amount_owed: @withdrawal.officer.amount_owed + @withdrawal.amount - @old_amount)
+        # else
+        #   @withdrawal.officer.update(amount_owed: @withdrawal.officer.amount_owed + @withdrawal.amount)
+        #   @old_officer.update(amount_owed: @old_officer.amount_owed - @old_amount)
+        # end
         format.html { redirect_to @withdrawal, notice: 'Withdrawal was successfully updated.' }
         format.json { render :show, status: :ok, location: @withdrawal }
       else
