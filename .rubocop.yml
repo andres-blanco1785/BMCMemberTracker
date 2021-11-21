@@ -114,7 +114,8 @@ Metrics/ClassLength:
 Metrics/ModuleLength:
   Exclude:
     - 'spec/**/*.rb'
-
+Metrics/PerceivedComplexity:
+  Enabled: false
 Naming/InclusiveLanguage:
   FlaggedTerms:
     offence:

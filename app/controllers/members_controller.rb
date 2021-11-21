@@ -10,6 +10,8 @@ class MembersController < ApplicationController
     @attributes = ['UIN', 'Email', 'Phone Number', 'Join Date', 'Membership Type', 'Date', 'Officer Uin', 'Payment Method']
     # @attributeName = ['member_uin', 'email', 'phoneNumber', 'joinDate']
     @attr = Member.all
+
+    @status = ''
     # @sortMem = Member.order(params[:sort])
   end
 
