@@ -25,7 +25,7 @@
           <td><%= payment.method %></td>
           <td><%= payment.date %></td>
           <td><%= payment.membership_type %></td>
-          <td><%= payment.membership_expiration %></td>
+          <td><%= payment.membership_expiration = expiration(payment.membership_type, payment.date) %></td>
           <td><%= payment.amount %></td>
           <td><%= payment.officer.name %></td>
           <%# For member, display full name and UIN.  UIN guarantees unique, name does not, but BMCT wants name %>
