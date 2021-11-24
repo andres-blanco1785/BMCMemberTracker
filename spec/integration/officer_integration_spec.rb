@@ -30,7 +30,7 @@ RSpec.describe 'Create officer', type: :feature do
 
     fill_in 'Officer UIN', with: 631_009_797
     fill_in 'Name', with: 'Yue'
-    fill_in 'Email', with: 'yue@tamu.edu'
+    fill_in 'Email', with: 'yue3@tamu.edu'
     click_on 'Create Officer'
     # An officer has been created
     expect(Officer.count).to eq(2)
@@ -39,7 +39,7 @@ RSpec.describe 'Create officer', type: :feature do
     expect(page.has_content?('631009797')).to be(true)
     expect(page.has_content?('Yue')).to be(true)
     expect(page.has_content?('0')).to be(true)
-    expect(page.has_content?('yue@tamu.edu')).to be(true)
+    expect(page.has_content?('yue3@tamu.edu')).to be(true)
   end
 
   it 'duplicated UIN and email' do
@@ -103,13 +103,13 @@ RSpec.describe 'Create officer', type: :feature do
   it 'fails because of duplication' do
     visit new_officer_path
     click_link 'Sign in with your TAMU Google Account'
-    Officer.create(officer_uin: 6898, name: 'Lisha Yuan', email: 'lisha@tamu.edu', amount_owed: 0)
+    Officer.create(officer_uin: 123234345, name: 'Lisha Yuan', email: 'lisha@tamu.edu', amount_owed: 0)
 
     expect(Officer.count).to eq(2)
     visit officers_path
-    expect(page.has_content?('6898')).to be(true)
-    page.find('tr', text: '6898').click_on 'Edit'
-    fill_in 'Officer UIN', with: 631_009_798
+    expect(page.has_content?('123234345')).to be(true)
+    page.find('tr', text: '123234345').click_on 'Edit'
+    fill_in 'Officer UIN', with: 631009798
     fill_in 'Name', with: 'Yuan Lisha'
     fill_in 'Email', with: 'lisha@tamu.edu'
     click_on 'Update Officer'

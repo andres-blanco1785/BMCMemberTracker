@@ -15,7 +15,7 @@ RSpec.describe 'Payments Features', type: :feature do
 
   let!(:payment) do
     Payment.create(method: 'Cash', date: '2021/09/01', membership_type: 'one semester',
-                   membership_expiration: '2021/12/31', amount: 15, member_uin: 111_222_333, officer_uin: 999_899_799)
+                   amount: 15, member_uin: 111_222_333, officer_uin: 999_899_799)
   end
 
   let!(:payment_method) { PaymentMethod.create(method: 'Cash') }
@@ -49,9 +49,9 @@ RSpec.describe 'Payments Features', type: :feature do
     select 'September', from: 'payment_date_2i'
     select '1', from: 'payment_date_3i'
     select 'one semester', from: 'payment[membership_type]'
-    select '2021', from: 'payment_membership_expiration_1i'
-    select 'December', from: 'payment_membership_expiration_2i'
-    select '31', from: 'payment_membership_expiration_3i'
+    # select '2021', from: 'payment_membership_expiration_1i'
+    # select 'December', from: 'payment_membership_expiration_2i'
+    # select '31', from: 'payment_membership_expiration_3i'
     fill_in 'payment_amount', with: '15'
     # under the hood these are still UIN, but to the BMCT officers names were wanted
     select 'Fnam Lnam, 111222333', from: 'payment_member_uin'
@@ -89,9 +89,9 @@ RSpec.describe 'Payments Features', type: :feature do
     select 'September', from: 'payment_date_2i'
     select '1', from: 'payment_date_3i'
     select 'one semester', from: 'payment[membership_type]'
-    select '2021', from: 'payment_membership_expiration_1i'
-    select 'December', from: 'payment_membership_expiration_2i'
-    select '31', from: 'payment_membership_expiration_3i'
+    # select '2021', from: 'payment_membership_expiration_1i'
+    # select 'December', from: 'payment_membership_expiration_2i'
+    # select '31', from: 'payment_membership_expiration_3i'
     fill_in 'payment_amount', with: '15'
     # OLD: notice changes to selects - creating payment w/valid inputs - if want to do similar to commented
     # fill_in 'payment_member_uin', with: '111222333'

@@ -32,8 +32,7 @@ RSpec.describe 'Withdrawal Features', type: :feature do
 
     select 'Yue Hu', from: 'withdrawal_officer_uin'
     fill_in 'Amount', with: 10
-    fill_in 'withdrawal_title', with: 'happy hour'
-    fill_in 'Description', with: 'Just drink and dance'
+    fill_in 'Notes', with: 'Just drink and dance'
     click_on 'Create Withdrawal'
     # An officer has been created
     expect(Withdrawal.count).to eq(1)
@@ -41,7 +40,6 @@ RSpec.describe 'Withdrawal Features', type: :feature do
     visit withdrawals_path
     expect(page.has_content?('Yue Hu')).to be(true)
     expect(page.has_content?('10')).to be(true)
-    expect(page.has_content?('happy hour')).to be(true)
     expect(page.has_content?('Just drink and dance')).to be(true)
   end
 
@@ -52,8 +50,7 @@ RSpec.describe 'Withdrawal Features', type: :feature do
     click_on 'Create Withdrawal'
     select 'Yue Hu', from: 'withdrawal_officer_uin'
     fill_in 'Amount', with: 10
-    fill_in 'withdrawal_title', with: 'happy hour'
-    fill_in 'Description', with: 'Just drink and dance'
+    fill_in 'Notes', with: 'Just drink and dance'
     click_on 'Create Withdrawal'
     # An Withdrawal has been created
     expect(Withdrawal.count).to eq(1)
@@ -71,8 +68,7 @@ RSpec.describe 'Withdrawal Features', type: :feature do
     click_on 'Create Withdrawal'
     select 'Yue Hu', from: 'withdrawal_officer_uin'
     fill_in 'Amount', with: 10
-    fill_in 'withdrawal_title', with: 'happy hour'
-    fill_in 'Description', with: 'Just drink and dance'
+    fill_in 'Notes', with: 'Just drink and dance'
     click_on 'Create Withdrawal'
     # An Withdrawal has been created
     expect(Withdrawal.count).to eq(1)
@@ -81,12 +77,10 @@ RSpec.describe 'Withdrawal Features', type: :feature do
     click_on 'Edit'
     select 'Yue Hu', from: 'withdrawal_officer_uin'
     fill_in 'Amount', with: 100
-    fill_in 'withdrawal_title', with: 'happy hour111'
-    fill_in 'Description', with: 'Just drink and dance111'
+    fill_in 'Notes', with: 'Just drink and dance111'
     click_on 'Update Withdrawal'
     expect(page.has_content?('Withdrawal was successfully updated')).to be(true)
     expect(page.has_content?('100')).to be(true)
-    expect(page.has_content?('happy hour111')).to be(true)
     expect(page.has_content?('Just drink and dance111')).to be(true)
   end
 
@@ -97,15 +91,13 @@ RSpec.describe 'Withdrawal Features', type: :feature do
     click_on 'Create Withdrawal'
     select 'Yue Hu', from: 'withdrawal_officer_uin'
     fill_in 'Amount', with: 10
-    fill_in 'withdrawal_title', with: 'happy hour'
-    fill_in 'Description', with: 'Just drink and dance'
+    fill_in 'Notes', with: 'Just drink and dance'
     click_on 'Create Withdrawal'
     # An Withdrawal has been created
     expect(Withdrawal.count).to eq(1)
     visit withdrawals_path
     expect(page.has_content?('Yue Hu')).to be(true)
     expect(page.has_content?('10')).to be(true)
-    expect(page.has_content?('happy hour')).to be(true)
     expect(page.has_content?('Just drink and dance')).to be(true)
   end
 end

@@ -27,8 +27,8 @@
 <input type="checkbox" onclick="toggleElements_id('pn')" id="pnBox" checked>Phone Number</input>
 <input type="checkbox" onclick="toggleElements_id('join')" id="joinBox" checked>Join Date</input>
 <input type="checkbox" onclick="toggleElements_id('memtpye')" id="memtpyeBox" checked>Membership Type</input>
-<input type="checkbox" onclick="toggleElements_id('memExpr')" id="memtpyeBox" checked>Membership Expiration</input>
-<input type="checkbox" onclick="toggleElements_id('status')" id="memtpyeBox" checked>Status</input>
+<input type="checkbox" onclick="toggleElements_id('memExpr')" id="memExprBox" checked>Membership Expiration</input>
+<input type="checkbox" onclick="toggleElements_id('status')" id="statusBox" checked>Status</input>
 
 <table class="table table-striped table-dark table-bordered table-hover table-sm">
   <thead class="thead-light">
@@ -39,7 +39,7 @@
       <th class= 'email' style="display: ;"><%= sortable 'email'%></th>
       <th class= 'pn' style="display: ;"><%= sortable 'phone_number'%></th>
       <th class= 'join' style="display: ;"><%= sortable 'join_date'%></th>
-      <th class= 'memtpye' style="display: ;"><%= sortable 'membership_type'%></th>
+      <th class= 'memtpye' style="display: ;"><%= 'Membership Type'%></th>
       <th class= 'memExpr' style="display: ;"><%= 'Expiration'%></th>
       <th class= 'status' style="display: ;"><%='Status'%></th>
       <th colspan="3"></th>
@@ -56,8 +56,8 @@
         <td class= 'email'><%= member.email.downcase %></td>
         <td class= 'pn'><%= member.phone_number %></td>
         <td class= 'join'><%= member.join_date %></td>
-        <td class= 'memtpye'><%= @memType = (member.payments.any? ? member.payments.last.membership_type : "N/A" )%></td>
-        <% @memDate = (member.payments.any? ? member.payments.last.date : "N/A" )%>
+        <td class= 'memtpye'><%= @memType = (member.payments.any? ? member.payments.last.membership_type : "" )%></td>
+        <% @memDate = (member.payments.any? ? member.payments.last.date : "" )%>
         <td class= 'memExpr'><%= @memExpr = expiration(@memType, @memDate) %></td>
         <% @stat = status(@memExpr) %>
         <%if @stat == 'Expired'%>
@@ -66,9 +66,16 @@
           <td class= 'status'><%= status(@memExpr) %></td>
         <% end %>
 
+        <%if @stat == 'Member'%>
+            <%@email_list = add_email(@email_list, member.email.downcase)%>
+        <%end%>
+
         <td><%= link_to 'Edit', edit_member_path(member), class: "btn btn-secondary" %></td>
         <td><%= link_to 'Delete', member, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<%= 'Member email list: '%>
+<br>
+<%= @email_list%>

@@ -11,6 +11,20 @@
     </div>
   <% end %>
 
+  <%# cannot select purely by name b/c names aren't always unique, show names but still save by uin which is unique %>
+  <div class="field form-group">
+    <%= form.label :member %>
+  <%# second parameter of collection select: M.all is unsorted, choice to sort by last name %>
+  <%= form.collection_select(:member_uin, Member.order('last_name ASC'), :id, :names_with_uin) %>
+  </div>
+
+  <%# Officer selectable, doing so for member might not be best b/c would need text search mobile support due to amount of members. %>
+  <%# This simple implementation allows search on PC, but not mobile. %>
+  <div class="field form-group">
+    <%= form.label :officer %>
+    <%= form.collection_select(:officer_uin, Officer.all, :id, :name) %>
+  </div>
+
   <div class="field form-group">
     <%= form.label :payment_method %>
     <%= form.select :method, PaymentMethod.all.collect { |t| [t.method] }, include_blank: true, class:"form-control", placeholder:"Payment Method" %>
@@ -27,11 +41,6 @@
   </div>
 
   <div class="field form-group">
-    <%= form.label :membership_expiration %>
-    <%= form.date_select :membership_expiration, class:"form-control", placeholder: "membership_expiration" %>
-  </div>
-
-  <div class="field form-group">
     <%= form.label :amount %>
     <%= form.text_field :amount, class:"form-control", placeholder: "Amount" %>
   </div>
@@ -39,20 +48,6 @@
   <div class="field form-group">
     <%= form.label :notes %>
     <%= form.text_field :notes, class:"form-control", placeholder: "Notes" %>
-  </div>
-
-  <%# cannot select purely by name b/c names aren't always unique, show names but still save by uin which is unique %>
-  <div class="field form-group">
-    <%= form.label :member %>
-	<%# second parameter of collection select: M.all is unsorted, choice to sort by last name %>
-	<%= form.collection_select(:member_uin, Member.order('last_name ASC'), :id, :names_with_uin) %>
-  </div>
-
-  <%# Officer selectable, doing so for member might not be best b/c would need text search mobile support due to amount of members. %>
-  <%# This simple implementation allows search on PC, but not mobile. %>
-  <div class="field form-group">
-    <%= form.label :officer %>
-    <%= form.collection_select(:officer_uin, Officer.all, :id, :name) %>
   </div>
 
   <div class="actions">
