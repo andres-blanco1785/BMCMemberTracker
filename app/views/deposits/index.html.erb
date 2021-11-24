@@ -1,5 +1,5 @@
 <h1>Deposits</h1>
-
+<p>For officers to deposit the money they owe from collecting dues.</p>
 <table class="table table-striped table-dark table-bordered table-hover table-sm">
   <thead class="thead-light">
     <tr>
@@ -18,7 +18,7 @@
         <td><%= deposit.amount %></td>
         <td><%= deposit.notes %></td>
         <td><%= deposit.date %></td>
-        <td><%= link_to 'Show', deposit, class: "btn btn-outline-info" %></td>
+        <!-- <td><%= link_to 'Show', deposit, class: "btn btn-outline-info" %></td> -->
         <td><%= link_to 'Edit', edit_deposit_path(deposit), class: "btn btn-secondary" %></td>
         <td><%= link_to 'Destroy', deposit, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
       </tr>
