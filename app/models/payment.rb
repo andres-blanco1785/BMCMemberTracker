@@ -12,6 +12,6 @@ class Payment < ApplicationRecord
   validates :method, presence: true
   validates :date, presence: true
   validates :membership_type, presence: true
-  validates :membership_expiration, presence: true
-  validates :amount, presence: true
+  # validates :membership_expiration, presence: true
+  validates :amount, presence: true, numericality: true
 end

@@ -79,19 +79,4 @@ RSpec.describe 'Testing Deposit', type: :feature do
     expect(page.has_content?('200')).to be(true)
     expect(page.has_content?('2021-12-31')).to be(true)
   end
-
-  it 'show deposit' do
-    visit new_member_path
-    click_link 'Sign in with your TAMU Google Account'
-    visit new_deposit_path
-    expect(Deposit.count).to eq(1)
-    visit deposits_path
-    expect(page.has_content?('Yue Hu')).to be(true)
-    expect(page.has_content?('100')).to be(true)
-    expect(page.has_content?('2021-10-21')).to be(true)
-    click_on 'Show'
-    expect(page.has_content?('Yue Hu')).to be(true)
-    expect(page.has_content?('100')).to be(true)
-    expect(page.has_content?('2021-10-21')).to be(true)
-  end
 end

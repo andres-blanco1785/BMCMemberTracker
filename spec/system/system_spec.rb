@@ -14,11 +14,11 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     visit new_member_path
     click_link 'Sign in with your TAMU Google Account'
     visit new_member_path
-    fill_in "UIN / Driver's License", with: '11111'
+    fill_in "UIN / Driver's License", with: '222222222'
     fill_in 'First Name', with: 'Alexandria'
     fill_in 'Last Name', with: 'Curtis'
     fill_in 'Email', with: 'acurtis@tamu.edu'
-    fill_in 'Phone Number', with: '1111'
+    fill_in 'Phone Number', with: '1231231212'
     click_on 'Create Member'
     # An member has been created
     expect(Member.count).to eq(1)
@@ -28,23 +28,23 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     fill_in 'First Name', with: 'Yue'
     fill_in 'Last Name', with: 'Hu'
     fill_in 'Email', with: 'yueh@tamu.edu'
-    fill_in 'Phone Number', with: '11111'
+    fill_in 'Phone Number', with: '5126256262'
     click_on 'Create Member'
     # Two members have been created
     expect(Member.count).to eq(2)
 
     visit new_member_path
-    fill_in "UIN / Driver's License", with: '111111'
+    fill_in "UIN / Driver's License", with: '56723434'
     fill_in 'First Name', with: 'Andres'
     fill_in 'Last Name', with: 'Blanco'
     fill_in 'Email', with: 'andresblanco@tamu.edu'
-    fill_in 'Phone Number', with: '111111'
+    fill_in 'Phone Number', with: '5128908989'
     click_on 'Create Member'
     # Three members have been created
     expect(Member.count).to eq(3)
 
     visit members_path
-    expect(page.has_content?('11111')).to be(true)
+    expect(page.has_content?('222222222')).to be(true)
     expect(page.has_content?('Alexandria')).to be(true)
     expect(page.has_content?('Curtis')).to be(true)
     expect(page.has_content?('acurtis@tamu.edu')).to be(true)
