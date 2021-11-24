@@ -56,8 +56,8 @@
         <td class= 'email'><%= member.email.downcase %></td>
         <td class= 'pn'><%= member.phone_number %></td>
         <td class= 'join'><%= member.join_date %></td>
-        <td class= 'memtpye'><%= @memType = (member.payments.any? ? member.payments.last.membership_type : "N/A" )%></td>
-        <% @memDate = (member.payments.any? ? member.payments.last.date : "N/A" )%>
+        <td class= 'memtpye'><%= @memType = (member.payments.any? ? member.payments.last.membership_type : "" )%></td>
+        <% @memDate = (member.payments.any? ? member.payments.last.date : "" )%>
         <td class= 'memExpr'><%= @memExpr = expiration(@memType, @memDate) %></td>
         <% @stat = status(@memExpr) %>
         <%if @stat == 'Expired'%>
@@ -66,9 +66,16 @@
           <td class= 'status'><%= status(@memExpr) %></td>
         <% end %>
 
+        <%if @stat == 'Member'%>
+            <%@email_list = add_email(@email_list, member.email.downcase)%>
+        <%end%>
+
         <td><%= link_to 'Edit', edit_member_path(member), class: "btn btn-secondary" %></td>
         <td><%= link_to 'Delete', member, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<%= 'Member email list: '%>
+<br>
+<%= @email_list%>
