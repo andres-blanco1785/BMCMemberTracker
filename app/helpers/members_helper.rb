@@ -40,9 +40,9 @@ module MembersHelper
 
   def add_email(email_list, mem_email)
     if email_list.nil?
-      email_list = mem_email
+      mem_email
     else
-      email_list = email_list + ', ' + mem_email
+      "#{email_list}, #{mem_email}"
     end
   end
 end

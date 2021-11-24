@@ -204,7 +204,7 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     visit new_withdrawal_path
     select 'Yue Hu', from: 'withdrawal[officer_uin]'
     fill_in 'Amount', with: '444'
-    fill_in 'Description', with: 'the first withdrawal'
+    fill_in 'Notes', with: 'the first withdrawal'
     click_on 'Create Withdrawal'
     expect(page.has_content?('Withdrawal was successfully created.')).to be(true)
     expect(Withdrawal.count).to eq(1)
@@ -216,7 +216,7 @@ RSpec.describe 'Create all entities using the UI', type: :feature do
     select 'Michael Stewart', from: 'withdrawal[officer_uin]'
 
     fill_in 'Amount', with: '333'
-    fill_in 'Description', with: 'the second withdrawal'
+    fill_in 'Notes', with: 'the second withdrawal'
     click_on 'Create Withdrawal'
     expect(page.has_content?('Withdrawal was successfully created.')).to be(true)
     expect(Withdrawal.count).to eq(2)
