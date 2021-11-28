@@ -32,8 +32,10 @@
           <%if !payment.officer.nil?%>
             <td><%= payment.officer.name %></td>
             <%# For member, display full name and UIN.  UIN guarantees unique, name does not, but BMCT wants name %>
-            <td><%= payment.notes %></td>
+          <%else%>
+            <td><%= 'N/A' %></td>
           <% end %>
+          <td><%= payment.notes %></td>
           <td><%= link_to 'Edit', edit_payment_path(payment), class: "btn btn-secondary" %></td>
           <td><%= link_to 'Delete', payment, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
         <% end %>

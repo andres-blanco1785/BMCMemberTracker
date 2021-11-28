@@ -16,13 +16,16 @@
       <tr>
         <%if !deposit.officer.nil?%>
           <td><%= deposit.officer.name %></td>
+        <%else%>
+          <td><%= 'N/A' %></td>
+        <%end%>
           <td><%= deposit.amount %></td>
           <td><%= deposit.notes %></td>
           <td><%= deposit.date %></td>
           <!-- <td><%= link_to 'Show', deposit, class: "btn btn-outline-info" %></td> -->
           <td><%= link_to 'Edit', edit_deposit_path(deposit), class: "btn btn-secondary" %></td>
           <td><%= link_to 'Destroy', deposit, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-        <%end%>
+
       </tr>
     <% end %>
   </tbody>
