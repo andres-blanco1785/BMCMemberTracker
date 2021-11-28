@@ -7,7 +7,7 @@ RSpec.describe Payment, type: :model do
   subject(:payment) do
     Member.create(member_uin: 111_222_333, first_name: 'Fnam', last_name: 'Lnam', email: 'example@tamu.edu', phone_number: '1234567890', join_date: '1813-01-28')
     Officer.create(officer_uin: 999_899_799, name: 'Onam', email: 'e@tamu.edu', amount_owed: 15)
-    described_class.new(payment_id: 111, method: 'cash', date: '1813-01-28', membership_type: 'one semester', membership_expiration: '1813-01-28', amount: 15, member_uin: 111_222_333, officer_uin: 999_899_799)
+    described_class.new(payment_id: 111, method: 'cash', date: '1813-01-28', membership_type: 'one semester', amount: 15, member_uin: 111_222_333, officer_uin: 999_899_799)
   end
 
   it 'is valid with valid attributes' do
@@ -26,11 +26,6 @@ RSpec.describe Payment, type: :model do
 
   it 'is not valid without a membershipType' do
     payment.membership_type = nil
-    expect(payment.valid?).to be(false)
-  end
-
-  it 'is not valid without a membershipExpiration' do
-    payment.membership_expiration = nil
     expect(payment.valid?).to be(false)
   end
 

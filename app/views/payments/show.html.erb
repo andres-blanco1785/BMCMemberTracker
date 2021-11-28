@@ -19,7 +19,7 @@
       <td><%= @payment.method %></td>
       <td><%= @payment.date %></td>
       <td><%= @payment.membership_type %></td>
-      <td><%= @payment.membership_expiration %></td>
+      <td><%= @payment.membership_expiration = expiration(@payment.membership_type, @payment.date) %></td>
       <td><%= @payment.amount %></td>
       <td><%= @payment.officer.name %></td>
       <td><%= @payment.member.first_name.titleize + ' ' + @payment.member.last_name.titleize %></td>

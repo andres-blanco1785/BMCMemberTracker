@@ -2,8 +2,8 @@
 
 module MembersHelper
   def expiration(mem_type, mem_date)
-    if mem_type == 'N/A'
-      'N/A'
+    if mem_type == ''
+      ''
     else
       @year = mem_date.year
       @next_year = @year + 1
@@ -29,12 +29,20 @@ module MembersHelper
   end
 
   def status(expiration)
-    if expiration == 'N/A'
+    if expiration == ''
       ''
     elsif Date.today < Date.parse(expiration)
       'Member'
     else
       'Expired'
+    end
+  end
+
+  def add_email(email_list, mem_email)
+    if email_list.nil?
+      mem_email
+    else
+      "#{email_list}, #{mem_email}"
     end
   end
 end

@@ -3,11 +3,11 @@
 class Member < ApplicationRecord
   has_many :payments, foreign_key: 'member_uin'
   self.primary_key = 'member_uin'
-  validates :member_uin, presence: true, uniqueness: true, numericality: true
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :email, presence: true, uniqueness: true
-  validates :phone_number, presence: true
+  validates :member_uin, presence: true, uniqueness: true, numericality: true, length: { in: 8..9, message: '. UIN: 8 characters, DL: 9 characters' }
+  validates :first_name, presence: true, format: { with: /\A\D+\z/, message: 'Numbers are not allowed' }
+  validates :last_name, presence: true, format: { with: /\A\D+\z/, message: 'Numbers are not allowed' }
+  validates :email, presence: true, uniqueness: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
+  validates :phone_number, presence: true, numericality: true, length: { is: 10 }
   before_save { first_name.downcase! }
   before_save { last_name.downcase! }
   before_save { email.downcase! }
