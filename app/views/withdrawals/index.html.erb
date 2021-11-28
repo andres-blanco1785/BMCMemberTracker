@@ -14,12 +14,14 @@
   <tbody>
     <% @withdrawals.each do |withdrawal| %>
       <tr>
-        <td><%= withdrawal.officer.name %></td>
-        <td><%= withdrawal.amount %></td>
-        <td><%= withdrawal.description %></td>
-        <td><%= withdrawal.date %></td>
-        <td><%= link_to 'Edit', edit_withdrawal_path(withdrawal), class: "btn btn-secondary" %></td>
-        <td><%= link_to 'Delete', withdrawal, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        <%if !withdrawal.officer.nil?%>
+          <td><%= withdrawal.officer.name %></td>
+          <td><%= withdrawal.amount %></td>
+          <td><%= withdrawal.description %></td>
+          <td><%= withdrawal.date %></td>
+          <td><%= link_to 'Edit', edit_withdrawal_path(withdrawal), class: "btn btn-secondary" %></td>
+          <td><%= link_to 'Delete', withdrawal, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        <%end%>
       </tr>
 
     <% end %>
