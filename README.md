@@ -38,7 +38,7 @@ We also used RuboCop to check Syntax
 
 Run the following code in Powershell if using windows or the terminal using Linux/Mac
 
-  `cd BCMMemberTracker`
+  `cd BMCMemberTracker`
 
   `docker run --rm -it --volume "$(pwd):/rails_app" -e DATABASE_USER=test_app -e DATABASE_PASSWORD=test_password -p 3000:3000 dmartinez05/ruby_rails_postgresql:latest`
 
