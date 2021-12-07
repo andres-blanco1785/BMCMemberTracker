@@ -1,6 +1,6 @@
 # README
 
-## Introduction - BMCMemberTracker##
+## Introduction - BMCMemberTracker ##
 
 This application will be used by the officers of the TAMU Badminton Club
 
@@ -46,11 +46,11 @@ Run the following code in Powershell if using windows or the terminal using Linu
 
 Install the app
 
-  `bundle install && rails webpacker:install && rails db:create && db:migrate`
+  `bundle install && rails webpacker:install && rails db:create && rails db:migrate`
 
 Run the app
 
-   `rails server --binding:0.0.0.0`
+   `rails server --binding=0.0.0.0`
 
 The application can be seen using a browser and navigating to http://localhost:3000/
 
@@ -80,3 +80,5 @@ For the CI/CD portion of our development, we set a standard that each team membe
 ## Support ##
 
 There are links at the bottom of the application page that redirect you to a help page.
+<br>
+Video Demonstration: https://tamucs.sharepoint.com/teams/Team-FA21-CSCE431-500-group2/Shared%20Documents/Recordings/Meeting%20in%20_BMCMemberTracker_-20211206_205952-Meeting%20Recording.mp4?web=1
