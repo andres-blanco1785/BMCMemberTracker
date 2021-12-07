@@ -1,6 +1,6 @@
 # README
 
-## Introduction - BMCMemberTracker##
+## Introduction - BMCMemberTracker ##
 
 This application will be used by the officers of the TAMU Badminton Club
 
@@ -46,11 +46,11 @@ Run the following code in Powershell if using windows or the terminal using Linu
 
 Install the app
 
-  `bundle install && rails webpacker:install && rails db:create && rails db:migrate`
+  `bundle install && rails webpacker:install && rails db:create && db:migrate`
 
 Run the app
 
-   `rails server --binding=0.0.0.0`
+   `rails server --binding:0.0.0.0`
 
 The application can be seen using a browser and navigating to http://localhost:3000/
 
@@ -75,4 +75,9 @@ After commiting changes to your test branch and merge into your main branch. Aft
 
 ## CI/CD ##
 
-For the CI/CD portion of our development, we set a standard that each team member would commit and push changes to their feature branch as frequent as possible so that we wouldn't have huge merge conflicts later on at the end of the sprint. The changes that each team member made would be merged into our test branch, which would deploy and test our changes automatically.
+For the CI/CD portion of our development, we set a standard that each team member would commit and push changes to their feature branch as frequent as possible so that we wouldn't have huge merge conflicts later on at the end of the sprint. We also set up Branch Protection Rules in our repository so that the person creating a pull request into the main branch cannot merge/complete their own request. The changes that each team member made would be tested and merged into our test branch, which would deploy and test our changes automatically through GitHub Actions. The deployment process was done through Heroku, which would automatically deploy our test/main environments if the build was successful and integrate any updates that we would make to our application.
+
+## Support ##
+
+There are links at the bottom of the application page that redirect you to a help page.
+Video Demonstration: https://tamucs.sharepoint.com/teams/Team-FA21-CSCE431-500-group2/Shared%20Documents/Recordings/Meeting%20in%20_BMCMemberTracker_-20211206_205952-Meeting%20Recording.mp4?web=1
