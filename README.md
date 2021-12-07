@@ -46,11 +46,11 @@ Run the following code in Powershell if using windows or the terminal using Linu
 
 Install the app
 
-  `bundle install && rails webpacker:install && rails db:create && db:migrate`
+  `bundle install && rails webpacker:install && rails db:create && rails db:migrate`
 
 Run the app
 
-   `rails server --binding:0.0.0.0`
+   `rails server --binding=0.0.0.0`
 
 The application can be seen using a browser and navigating to http://localhost:3000/
 
