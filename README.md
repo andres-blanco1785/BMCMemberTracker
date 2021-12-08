@@ -54,6 +54,24 @@ Run the app
 
 The application can be seen using a browser and navigating to http://localhost:3000/
 
+## Authentication ##
+
+We used Google OAuth to authenticate the website. 
+
+This requires two keys: Client ID and Client Secret
+
+Create a new file called application.yml in the /config folder and add the following lines:
+
+GOOGLE_OAUTH_CLIENT_ID: 'YOUR_GOOGLE_OAUTH_CLIENT_ID_HERE'
+
+GOOGLE_OAUTH_CLIENT_SECRET: 'YOUR_GOOGLE_OAUTH_CLIENT_SECRET_HERE'
+
+Since this repository is public, ours are encoded. 
+
+Use the following to set up your own credentials:
+https://developers.google.com/identity/protocols/oauth2
+https://console.developers.google.com/
+
 ## Deployment ##
 
 ** Instructions about how to deploy to Heroku
